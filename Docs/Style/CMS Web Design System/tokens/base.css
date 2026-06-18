@@ -1,0 +1,72 @@
+/* ===========================================================================
+   CMS Web Design System — Base reset + brand motifs
+   The public CMS.gov surface leans on two signature decorations:
+     1. The "gold arch" — a large rounded-top shape behind hero photography.
+     2. The "dot grid" — a 5-column field of navy dots used as accent texture.
+   Both are reusable utility classes here. Photography is warm, candid, and
+   diverse; cut-out subjects sit on the gold arch.
+   =========================================================================== */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--body-md-size);
+  line-height: var(--body-md-line);
+  color: var(--text-body);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: var(--text-link); }
+
+/* ---- Skip link (accessibility convention on CMS.gov) ----------------- */
+.cms-skiplink {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--navy-deep);
+  color: var(--on-primary);
+  padding: var(--space-2) var(--space-4);
+  z-index: 100;
+}
+.cms-skiplink:focus { left: 0; }
+
+/* ---- Gold arch motif -------------------------------------------------
+   Wrap hero imagery; the arch sits behind a cut-out subject photo.        */
+.cms-arch {
+  background: var(--caution-gold);
+  border-radius: 9999px 9999px 0 0;
+}
+
+/* ---- Dot grid motif --------------------------------------------------- */
+.cms-dotgrid {
+  background-image: radial-gradient(var(--navy-deep) 2.2px, transparent 2.3px);
+  background-size: 22px 22px;
+  background-repeat: repeat;
+}
+.cms-dotgrid-gold {
+  background-image: radial-gradient(var(--caution-gold) 2.2px, transparent 2.3px);
+  background-size: 22px 22px;
+}
+
+/* ---- Subtle dotted texture used inside admin chart panels ------------- */
+.cms-grid-pattern {
+  background-image: radial-gradient(circle at 1px 1px, var(--surface-container-highest) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* ---- Focus visibility (USWDS-style gold ring) ------------------------- */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* ---- Custom scrollbar for clean IA ------------------------------------ */
+.cms-thin-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+.cms-thin-scroll::-webkit-scrollbar-track { background: var(--surface-container-low); }
+.cms-thin-scroll::-webkit-scrollbar-thumb { background: var(--outline-variant); border-radius: 10px; }

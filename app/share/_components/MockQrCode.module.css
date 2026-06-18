@@ -1,0 +1,13 @@
+.qr {
+  display: block;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-hairline);
+}
+
+.quiet {
+  fill: var(--white);
+}
+
+.modules rect {
+  fill: var(--navy-deep);
+}

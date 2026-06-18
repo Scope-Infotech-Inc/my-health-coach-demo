@@ -1,0 +1,126 @@
+.banner {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  border: 1px solid var(--border-hairline);
+  border-left-width: var(--border-accent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface-card);
+}
+
+.red {
+  background: var(--error-container);
+  border-color: var(--error-red);
+}
+
+.gold {
+  background: rgba(253, 184, 30, 0.12);
+  border-color: var(--caution-gold);
+}
+
+.sky {
+  background: var(--sky-tint);
+  border-color: var(--navy-400);
+}
+
+.iconChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.iconChip :global(.material-symbols-outlined) {
+  font-size: 22px;
+}
+
+.red .iconChip {
+  background: var(--error-red);
+  color: var(--white);
+}
+
+.gold .iconChip {
+  background: var(--caution-gold);
+  color: var(--navy-deep);
+}
+
+.sky .iconChip {
+  background: var(--navy-deep);
+  color: var(--white);
+}
+
+.content {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.title {
+  font-family: var(--font-sans);
+  font-size: var(--body-lg-size);
+  line-height: var(--body-lg-line);
+  font-weight: var(--weight-bold);
+}
+
+.red .title {
+  color: var(--on-error-container);
+}
+
+.gold .title {
+  color: var(--gold-ink);
+}
+
+.sky .title {
+  color: var(--text-heading);
+}
+
+.body {
+  font-size: var(--body-md-size);
+  line-height: var(--body-md-line);
+  color: var(--text-body);
+  max-width: 60ch;
+}
+
+.red .body {
+  color: var(--on-error-container);
+}
+
+.notified {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-label);
+  font-size: var(--label-md-size);
+  font-weight: var(--weight-semibold);
+  color: var(--success);
+}
+
+.notified :global(.material-symbols-outlined) {
+  font-size: 16px;
+}
+
+.cta {
+  justify-self: start;
+  margin-top: var(--space-1);
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-label);
+  font-size: var(--label-md-size);
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+}
+
+.ctaPrimary {
+  background: var(--action-primary);
+  color: var(--on-primary);
+}
+
+.ctaAccent {
+  background: var(--caution-gold);
+  color: var(--navy-deep);
+}

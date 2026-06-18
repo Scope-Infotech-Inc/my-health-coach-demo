@@ -1,0 +1,312 @@
+/* /rewards — gamification (FR-22). Token-driven only; no new colors, no
+   shadows at rest. The badge pop animation is neutralized by the global
+   prefers-reduced-motion block in globals.css. */
+
+/* Sections supply their own vertical rhythm (.section margins), so this
+   wrapper is a plain block — no extra gap that would double the spacing. */
+.content {
+  display: block;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Level + points row: ring on the left, points/streak tiles beside it. */
+.summaryGrid {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) 1fr;
+  gap: var(--space-5);
+  align-items: stretch;
+}
+
+@media (max-width: 720px) {
+  .summaryGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ringCard {
+  background: var(--surface-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-5);
+  display: grid;
+  gap: var(--space-3);
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.ringCaption {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  color: var(--text-subtle);
+}
+
+.tileGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+  align-content: start;
+}
+
+/* Streak tile (route-local: StatTile count-up garbles a "days" suffix, and a
+   broken streak needs slate + a restart action StatTile can't carry). */
+.streakTile {
+  background: var(--surface-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4) var(--space-5);
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+}
+
+.streakHead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.streakIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius);
+  background: var(--gold-soft);
+  color: var(--gold-ink);
+}
+
+.streakIconBroken {
+  background: var(--surface-container-low);
+  color: var(--slate-gray);
+}
+
+.streakIcon :global(.material-symbols-outlined) {
+  font-size: 17px;
+}
+
+.streakLabel {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: 600;
+  color: var(--text-subtle);
+}
+
+.streakValue {
+  font-family: var(--font-sans);
+  font-size: 34px;
+  line-height: 40px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  font-variant-numeric: tabular-nums;
+}
+
+.streakValueBroken {
+  color: var(--slate-gray);
+}
+
+.streakDetail {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  color: var(--text-subtle);
+}
+
+.streakAction {
+  margin-top: var(--space-1);
+}
+
+/* Badge shelf */
+.shelf {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-4);
+}
+
+.badge {
+  background: var(--surface-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+}
+
+/* Locked badges read as "not yet earned" by dimming the disc + a lock icon
+   and slate name — never by dropping the text below AA contrast. */
+.badgeLocked .badgeDisc {
+  opacity: 0.45;
+}
+
+.badgeLocked .badgeName {
+  color: var(--slate-gray);
+}
+
+.badgeDisc {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-container-low);
+  color: var(--slate-gray);
+}
+
+.badgeDiscEarned {
+  background: var(--gold-soft);
+  color: var(--gold-ink);
+}
+
+.badgeDisc :global(.material-symbols-outlined) {
+  font-size: 24px;
+}
+
+.badgeName {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--navy-deep);
+}
+
+.badgeDesc {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: 18px;
+  color: var(--text-body);
+}
+
+.badgeCriterion {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: 18px;
+  color: var(--slate-gray);
+}
+
+.badgeCriterion :global(.material-symbols-outlined) {
+  font-size: 14px;
+}
+
+.badgeEarnedMeta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: 18px;
+  color: var(--on-success-container);
+}
+
+.badgeEarnedMeta :global(.material-symbols-outlined) {
+  font-size: 14px;
+  color: var(--success);
+}
+
+/* Celebratory pop-in: scale .6 → 1 with a brief gold glow. The global
+   reduced-motion media query collapses this to a static final state. */
+.badgePop {
+  animation: badgePop 500ms var(--ease-standard);
+}
+
+@keyframes badgePop {
+  0% {
+    transform: scale(0.6);
+    box-shadow: 0 0 0 0 var(--caution-gold);
+  }
+  60% {
+    transform: scale(1.04);
+    box-shadow: 0 0 0 6px var(--gold-soft);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.challengeList {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.challengeReward {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: var(--space-2);
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: 18px;
+  color: var(--text-subtle);
+}
+
+.challengeReward :global(.material-symbols-outlined) {
+  font-size: 14px;
+  color: var(--gold-ink);
+}
+
+/* Not-enrolled (intentional, not an error/empty state) */
+.notEnrolled {
+  background: var(--surface-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+  max-width: 640px;
+}
+
+.notEnrolledIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  background: var(--sky-tint);
+  color: var(--navy-deep);
+}
+
+.notEnrolledIcon :global(.material-symbols-outlined) {
+  font-size: 24px;
+}
+
+.notEnrolledBody {
+  font-family: var(--font-label);
+  font-size: var(--body-lg-size);
+  line-height: var(--body-lg-line);
+  color: var(--text-body);
+}
+
+.loading {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.loadingBlock {
+  height: 140px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-container-low);
+}

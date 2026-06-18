@@ -1,0 +1,113 @@
+/* /more — the mobile "More" screen. Two grouped lists of rows; each row is a
+   sky-tint icon chip + label + trailing chevron. Flat surfaces, hairline
+   borders, no shadows at rest (DESIGN-BRIEF §3, §5). */
+
+.group {
+  margin-top: var(--space-8);
+}
+
+.groupHeading {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  margin-bottom: var(--space-3);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface-card);
+}
+
+.item {
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+/* Shared row layout for both <a> (menu) and <button> (demo controls). */
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+  padding: var(--space-4);
+  background: transparent;
+  border: 0;
+  text-align: left;
+  text-decoration: none;
+  color: var(--text-body);
+  font-family: var(--font-sans);
+  font-size: var(--body-md-size);
+  line-height: var(--body-md-line);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-standard);
+}
+
+.row:hover {
+  background: var(--surface-raised);
+}
+
+.row:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-lg);
+  background: var(--sky-tint);
+  color: var(--navy-deep);
+}
+
+.chip .material-symbols-outlined {
+  font-size: 22px;
+}
+
+/* Reset demo carries the danger semantic via its icon-chip tint + ink. */
+.chipDanger {
+  background: var(--error-container);
+  color: var(--on-error-container);
+}
+
+.label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.sub {
+  display: block;
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  color: var(--text-subtle);
+  margin-top: 2px;
+}
+
+.chevron {
+  flex-shrink: 0;
+  color: var(--text-subtle);
+}
+
+.chevron .material-symbols-outlined {
+  font-size: 22px;
+}
+
+.note {
+  margin-top: var(--space-6);
+}

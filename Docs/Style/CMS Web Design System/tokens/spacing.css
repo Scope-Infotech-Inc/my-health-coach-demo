@@ -1,0 +1,71 @@
+/* ===========================================================================
+   CMS Web Design System — Spacing, radii, shadows, layout
+   Strictly linear 8px base. Favor breathable internal padding (16/24px).
+   Soft shape language (0.25rem). Hierarchy via tonal layering + hairline
+   outlines, NOT heavy elevation. One "atmospheric" navy-tinted shadow for
+   genuinely floating elements (dropdowns, modals).
+   =========================================================================== */
+
+:root {
+  /* ---- Spacing scale (8px base) -------------------------------------- */
+  --space-0: 0;
+  --space-1: 4px;    /* half-unit */
+  --space-2: 8px;    /* 1 unit */
+  --space-3: 12px;
+  --space-4: 16px;   /* 2 units — tight component padding */
+  --space-5: 20px;
+  --space-6: 24px;   /* gutter — default component padding */
+  --space-8: 32px;
+  --space-10: 40px;  /* desktop outer margin */
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;  /* section rhythm on public pages */
+
+  /* Semantic spacing */
+  --gutter: 24px;
+  --margin-desktop: 40px;
+  --margin-tablet: 24px;
+  --margin-mobile: 16px;
+  --card-padding: 24px;
+  --card-padding-tight: 16px;
+
+  /* ---- Layout -------------------------------------------------------- */
+  --container-max: 1280px;
+  --content-max: 720px;     /* readable measure for long-form prose */
+  --sidebar-width: 256px;
+  --topbar-height: 64px;
+
+  /* ---- Radii (soft, disciplined) ------------------------------------- */
+  --radius-sm: 2px;     /* 0.125rem */
+  --radius: 4px;        /* 0.25rem — buttons, inputs, tags */
+  --radius-md: 6px;     /* 0.375rem */
+  --radius-lg: 8px;     /* 0.5rem — cards, modals */
+  --radius-xl: 12px;    /* 0.75rem — feature panels */
+  --radius-pill: 9999px;/* status badges */
+
+  /* ---- Borders ------------------------------------------------------- */
+  --border-width: 1px;
+  --border-width-focus: 2px;
+  --border-accent: 4px;  /* gold active-state rule */
+
+  /* ---- Shadows (restrained) ------------------------------------------
+     Tinted with navy so depth stays integrated with the brand.           */
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px rgba(17, 46, 81, 0.06);
+  --shadow-card: 0 1px 3px rgba(17, 46, 81, 0.08);
+  --shadow-raised: 0 4px 12px rgba(17, 46, 81, 0.10);   /* hover lift */
+  --shadow-atmospheric: 0 4px 12px rgba(17, 46, 81, 0.08); /* dropdowns/modals */
+  --shadow-overlay: 0 12px 32px rgba(17, 46, 81, 0.16);    /* dialogs */
+
+  /* ---- Motion -------------------------------------------------------- */
+  --ease-standard: cubic-bezier(0.2, 0, 0.2, 1); /* @kind other */
+  --ease-out: cubic-bezier(0, 0, 0.2, 1); /* @kind other */
+  --duration-fast: 150ms; /* @kind other */
+  --duration: 250ms; /* @kind other */
+  --duration-slow: 300ms; /* @kind other */
+
+  /* ---- Focus --------------------------------------------------------- */
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+}

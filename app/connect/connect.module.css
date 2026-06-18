@@ -1,0 +1,542 @@
+/* /connect — secure provider messaging + appointment requests (FR-24).
+   Token-driven only; no new colors, no shadows at rest. Desktop is a two-pane
+   layout (thread list left, conversation right); mobile drills from the list
+   into a single conversation. The global prefers-reduced-motion block in
+   globals.css neutralizes the message slide-in. */
+
+.content {
+  display: grid;
+  gap: var(--space-6);
+}
+
+/* The persistent honesty bar stays visible above the conversation surface. */
+.demoBar {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  background: var(--surface-info);
+  padding: var(--space-2) var(--space-4);
+}
+
+.demoBar > * {
+  margin: 0;
+}
+
+/* ---- Two-pane shell (desktop) ---- */
+.panes {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) 1fr;
+  gap: var(--space-5);
+  align-items: stretch;
+}
+
+@media (max-width: 880px) {
+  .panes {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Thread list ---- */
+.threadList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+}
+
+.threadButton {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--surface-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  font-family: var(--font-label);
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    background var(--duration-fast) var(--ease-standard);
+}
+
+.threadButton:hover {
+  border-color: var(--navy-deep);
+}
+
+/* Active thread on desktop: gold left rule, echoing the active-nav grammar. */
+.threadButtonActive {
+  border-color: var(--navy-deep);
+  box-shadow: inset 4px 0 0 0 var(--caution-gold);
+}
+
+.threadMeta {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.threadName {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--navy-deep);
+}
+
+.threadRole {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  color: var(--text-subtle);
+}
+
+.threadPreview {
+  margin-top: 2px;
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: 18px;
+  color: var(--text-body);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.threadChevron {
+  margin-left: auto;
+  align-self: center;
+  color: var(--slate-gray);
+  display: inline-flex;
+}
+
+.threadChevron .material-symbols-outlined {
+  font-size: 22px;
+}
+
+/* ---- Conversation pane ---- */
+.conversation {
+  display: grid;
+  gap: var(--space-5);
+  align-content: start;
+}
+
+.convHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Mobile-only back affordance to return from a conversation to the list. */
+.backRow {
+  margin-bottom: var(--space-1);
+}
+
+.convHeaderText {
+  display: grid;
+  gap: 0;
+  min-width: 0;
+}
+
+.convName {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+  color: var(--navy-deep);
+}
+
+/* Real h3 inside the Card header strip; inherit the strip's type, drop margins. */
+.cardHeading {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+
+.convRole {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  color: var(--text-subtle);
+}
+
+/* Message stream */
+.stream {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-2) 0;
+}
+
+.bubbleRow {
+  display: flex;
+  flex-direction: column;
+  max-width: 78%;
+}
+
+.bubbleRowPatient {
+  margin-left: auto;
+  align-items: flex-end;
+}
+
+.bubbleRowProvider {
+  margin-right: auto;
+  align-items: flex-start;
+}
+
+.bubble {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 22px;
+  animation: bubbleIn 200ms var(--ease-standard);
+}
+
+@keyframes bubbleIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bubblePatient {
+  background: var(--navy-deep);
+  color: var(--on-primary);
+  border-bottom-right-radius: var(--radius-sm);
+}
+
+.bubbleProvider {
+  background: var(--surface-card);
+  color: var(--text-body);
+  border: 1px solid var(--border-hairline);
+  border-bottom-left-radius: var(--radius-sm);
+}
+
+.bubbleSender {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: 600;
+  color: var(--text-subtle);
+}
+
+.bubbleTime {
+  margin-top: 4px;
+  font-family: var(--font-label);
+  font-size: 11px;
+  line-height: 16px;
+  color: var(--slate-gray);
+}
+
+/* Attachment tile rendered inside / beneath a bubble when a snapshot is shared. */
+.attachment {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--surface-container-low);
+  border: 1px solid var(--border-hairline);
+}
+
+.attachmentPatient {
+  background: var(--navy-700);
+  border-color: var(--navy-400);
+}
+
+.attachmentIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--sky-tint);
+  color: var(--navy-deep);
+  flex-shrink: 0;
+}
+
+.attachmentIconPatient {
+  background: var(--caution-gold);
+  color: var(--navy-deep);
+}
+
+.attachmentIcon .material-symbols-outlined {
+  font-size: 20px;
+}
+
+.attachmentText {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+
+.attachmentTitle {
+  font-family: var(--font-label);
+  font-size: var(--label-md-size);
+  line-height: var(--label-md-line);
+  font-weight: 600;
+}
+
+.attachmentTitlePatient {
+  color: var(--on-primary);
+}
+
+.attachmentSub {
+  font-family: var(--font-label);
+  font-size: 11px;
+  line-height: 16px;
+  color: var(--slate-gray);
+}
+
+.attachmentSubPatient {
+  color: var(--on-primary-container);
+}
+
+/* ---- Composer ---- */
+.composer {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.composerLabel {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: 600;
+  color: var(--text-subtle);
+}
+
+.textarea {
+  width: 100%;
+  min-height: 84px;
+  resize: vertical;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-md);
+  background: var(--surface-card);
+  color: var(--text-body);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.textarea:focus-visible {
+  outline: 3px solid var(--navy-deep);
+  outline-offset: 1px;
+  border-color: var(--navy-deep);
+}
+
+.composerActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.attachToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  color: var(--text-body);
+}
+
+.attachToggle input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--navy-deep);
+}
+
+.sendSpacer {
+  margin-left: auto;
+}
+
+/* Guidance request templates: one selectable chip per seeded reply topic. */
+.templates {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.templateChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.templateChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-hairline);
+  background: var(--surface-card);
+  color: var(--navy-deep);
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    background var(--duration-fast) var(--ease-standard);
+}
+
+.templateChip:hover {
+  border-color: var(--navy-deep);
+  background: var(--sky-tint);
+}
+
+.templateChip .material-symbols-outlined {
+  font-size: 16px;
+  color: var(--navy-700);
+}
+
+/* Provider "is replying" indicator while the seeded delay runs. */
+.replying {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  color: var(--slate-gray);
+}
+
+.replying .material-symbols-outlined {
+  font-size: 16px;
+}
+
+/* ---- Appointment slots ---- */
+.apptGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.slotChip {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+  background: var(--surface-card);
+  cursor: pointer;
+  font-family: var(--font-label);
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    background var(--duration-fast) var(--ease-standard);
+}
+
+.slotChip:hover:not(:disabled) {
+  border-color: var(--navy-deep);
+  background: var(--sky-tint);
+}
+
+.slotChip:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.slotChipSelected {
+  border-color: var(--navy-deep);
+  background: var(--sky-tint);
+  box-shadow: inset 0 -3px 0 0 var(--caution-gold);
+}
+
+.slotDay {
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  color: var(--text-subtle);
+}
+
+.slotTime {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  font-variant-numeric: tabular-nums;
+}
+
+.slotWith {
+  font-size: 11px;
+  line-height: 16px;
+  color: var(--slate-gray);
+}
+
+.apptActions {
+  margin-top: var(--space-4);
+}
+
+/* Confirmation card body after a slot is booked. */
+.confirm {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.confirmHead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.confirmTitle {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--navy-deep);
+}
+
+.confirmDetail {
+  font-family: var(--font-label);
+  font-size: var(--body-lg-size);
+  line-height: var(--body-lg-line);
+  color: var(--text-body);
+}
+
+.confirmDetail strong {
+  color: var(--navy-deep);
+}
+
+/* Section sub-heading */
+.sectionTitle {
+  font-family: var(--font-sans);
+  font-size: var(--headline-md-size);
+  line-height: var(--headline-md-line);
+  font-weight: var(--headline-md-weight);
+  color: var(--navy-deep);
+  margin: 0 0 var(--space-3);
+}
+
+/* Loading skeleton */
+.loading {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.loadingBlock {
+  height: 160px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-container-low);
+}

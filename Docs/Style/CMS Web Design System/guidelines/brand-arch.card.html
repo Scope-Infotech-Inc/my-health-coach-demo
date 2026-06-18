@@ -1,0 +1,22 @@
+<!-- @dsCard group="Brand" viewport="700x260" name="Gold arch + photography" subtitle="Cut-out subjects on the signature gold arch" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; padding: 0; background: var(--white); }
+  .wrap { position: relative; height: 260px; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
+  .arch { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 300px; height: 240px; }
+  .dots { position: absolute; bottom: 40px; left: 60px; width: 90px; height: 130px; }
+  .photo { position: relative; z-index: 2; height: 250px; object-fit: contain; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="arch cms-arch"></div>
+    <div class="dots cms-dotgrid"></div>
+    <img class="photo" src="../assets/images/hero-family.png" alt="Two people embracing and smiling" />
+  </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+.line {
+  font-size: var(--body-lg-size);
+  line-height: var(--body-lg-line);
+  color: var(--text-body);
+  max-width: 64ch;
+}
+
+.line strong {
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+}
+
+.muted {
+  color: var(--text-muted);
+}

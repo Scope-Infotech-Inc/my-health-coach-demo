@@ -1,0 +1,92 @@
+.root {
+  position: relative;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius);
+  color: var(--text-on-navy);
+  font-family: var(--font-label);
+  font-size: var(--label-md-size);
+  font-weight: var(--weight-medium);
+  padding: 5px var(--space-2);
+  cursor: pointer;
+}
+
+.trigger :global(.material-symbols-outlined) {
+  font-size: 18px;
+}
+
+.trigger:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + var(--space-2));
+  z-index: 120;
+  min-width: 210px;
+  background: var(--surface-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-overlay);
+  padding: var(--space-2);
+  display: grid;
+  gap: 2px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-3);
+  color: var(--text-body);
+  font-family: var(--font-label);
+  font-size: var(--label-md-size);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+}
+
+.item :global(.material-symbols-outlined) {
+  font-size: 19px;
+  color: var(--slate-gray);
+}
+
+.item:hover:not(:disabled) {
+  background: var(--sky-tint);
+  color: var(--navy-deep);
+}
+
+.item:disabled {
+  opacity: 0.5;
+  cursor: progress;
+}
+
+.danger {
+  color: var(--error-red);
+}
+
+.danger :global(.material-symbols-outlined) {
+  color: var(--error-red);
+}
+
+.danger:hover:not(:disabled) {
+  background: var(--error-container);
+  color: var(--on-error-container);
+}
+
+.divider {
+  height: 1px;
+  background: var(--border-hairline);
+  margin: var(--space-1) 0;
+}

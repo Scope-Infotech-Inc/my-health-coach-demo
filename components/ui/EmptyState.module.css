@@ -1,0 +1,49 @@
+.empty {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: var(--space-3);
+  padding: var(--space-10) var(--space-5);
+  background: var(--surface-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+}
+
+.circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--sky-tint);
+  color: var(--navy-deep);
+}
+
+.circle :global(.material-symbols-outlined) {
+  font-size: 28px;
+}
+
+.message {
+  font-size: var(--body-lg-size);
+  line-height: var(--body-lg-line);
+  color: var(--text-body);
+  max-width: 40ch;
+}
+
+.action {
+  margin-top: var(--space-1);
+  background: var(--action-primary);
+  color: var(--on-primary);
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-5);
+  font-family: var(--font-label);
+  font-size: var(--label-md-size);
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+}
+
+.action:hover {
+  background: var(--action-primary-hover);
+}

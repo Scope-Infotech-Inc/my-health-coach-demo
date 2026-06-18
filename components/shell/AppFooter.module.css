@@ -1,0 +1,111 @@
+.footer {
+  margin-top: var(--space-12);
+  border-top: 1px solid var(--border-hairline);
+  background: var(--surface-footer);
+}
+
+.inner {
+  padding: var(--space-8) 0 var(--space-10);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  justify-content: space-between;
+}
+
+.compact .inner {
+  padding: var(--space-6) 0 var(--space-8);
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.lead {
+  max-width: 42ch;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.brand {
+  font-family: var(--font-label);
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+}
+
+.disclaimer {
+  font-size: var(--label-md-size);
+  line-height: var(--label-md-line);
+  color: var(--text-muted);
+}
+
+.link {
+  color: var(--text-link);
+  font-weight: var(--weight-semibold);
+}
+
+.seamsLabel {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  margin-bottom: var(--space-2);
+}
+
+.seamList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  max-width: 36ch;
+}
+
+.seam {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  color: var(--text-subtle);
+  position: relative;
+  padding-left: var(--space-3);
+}
+
+.seam::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--sky-tint-strong);
+}
+
+/* Builder attribution — Scope Infotech, Inc. */
+.colophon {
+  border-top: 1px solid var(--border-hairline);
+  padding: var(--space-5) 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.scopeLogo {
+  display: block;
+  width: 150px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.copyright {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  color: var(--text-subtle);
+}
+
+.compact .colophon {
+  padding: var(--space-4) 0;
+}

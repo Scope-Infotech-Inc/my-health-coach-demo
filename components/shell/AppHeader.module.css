@@ -1,0 +1,30 @@
+.header {
+  background: var(--navy-deep);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.inner {
+  height: var(--topbar-height);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--margin-desktop);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.chips {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+@media (max-width: 1099px) {
+  /* keep brand + identity; date/sync collapse first if cramped */
+  .chips {
+    gap: var(--space-2);
+  }
+}

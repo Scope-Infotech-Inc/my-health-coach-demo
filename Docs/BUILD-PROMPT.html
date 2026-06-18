@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HTEAP Demo — Autonomous Build Prompt</title>
+<meta name="description" content="The autonomous build prompt for the HTEAP Diabetes &amp; Obesity demo app, presented in the CMS Institutional Integrity design language." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* Brand primitives */
+    --navy-deep:#112e51; --navy-900:#001936; --navy-700:#2e486c; --navy-400:#465f85;
+    --sky-tint:#e1f3f8; --sky-tint-strong:#d4e6eb;
+    --caution-gold:#fdb81e; --gold-dim:#ffba25; --gold-soft:#ffdea9;
+    /* Neutrals */
+    --white:#fff; --surface:#f9f9f9; --surface-low:#f3f3f3; --surface-container:#eee;
+    --surface-high:#e8e8e8; --surface-highest:#e2e2e2; --slate-gray:#5b616b;
+    /* Outlines */
+    --outline:#74777f; --outline-variant:#c4c6cf;
+    /* Foregrounds */
+    --on-surface:#1a1c1c; --on-surface-variant:#43474e; --on-primary:#fff; --on-primary-muted:#7d96bf;
+    /* Status */
+    --success:#2e8540; --success-container:#ecf3ec; --on-success-container:#1a4220;
+    --error-red:#d22630; --error-container:#ffdad6; --on-error-container:#93000a; --warning:#c38b00;
+    /* Type */
+    --font-sans:'Public Sans', system-ui, -apple-system,'Segoe UI', sans-serif;
+    --font-label:'Lexend','Public Sans', system-ui, sans-serif;
+    --font-mono:ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
+    /* Radii & layout */
+    --radius:4px; --radius-lg:8px; --radius-xl:12px; --radius-pill:9999px;
+    --container:1200px;
+    --shadow-card:0 1px 3px rgba(17,46,81,.08);
+    --shadow-raised:0 4px 12px rgba(17,46,81,.10);
+    --ease:cubic-bezier(.2,0,.2,1);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--surface); color:var(--on-surface);
+    font-family:var(--font-sans); font-size:16px; line-height:24px;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  .wrap{max-width:var(--container); margin:0 auto; padding:0 40px;}
+  @media (max-width:680px){ .wrap{padding:0 16px;} }
+
+  a{color:var(--navy-deep);}
+  code,.mono{font-family:var(--font-mono); font-size:.92em;}
+  .eyebrow{
+    font-family:var(--font-label); font-weight:700; font-size:12px; line-height:16px;
+    letter-spacing:.08em; text-transform:uppercase; color:var(--slate-gray);
+    display:inline-flex; align-items:center; gap:10px; margin:0 0 14px;
+  }
+  .eyebrow::before{content:""; width:24px; height:3px; border-radius:9999px; background:var(--caution-gold);}
+
+  /* ---- Top utility bar ---- */
+  .topbar{
+    position:sticky; top:0; z-index:30; background:var(--navy-deep);
+    border-bottom:4px solid var(--caution-gold);
+  }
+  .topbar .wrap{display:flex; align-items:center; gap:16px; height:64px;}
+  .brand{display:flex; align-items:center; gap:12px; color:#fff; min-width:0;}
+  .seal{
+    width:36px; height:36px; flex:0 0 36px; border-radius:8px; background:#fff;
+    display:grid; place-items:center; color:var(--navy-deep);
+  }
+  .brand b{font-weight:700; font-size:15px; line-height:1.1; letter-spacing:.01em;}
+  .brand span{display:block; font-family:var(--font-label); font-weight:500; font-size:12px; color:var(--on-primary-muted); letter-spacing:.02em;}
+  .topbar .spacer{flex:1;}
+  .btn{
+    font-family:var(--font-label); font-weight:600; font-size:14px; letter-spacing:.01em;
+    border:0; border-radius:var(--radius); padding:10px 16px; cursor:pointer;
+    display:inline-flex; align-items:center; gap:8px; text-decoration:none;
+    transition:transform var(--ease) .12s, background var(--ease) .2s, color var(--ease) .2s;
+  }
+  .btn:active{transform:scale(.97);}
+  .btn-accent{background:var(--caution-gold); color:var(--navy-deep);}
+  .btn-accent:hover{background:var(--gold-dim);}
+  .btn-ghost{background:transparent; color:#fff; border:2px solid rgba(255,255,255,.35);}
+  .btn-ghost:hover{border-color:var(--caution-gold);}
+  .btn-secondary{background:#fff; color:var(--navy-deep); border:2px solid var(--navy-deep);}
+  :focus-visible{outline:3px solid var(--caution-gold); outline-offset:2px;}
+  @media (max-width:680px){ .topbar .btn-ghost{display:none;} .brand span{display:none;} }
+
+  /* ---- Hero ---- */
+  .hero{position:relative; overflow:hidden; background:var(--navy-deep); color:#fff;}
+  .hero .arch{
+    position:absolute; right:-120px; top:-160px; width:520px; height:520px;
+    border:64px solid var(--caution-gold); border-radius:9999px;
+    opacity:.10; pointer-events:none;
+  }
+  .hero .wrap{position:relative; padding-top:64px; padding-bottom:56px;}
+  .hero .eyebrow{color:var(--gold-soft);}
+  .hero .eyebrow::before{background:var(--caution-gold);}
+  .hero h1{
+    font-weight:800; font-size:46px; line-height:54px; letter-spacing:-.02em;
+    margin:0 0 18px; max-width:18ch;
+  }
+  .hero h1 .u{box-shadow:inset 0 -10px 0 rgba(253,184,30,.35);}
+  .hero .lede{
+    font-size:19px; line-height:30px; color:#dbe6f4; max-width:62ch; margin:0 0 28px;
+  }
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 26px;}
+  .chip{
+    font-family:var(--font-label); font-weight:500; font-size:12.5px; letter-spacing:.01em;
+    color:#eaf1fb; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16);
+    padding:6px 12px; border-radius:var(--radius-pill);
+  }
+  .disclaimer{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--caution-gold); color:var(--navy-900);
+    font-family:var(--font-label); font-weight:600; font-size:13px; letter-spacing:.01em;
+    padding:9px 14px; border-radius:var(--radius-pill);
+  }
+  .disclaimer svg{flex:0 0 18px;}
+  @media (max-width:680px){ .hero h1{font-size:32px; line-height:38px;} .hero .lede{font-size:17px; line-height:27px;} }
+
+  /* ---- Sections ---- */
+  section{padding:56px 0;}
+  section.alt{background:var(--white); border-top:1px solid var(--outline-variant); border-bottom:1px solid var(--outline-variant);}
+  .sec-head{max-width:64ch; margin:0 0 32px;}
+  .sec-head h2{font-weight:700; font-size:30px; line-height:38px; color:var(--navy-deep); margin:0 0 10px; letter-spacing:-.01em;}
+  .sec-head p{font-size:17px; line-height:27px; color:var(--on-surface-variant); margin:0;}
+
+  /* Generic cards */
+  .grid{display:grid; gap:20px;}
+  .g2{grid-template-columns:repeat(2,1fr);}
+  .g3{grid-template-columns:repeat(3,1fr);}
+  @media (max-width:900px){ .g2,.g3{grid-template-columns:1fr;} }
+  .card{
+    background:var(--white); border:1px solid var(--outline-variant); border-radius:var(--radius-xl);
+    padding:24px; transition:box-shadow var(--ease) .2s, transform var(--ease) .2s;
+  }
+  .card.hl:hover{box-shadow:var(--shadow-raised); transform:translateY(-2px);}
+  .card h3{font-weight:700; font-size:18px; line-height:24px; color:var(--navy-deep); margin:0 0 6px; display:flex; align-items:center; gap:10px;}
+  .card p{margin:0; color:var(--on-surface-variant); font-size:15px; line-height:23px;}
+  .icon{
+    width:36px; height:36px; flex:0 0 36px; border-radius:8px; display:grid; place-items:center;
+    background:var(--sky-tint); color:var(--navy-deep);
+  }
+  .pathlist{list-style:none; margin:12px 0 0; padding:0; display:flex; flex-direction:column; gap:6px;}
+  .pathlist li{font-family:var(--font-mono); font-size:12.5px; color:var(--on-surface); background:var(--surface-low); border:1px solid var(--outline-variant); border-radius:var(--radius); padding:6px 10px; word-break:break-all;}
+  .note{margin-top:14px; padding:12px 14px; background:var(--sky-tint); border-radius:var(--radius-lg); font-size:13.5px; line-height:21px; color:var(--navy-900);}
+  .note b{color:var(--navy-deep);}
+
+  /* Constraints list */
+  .constraints{display:grid; grid-template-columns:repeat(2,1fr); gap:14px 28px;}
+  @media (max-width:900px){ .constraints{grid-template-columns:1fr;} }
+  .con{display:flex; gap:12px; align-items:flex-start;}
+  .con .tick{flex:0 0 22px; width:22px; height:22px; border-radius:9999px; background:var(--navy-deep); color:#fff; display:grid; place-items:center; margin-top:1px;}
+  .con div b{color:var(--navy-deep); font-weight:600;}
+  .con div{font-size:14.5px; line-height:22px; color:var(--on-surface-variant);}
+  .con .mono{color:var(--navy-700);}
+
+  /* Goals */
+  .goals{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
+  @media (max-width:900px){ .goals{grid-template-columns:1fr;} }
+  .goal{display:flex; gap:14px; align-items:flex-start; background:var(--white); border:1px solid var(--outline-variant); border-left:4px solid var(--success); border-radius:var(--radius-lg); padding:16px 18px;}
+  .goal .gid{flex:0 0 auto; font-family:var(--font-label); font-weight:700; font-size:12px; letter-spacing:.04em; color:var(--on-success-container); background:var(--success-container); border-radius:var(--radius-pill); padding:4px 10px; display:inline-flex; align-items:center; gap:6px;}
+  .goal p{margin:0; font-size:14.5px; line-height:22px; color:var(--on-surface-variant);}
+  .goal p b{color:var(--navy-deep); font-weight:600;}
+
+  /* Phases */
+  .phase{position:relative; display:grid; grid-template-columns:64px 1fr; gap:20px; padding:22px 0; border-top:1px solid var(--outline-variant);}
+  .phase:first-of-type{border-top:0;}
+  .pnum{width:48px; height:48px; border-radius:12px; background:var(--navy-deep); color:#fff; display:grid; place-items:center; font-weight:800; font-size:18px;}
+  .phase h3{margin:0 0 4px; font-size:18px; color:var(--navy-deep); display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+  .phase p{margin:0; color:var(--on-surface-variant); font-size:15px; line-height:23px;}
+  .tag{font-family:var(--font-label); font-weight:600; font-size:11px; letter-spacing:.04em; text-transform:uppercase; padding:3px 9px; border-radius:var(--radius-pill);}
+  .tag-seq{background:var(--surface-high); color:var(--on-surface-variant);}
+  .tag-fan{background:var(--navy-deep); color:#fff;}
+  .tag-loop{background:var(--gold-soft); color:var(--navy-900);}
+
+  /* Rules columns */
+  .rules{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+  @media (max-width:900px){ .rules{grid-template-columns:1fr;} }
+  .rules ul{margin:10px 0 0; padding-left:0; list-style:none; display:flex; flex-direction:column; gap:10px;}
+  .rules li{position:relative; padding-left:26px; font-size:14.5px; line-height:22px; color:var(--on-surface-variant);}
+  .rules li::before{content:""; position:absolute; left:6px; top:9px; width:7px; height:7px; border-radius:9999px; background:var(--caution-gold);}
+  .rules li b{color:var(--navy-deep); font-weight:600;}
+
+  /* Launch steps */
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  @media (max-width:900px){ .steps{grid-template-columns:1fr;} }
+  .step{background:var(--white); border:1px solid var(--outline-variant); border-radius:var(--radius-xl); padding:22px;}
+  .step .n{font-family:var(--font-label); font-weight:700; font-size:13px; color:var(--caution-gold); letter-spacing:.04em;}
+  .step h4{margin:6px 0 8px; font-size:16px; color:var(--navy-deep);}
+  .step p{margin:0; font-size:14px; line-height:22px; color:var(--on-surface-variant);}
+  .cmd{margin-top:12px; background:var(--navy-900); color:#eaf1fb; font-family:var(--font-mono); font-size:12.5px; padding:10px 12px; border-radius:var(--radius); overflow-x:auto; white-space:nowrap;}
+
+  /* Raw prompt */
+  details.raw{margin-top:24px; border:1px solid var(--outline-variant); border-radius:var(--radius-lg); background:var(--white); overflow:hidden;}
+  details.raw summary{cursor:pointer; list-style:none; padding:16px 20px; font-family:var(--font-label); font-weight:600; font-size:14px; color:var(--navy-deep); display:flex; align-items:center; gap:10px; background:var(--sky-tint);}
+  details.raw summary::-webkit-details-marker{display:none;}
+  details.raw[open] summary{border-bottom:1px solid var(--outline-variant);}
+  details.raw pre{margin:0; padding:20px; font-family:var(--font-mono); font-size:12.5px; line-height:1.6; color:var(--on-surface); white-space:pre-wrap; word-break:break-word; max-height:520px; overflow:auto;}
+
+  /* Footer */
+  footer{background:var(--surface-highest); color:var(--on-surface-variant); border-top:1px solid var(--outline-variant);}
+  footer .wrap{padding:28px 40px; display:flex; flex-wrap:wrap; gap:14px 24px; align-items:center; justify-content:space-between;}
+  footer p{margin:0; font-size:13px; line-height:20px;}
+  footer .mark{display:flex; align-items:center; gap:10px; color:var(--navy-deep); font-weight:700; font-size:13px;}
+
+  .toast{position:fixed; left:50%; bottom:28px; transform:translateX(-50%) translateY(20px); opacity:0; pointer-events:none; background:var(--navy-900); color:#fff; font-family:var(--font-label); font-weight:600; font-size:14px; padding:12px 20px; border-radius:var(--radius-pill); box-shadow:var(--shadow-raised); transition:opacity .25s var(--ease), transform .25s var(--ease); z-index:50;}
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+
+  @media (prefers-reduced-motion:reduce){ *{transition:none!important; scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+
+<!-- Top utility bar -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <span class="seal" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10M19 21V10M3 10l9-6 9 6M9 21v-6h6v6"/></svg>
+      </span>
+      <div><b>HTEAP Demo</b><span>Health Tech Ecosystem · Build Brief</span></div>
+    </div>
+    <div class="spacer"></div>
+    <a class="btn btn-ghost" href="#launch">How to run</a>
+    <button class="btn btn-accent" id="copyTop" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+      Copy prompt
+    </button>
+  </div>
+</div>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="arch" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="eyebrow">Autonomous Build Brief</p>
+    <h1>HTEAP Diabetes &amp; Obesity Demo — <span class="u">Autonomous Build Prompt</span></h1>
+    <p class="lede">A single, hands-off instruction set that drives the entire Next.js&nbsp;+&nbsp;SQLite build to completion — using multi-agent workflow orchestration, explicit goals as a hard definition of done, and a verify→fix loop that won't stop until every goal passes.</p>
+    <div class="chips">
+      <span class="chip">Next.js 15 · App Router</span>
+      <span class="chip">React 18 · TypeScript strict</span>
+      <span class="chip">better-sqlite3</span>
+      <span class="chip">Hand-rolled SVG charts</span>
+      <span class="chip">13 personas</span>
+      <span class="chip">Responsive at 880px</span>
+      <span class="chip">WCAG 2.1 AA · Lighthouse ≥95</span>
+    </div>
+    <span class="disclaimer">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+      Concept prototype — all data fictional. Not an official CMS product.
+    </span>
+  </div>
+</header>
+
+<!-- Authoritative sources -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Read first</p>
+      <h2>Authoritative sources</h2>
+      <p>Never invent data or paraphrase copy. Everything the build needs already lives in the repo. Where prose and JSON disagree: <b>JSON wins for data values, prose wins for behavior</b> — and the spec overrides CLAUDE.md.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card hl">
+        <h3><span class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span>SPEC / contract</h3>
+        <p>The normative source of truth: §1–14 prose (RFC 2119), §15 embedded prototype sources, §16 machine-readable JSON, §10 SQL DDL (~39 tables).</p>
+        <ul class="pathlist"><li>Docs/spec/hteap-demo-app-prd.html</li></ul>
+        <div class="note"><b>Blocks:</b> #spec-meta · #spec-requirements (FR-1…FR-35) · #spec-design-tokens · #spec-api (~30 endpoints) · #spec-seed-data · #sql-ddl</div>
+      </div>
+      <div class="card hl">
+        <h3><span class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg></span>Prototypes — visual truth</h3>
+        <p>Copy all user-facing text verbatim from these. They define exact layout, copy, and chart geometry.</p>
+        <ul class="pathlist">
+          <li>Docs/example/hteap-diabetes-obesity-prototype.html</li>
+          <li>Docs/example/…-prototype-desktop.html</li>
+          <li>Docs/example/HTEAP-Demo-App-Standalone.html</li>
+        </ul>
+      </div>
+      <div class="card hl">
+        <h3><span class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="13" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="14" r="2.5"/><path d="M12 22a10 10 0 1 1 0-20 7 7 0 0 0 0 14h1a3 3 0 0 1 0 6z"/></svg></span>Design system</h3>
+        <p>Port tokens and reuse the prebuilt React components rather than rebuilding them.</p>
+        <ul class="pathlist">
+          <li>Docs/DESIGN.md</li>
+          <li>Docs/Style/CMS Web Design System/</li>
+        </ul>
+      </div>
+      <div class="card hl">
+        <h3><span class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11"/></svg></span>Acceptance stories</h3>
+        <p>24 user stories with testable acceptance criteria, mapped to the FR catalog.</p>
+        <ul class="pathlist"><li>Docs/spec/USER-STORIES.md</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Constraints -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Architecture &amp; rules</p>
+      <h2>Non-negotiable constraints</h2>
+      <p>Drawn from spec §9 and the project CLAUDE.md. Every one is a hard requirement the build must hold to.</p>
+    </div>
+    <div class="constraints">
+      <div class="con"><span class="tick" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Framework.</b> Next.js 15+ App Router, React 18+, TypeScript strict. Every API route Node runtime — <span class="mono">export const runtime = 'nodejs'</span>; no edge.</div></div>
+      <div class="con"><span class="tick" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Database.</b> <span class="mono">better-sqlite3</span> (sync), singleton <span class="mono">lib/db.ts</span>. DB at <span class="mono">Output/db/hteap-demo.db</span> (override <span class="mono">HTEAP_OUTPUT_DIR</span>) — not <span class="mono">data/</span>. Gitignored.</div></div>
+      <div class="con"><span class="tick" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Styling.</b> CSS custom properties + CSS Modules. No Tailwind, no UI kit — port the prototype CSS directly.</div></div>
+      <div class="con"><span class="tick" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Charts.</b> Hand-rolled SVG components, no chart library. Reuse prototype viewBoxes, bands, gridlines, and labels exactly.</div></div>
+      <div class="con"><span class="tick" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Fonts &amp; network.</b> Self-hosted via <span class="mono">next/font</span>. Zero runtime third-party network calls.</div></div>
+      <div class="con"><span class="tick" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Demo clock.</b> <span class="mono">DEMO_TODAY = 2026-06-06</span> via a <span class="mono">demo-clock</span> helper; all dates, ranges, and copy derive from it.</div></div>
+      <div class="con"><span class="tick" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Deterministic seed.</b> No <span class="mono">random()</span>, no <span class="mono">now()</span>; delete DB + reseed → byte-identical. <span class="mono">npm run seed</span> idempotent.</div></div>
+      <div class="con"><span class="tick" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>13 personas.</b> Featured <span class="mono">sarah</span>; 7 diabetes; 5 obesity. Toggle swaps all data via client refetch — no reload, persists per session.</div></div>
+      <div class="con"><span class="tick" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Responsive at 880px.</b> &lt;880 mobile app, ≥880 desktop dashboard; live on resize (<span class="mono">matchMedia</span> + <span class="mono">useSyncExternalStore</span>); skeleton until mounted.</div></div>
+      <div class="con"><span class="tick" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Animation.</b> Charts animate on scroll (<span class="mono">IntersectionObserver</span> 0.35, once/session); honor <span class="mono">prefers-reduced-motion</span>; transform/opacity/stroke only.</div></div>
+      <div class="con"><span class="tick" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Accessibility.</b> WCAG 2.1 AA; Lighthouse a11y ≥95; chart SVG <span class="mono">role="img"</span> + <span class="mono">aria-label</span> + alt table; status by color <em>and</em> icon.</div></div>
+      <div class="con"><span class="tick" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Simulated integrations.</b> All behind <span class="mono">/api/*</span>: sync sleeps a seeded 400–1200ms; consent toggles a flag; <span class="mono">demo/reset</span> re-seeds. No real FHIR / OAuth / PHI. Permanent fictional-data banner on every route.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Goals -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Definition of done</p>
+      <h2>Goals — loop until all ten pass</h2>
+      <p>The run does not stop early. The verify→fix loop keeps going until every goal below is green.</p>
+    </div>
+    <div class="goals">
+      <div class="goal"><span class="gid">G1</span><p><b>Boots clean.</b> <span class="mono">install → seed → dev</span> on Node 20+; seed creates the DB; zero external requests at runtime.</p></div>
+      <div class="goal"><span class="gid">G2</span><p><b>Visual parity.</b> Matches prototypes at 1280px desktop and 390px mobile, for <span class="mono">maria</span> and <span class="mono">robert</span>.</p></div>
+      <div class="goal"><span class="gid">G3</span><p><b>Live view switch.</b> Resizing across 880px swaps views live; persona and scroll preserved.</p></div>
+      <div class="goal"><span class="gid">G4</span><p><b>Persona toggle.</b> Refetches and updates every section; all 13 personas render without error.</p></div>
+      <div class="goal"><span class="gid">G5</span><p><b>Chart animation.</b> Animates on scroll per §8; reduced-motion renders final state instantly.</p></div>
+      <div class="goal"><span class="gid">G6</span><p><b>Simulated flows.</b> Sync, consent grant/revoke, replay alert, and demo reset all behave per spec.</p></div>
+      <div class="goal"><span class="gid">G7</span><p><b>Fidelity.</b> All UI copy verbatim from prototypes; all values match <span class="mono">#spec-seed-data</span>.</p></div>
+      <div class="goal"><span class="gid">G8</span><p><b>Accessibility.</b> Lighthouse a11y ≥95 every route, both views; keyboard walkthrough works; axe clean.</p></div>
+      <div class="goal"><span class="gid">G9</span><p><b>Determinism.</b> Delete DB + reseed → identical state.</p></div>
+      <div class="goal"><span class="gid">G10</span><p><b>Full coverage.</b> Every acceptance criterion FR-1…FR-35 is met.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Orchestration -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Workflow orchestration</p>
+      <h2>Six phases — sequential foundation, then fan-out</h2>
+      <p>Each phase runs with the Workflow tool and commits on completion, so progress is recoverable.</p>
+    </div>
+    <div class="phases">
+      <div class="phase"><div class="pnum">0</div><div><h3>Ground truth <span class="tag tag-seq">Sequential</span></h3><p>Decode/confirm the §15 prototypes to disk; extract the five JSON blocks and the SQL DDL into working files. Produce the master checklist — FR-1…FR-35 × ~30 endpoints × ~39 tables — to drive later fan-out.</p></div></div>
+      <div class="phase"><div class="pnum">1</div><div><h3>Scaffold <span class="tag tag-seq">Sequential</span></h3><p>Next.js app (TS strict), better-sqlite3, next/font, npm scripts, <span class="mono">lib/db.ts</span> singleton, demo-clock helper, <span class="mono">Output/</span> dirs, tokens → CSS custom properties, app shell (disclaimer banner, persona context, 880px switch with skeleton-until-mounted).</p></div></div>
+      <div class="phase"><div class="pnum">2</div><div><h3>Data layer <span class="tag tag-seq">Sequential · gates all</span></h3><p>Schema from <span class="mono">#sql-ddl</span>; deterministic, idempotent seed from <span class="mono">#spec-seed-data</span>; assert reseed determinism by hashing before/after.</p></div></div>
+      <div class="phase"><div class="pnum">3</div><div><h3>API <span class="tag tag-fan">Fan-out</span></h3><p>One agent per endpoint group — overview, labs, meds, sync + record locator, gamification, devices, threads, assistant, services, recipes, identity, documents, insights, share, audit, journey, demo-reset. Each reads SQLite and matches <span class="mono">#spec-api</span> shapes exactly. Pipeline: implement → adversarially verify shape vs spec.</p></div></div>
+      <div class="phase"><div class="pnum">4</div><div><h3>UI <span class="tag tag-fan">Fan-out</span></h3><p>Per-route components plus hand-rolled SVG charts (line / bar / gauge) with scroll animation and reduced-motion; mobile patient app and desktop dashboard; copy verbatim. Pipeline: build → verify visual parity against the matching prototype via browser MCP.</p></div></div>
+      <div class="phase"><div class="pnum">5</div><div><h3>Verify &amp; fix <span class="tag tag-loop">Loop until green</span></h3><p>A verification workflow checks G1–G10 — build, seed determinism, browser-MCP visual parity + persona toggle + 880px switch, Lighthouse a11y, FR acceptance. Collect failures → fan out fixes → re-run. Repeat until all green; log anything deferred with a reason.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Operating rules -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">How it runs</p>
+      <h2>Operating rules &amp; resume</h2>
+      <p>Fully hands-off: the run resolves ambiguity via the spec's conflict rule, never pauses to ask, and is safe to stop and restart.</p>
+    </div>
+    <div class="rules">
+      <div class="card">
+        <h3>Execution</h3>
+        <ul>
+          <li><b>Workflow</b> for phase 3–5 fan-out and the verify→fix loop; sub-agents for independent file groups; worktree isolation only when agents would write-conflict.</li>
+          <li><b>Verification</b> via browser MCP (navigate, resize, screenshot, snapshot) against localhost, plus Lighthouse for a11y.</li>
+          <li><b>Reuse</b> the CMS design-system tokens/components and the next-best-practices, vercel-react-best-practices, and frontend-design skills.</li>
+          <li><b>Commit</b> after each phase. Never call <span class="mono">random()</span> / <span class="mono">now()</span> — derive from <span class="mono">DEMO_TODAY</span>.</li>
+          <li><b>Don't ask</b> — resolve via the conflict rule, finish, then print a short report: what was built, G1–G10 status, how to run, anything deferred.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Resuming after a stop</h3>
+        <ul>
+          <li>On a re-run, <b>don't start over.</b> Read <span class="mono">git log</span> / <span class="mono">git status</span> and existing files; evaluate G1–G10 against the tree.</li>
+          <li>Treat the highest committed phase as the resume point — <b>skip finished phases</b>, pick up at the first incomplete one.</li>
+          <li>Always <b>re-run the Phase 5 verify→fix loop</b> at the end, regardless.</li>
+          <li>For an interrupted same-session Workflow, resume it with <span class="mono">resumeFromRunId</span> rather than re-spawning agents.</li>
+          <li>Never re-seed or re-scaffold work that already passes its goal.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Launch -->
+<section class="alt" id="launch">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Get started</p>
+      <h2>Launch it hands-off</h2>
+      <p>From a fresh session in the repo root, with permissions bypassed so it never stops for approval.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="n">STEP 1</div>
+        <h4>Start hands-off</h4>
+        <p>Open a fresh session with approvals bypassed (or toggle bypass mode in-session).</p>
+        <div class="cmd">claude --dangerously-skip-permissions</div>
+      </div>
+      <div class="step">
+        <div class="n">STEP 2</div>
+        <h4>Paste the prompt</h4>
+        <p>Paste the full build prompt. The leading <span class="mono">ultracode</span> opts the session into Workflow orchestration; per-phase commits make the run recoverable.</p>
+      </div>
+      <div class="step">
+        <div class="n">STEP 3</div>
+        <h4>Resume if interrupted</h4>
+        <p>Repaste the same prompt — it reads git state and continues from the last completed phase. Optionally prepend a one-line "Resuming…" note.</p>
+      </div>
+    </div>
+
+    <details class="raw">
+      <summary>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        Show the exact prompt text
+        <span style="flex:1"></span>
+        <button class="btn btn-secondary" id="copyRaw" type="button" style="padding:6px 12px; font-size:13px;">Copy</button>
+      </summary>
+      <pre id="promptText">ultracode — Build the HTEAP "Patient-Facing Apps — Diabetes &amp; Obesity" demo app autonomously, end to end, from the authoritative spec already in this repo. Run fully hands-off: do NOT pause for approval, make every decision yourself via the spec's conflict rule, and commit after each phase. Orchestrate with the Workflow tool (multi-agent fan-out) wherever phases parallelize. Do not stop until every goal G1–G10 below passes.
+
+## Authoritative sources (read first; never invent data or paraphrase copy)
+- SPEC / contract: `Docs/spec/hteap-demo-app-prd.html`
+  - §1–14 normative prose (RFC 2119 MUST/SHOULD/MAY). §15 = the two embedded prototype sources (`#src-prototype-mobile`, `#src-prototype-desktop`). §16 = machine-readable JSON: `#spec-meta`, `#spec-requirements` (FR-1..FR-35), `#spec-design-tokens`, `#spec-api` (~30 endpoints), `#spec-seed-data`. SQL DDL = `#sql-ddl` (§10, ~39 tables).
+  - Conflict rule: JSON wins for data values, prose wins for behavior. The SPEC overrides CLAUDE.md where they differ.
+- Prototypes (visual truth — copy text verbatim): `Docs/example/hteap-diabetes-obesity-prototype.html` (mobile), `Docs/example/hteap-diabetes-obesity-prototype-desktop.html` (desktop), `Docs/example/HTEAP-Demo-App-Standalone.html` (intended end-to-end behavior).
+- Design system: `Docs/DESIGN.md` + `Docs/Style/CMS Web Design System/` — port tokens from `tokens/*.css` and reuse the prebuilt React components in `components/*` rather than rebuilding them.
+- Acceptance stories: `Docs/spec/USER-STORIES.md`.
+
+## Non-negotiable constraints (SPEC §9 + CLAUDE.md)
+- Next.js 15+ App Router, React 18+, TypeScript strict. Every API route Node runtime (`export const runtime = 'nodejs'`); no edge.
+- SQLite via `better-sqlite3` (synchronous), singleton `lib/db.ts`. DB file `Output/db/hteap-demo.db` (base dir `Output/`, override `HTEAP_OUTPUT_DIR`) per `#spec-meta` — NOT `data/`. Gitignored.
+- Styling: CSS custom properties (tokens) + CSS Modules. No Tailwind, no UI kit — port prototype CSS directly.
+- Charts: hand-rolled SVG React components, no chart library. Reuse prototype viewBoxes / bands / gridlines / labels exactly.
+- Fonts self-hosted via `next/font`. Zero runtime third-party network calls.
+- Fixed demo clock `DEMO_TODAY = 2026-06-06` via a `demo-clock` helper; all dates/ranges/copy derive from it.
+- Deterministic seed: no `random()`, no `now()`; delete DB + reseed → byte-identical. `npm run seed` idempotent. Scripts: dev / build / start / seed.
+- 13 personas (featured `sarah`; diabetes `maria robert jim priya hector linda deshawn`; obesity `samuel aisha carol miguel emily`). Persona toggle swaps ALL data via client refetch, no reload, persists per session.
+- Responsive at 880px: `&lt;880` mobile patient app, `≥880` desktop dashboard; live on resize (`matchMedia('(min-width:880px)')` + `useSyncExternalStore`); neutral skeleton until mounted (no hydration mismatch).
+- Animate charts on scroll-into-view (`IntersectionObserver`, threshold 0.35, once/session); always honor `prefers-reduced-motion: reduce` (final state immediately). Animate transform/opacity/stroke only — never shift layout.
+- A11y: WCAG 2.1 AA, Lighthouse a11y ≥95 both views; every chart SVG `role="img"` + descriptive `aria-label` + alt data table; status shown by color AND icon, never color alone.
+- Permanent "fictional data / not an official CMS product" disclaimer on every route.
+- All "integrations" simulated behind `/api/*`: `sync` sleeps a seeded 400–1200ms then bumps `last_sync_at`; `consent/grant`+`consent/revoke` toggle a flag driving disconnected empty states; `demo/reset` re-runs the seed. No real FHIR / OAuth / identity / PHI.
+
+## Goals = definition of done (loop until ALL pass; do not stop early)
+- G1. `npm install &amp;&amp; npm run seed &amp;&amp; npm run dev` boots clean on Node 20+; seed creates `Output/db/hteap-demo.db`; zero external requests at runtime.
+- G2. Visual parity vs prototypes at 1280px desktop AND 390px mobile, for `maria` AND `robert`.
+- G3. Resizing across 880px swaps views live; persona + scroll preserved.
+- G4. Persona toggle refetches and updates every section (API responses differ per persona), no reload; all 13 personas render without error.
+- G5. Charts animate on scroll per §8; `prefers-reduced-motion` renders final state instantly.
+- G6. Sync, consent grant/revoke, replay alert (robert), and demo reset all behave per SPEC.
+- G7. All UI copy verbatim from prototypes; all values match `#spec-seed-data`.
+- G8. Lighthouse a11y ≥95 on every route, both views; keyboard-only walkthrough works; axe clean on critical.
+- G9. Delete DB + reseed → identical state (deterministic).
+- G10. Every acceptance criterion FR-1..FR-35 met.
+
+## Orchestration — run each phase with the Workflow tool; commit after each
+- Phase 0 — Ground truth (sequential): Decode/confirm the §15 prototypes to disk; extract `#spec-meta` / `#spec-requirements` / `#spec-design-tokens` / `#spec-api` / `#spec-seed-data` and `#sql-ddl` into working files the build consumes. Produce the master checklist: FR-1..FR-35 × the ~30 endpoints × the ~39 tables, to drive later fan-out.
+- Phase 1 — Scaffold (sequential): Next.js app (TS strict), `better-sqlite3`, `next/font`, npm scripts, `lib/db.ts` singleton, `demo-clock` helper, `Output/` dirs, tokens → global CSS custom properties, app shell (disclaimer banner, persona context/provider, 880px responsive switch with skeleton-until-mounted).
+- Phase 2 — Data layer (sequential, gates everything): schema from `#sql-ddl`; deterministic idempotent seed from `#spec-seed-data`; assert reseed determinism (hash before/after).
+- Phase 3 — API (FAN OUT): one agent per endpoint group — overview/labs/observations/meds/nutrition/messages/programs/sources/consent · sync+recordLocator · gamification · devices · threads+appointments · assistant+provider-questions · services · recipes · identity · documents · insights · share · audit · checkin · journey · demo-reset. Each reads SQLite, matches `#spec-api` response shapes exactly, Node runtime. Pipeline per group: implement → adversarially verify shape vs spec.
+- Phase 4 — UI (FAN OUT by feature/route): per-route components + hand-rolled SVG charts (line/bar/gauge) with scroll animation + reduced-motion; mobile patient app + desktop dashboard; copy verbatim. Pipeline per route: build → verify visual parity against the matching prototype via browser MCP.
+- Phase 5 — Verify &amp; fix (LOOP until green): verification workflow checks G1–G10 (build, seed determinism, browser MCP visual parity + persona toggle + 880px live switch, Lighthouse a11y, FR acceptance). Collect failures → fan out fixes → re-run. Repeat until all green (loop-until-dry; log anything deferred with reason).
+
+## Resuming after a stop/restart
+If this is a re-run (the build was interrupted), do NOT start over. First read `git log --oneline`, `git status`, and check for `package.json` + which `app/`, `lib/`, and `/api/*` files already exist, then evaluate goals G1–G10 against the current tree. Treat the highest completed phase (per the per-phase commits) as the resume point: skip finished phases, pick up at the first incomplete one, and re-run the Phase 5 verify→fix loop at the end regardless. If a same-session Workflow run was interrupted, resume it with `resumeFromRunId` rather than re-running its agents. Never re-seed or re-scaffold work that already passes its goal.
+
+## Execution rules
+- Use the Workflow tool for Phases 3–5 fan-out and the verify→fix loop; use sub-agents for independent file groups; `isolation:'worktree'` only when agents would write-conflict.
+- Verify with the browser MCP (navigate, resize, screenshot, snapshot) against localhost, diffing visually against the prototype HTML; run Lighthouse for a11y.
+- Reuse the `Docs/Style/CMS Web Design System` tokens/components and the `next-best-practices`, `vercel-react-best-practices`, and `frontend-design` skills.
+- Commit after each phase with a clear message so progress is recoverable. Never call `random()`/`now()` in seed or date logic — derive from `DEMO_TODAY`.
+- Don't ask me anything; resolve ambiguity via the SPEC conflict rule and keep going until G1–G10 pass. Then print a short report: what was built, G1–G10 status, how to run it, and anything deferred.</pre>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="mark">
+      <span class="seal" aria-hidden="true" style="width:28px;height:28px;flex:0 0 28px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10M19 21V10M3 10l9-6 9 6M9 21v-6h6v6"/></svg>
+      </span>
+      HTEAP · Health Tech Ecosystem
+    </div>
+    <p>Concept prototype — all data is fictional and mocked. Not an official CMS product. Styled in the CMS “Institutional Integrity” design language.</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Prompt copied to clipboard</div>
+
+<script>
+  (function(){
+    var promptEl = document.getElementById('promptText');
+    var toast = document.getElementById('toast');
+    function decode(s){ var t = document.createElement('textarea'); t.innerHTML = s; return t.value; }
+    function getPrompt(){ return decode(promptEl.innerHTML).trim(); }
+    function showToast(){ toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 1800); }
+    function copy(){
+      var text = getPrompt();
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(showToast, fallback);
+      } else { fallback(); }
+      function fallback(){
+        var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta);
+        ta.select(); try{ document.execCommand('copy'); showToast(); }catch(e){} document.body.removeChild(ta);
+      }
+    }
+    document.getElementById('copyTop').addEventListener('click', copy);
+    document.getElementById('copyRaw').addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); copy(); });
+  })();
+</script>
+</body>
+</html>

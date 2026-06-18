@@ -1,0 +1,25 @@
+<!-- @dsCard group="Spacing" viewport="700x170" name="Corner radii" subtitle="Soft, disciplined — 2px to pill" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; padding: 22px 24px; background: var(--white); }
+  .row { display: flex; gap: 18px; align-items: flex-start; }
+  .box { width: 84px; height: 64px; background: var(--sky-tint); border: 1px solid var(--navy-deep); }
+  .lbl { font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); margin-top: 8px; text-align: center; }
+  .item { text-align: center; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="item"><div class="box" style="border-radius:var(--radius-sm)"></div><div class="lbl">sm 2px</div></div>
+    <div class="item"><div class="box" style="border-radius:var(--radius)"></div><div class="lbl">base 4px</div></div>
+    <div class="item"><div class="box" style="border-radius:var(--radius-md)"></div><div class="lbl">md 6px</div></div>
+    <div class="item"><div class="box" style="border-radius:var(--radius-lg)"></div><div class="lbl">lg 8px</div></div>
+    <div class="item"><div class="box" style="border-radius:var(--radius-xl)"></div><div class="lbl">xl 12px</div></div>
+    <div class="item"><div class="box" style="border-radius:var(--radius-pill)"></div><div class="lbl">pill</div></div>
+  </div>
+</body>
+</html>

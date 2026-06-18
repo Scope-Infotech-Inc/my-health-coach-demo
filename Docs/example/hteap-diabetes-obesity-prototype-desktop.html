@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concept App (Desktop) — Diabetes &amp; Obesity Prevention and Management — HTEAP Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&family=Lexend:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  /* ============ Institutional Integrity design tokens (shared with v1) ============ */
+  :root{
+    --navy:#112E51; --navy-ink:#001936; --navy-mid:#2e486c;
+    --sky:#E1F3F8; --gold:#FDB81E; --gold-ink:#5e4200;
+    --slate:#5B616B; --red:#D22630; --red-container:#ffdad6; --red-ink:#93000a;
+    --surface:#f9f9f9; --surface-low:#f3f3f3; --white:#ffffff;
+    --ink:#1a1c1c; --ink-variant:#43474e; --outline:#74777f; --outline-variant:#c4c6cf; --border:#e2e2e2;
+    --shadow-atmos:0 4px 12px rgba(17,46,81,.08);
+    --r-btn:0.25rem; --r-card:0.5rem;
+    --font-body:"Public Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    --font-label:"Lexend", "Public Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  @media(prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+  body{font-family:var(--font-body); font-size:16px; line-height:24px; color:var(--ink); background:var(--surface);}
+  a{color:var(--navy);}
+  .skip-link{position:absolute; left:-9999px; top:0; background:var(--white); padding:8px 16px; z-index:100;}
+  .skip-link:focus{left:0;}
+  :focus-visible{outline:3px solid var(--navy); outline-offset:2px;}
+  .on-navy :focus-visible{outline-color:var(--gold);}
+
+  /* ============ Utility strip ============ */
+  .demo-banner{background:var(--gold); color:var(--navy); font-family:var(--font-label); font-size:12px; line-height:16px; font-weight:600; letter-spacing:.01em; padding:8px 40px; display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+  .demo-banner a{color:var(--navy); font-weight:600; margin-left:auto;}
+  .ico{width:14px; height:14px; flex-shrink:0;}
+
+  /* ============ App header ============ */
+  header.app{background:var(--navy); color:var(--white); padding:0 40px; display:flex; align-items:center; gap:24px; height:64px;}
+  .brand .app-name{font-family:var(--font-label); font-size:12px; line-height:16px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:#aec8f3;}
+  .brand h1{font-size:18px; line-height:24px; font-weight:700; letter-spacing:-0.01em;}
+  .conn{display:flex; align-items:center; gap:6px; font-family:var(--font-label); font-size:12px; line-height:16px; font-weight:500; color:#d4e3ff; margin-left:auto;}
+  .conn .dot{width:8px; height:8px; border-radius:9999px; background:var(--gold); display:inline-block; flex-shrink:0;}
+  .who{display:flex; align-items:center; gap:10px;}
+  .avatar{width:36px; height:36px; border-radius:9999px; background:var(--gold); color:var(--navy); font-family:var(--font-label); font-size:14px; font-weight:600; display:flex; align-items:center; justify-content:center;}
+  .who .nm{font-family:var(--font-label); font-size:13px; line-height:16px; font-weight:600;}
+  .who .rl{font-family:var(--font-label); font-size:11px; line-height:14px; color:#aec8f3;}
+
+  /* ============ Demo scenario bar ============ */
+  .scenario{background:var(--white); border-bottom:1px solid var(--border); padding:12px 40px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
+  .scenario .lbl{font-family:var(--font-label); font-size:13px; line-height:20px; font-weight:500; color:var(--slate);}
+  .persona-btn{font-family:var(--font-label); font-size:13px; line-height:20px; font-weight:500; padding:6px 16px; border-radius:var(--r-btn); border:2px solid var(--navy); background:transparent; color:var(--navy); cursor:pointer;}
+  .persona-btn[aria-pressed="true"]{background:var(--navy); color:var(--white); font-weight:600;}
+
+  /* ============ Layout: sidebar + main ============ */
+  .shell{display:grid; grid-template-columns:248px 1fr; max-width:1280px; margin:0 auto; gap:24px; padding:24px 40px 64px;}
+  @media(max-width:1023px){ .shell{padding:24px 24px 56px;} }
+  @media(max-width:880px){ .shell{grid-template-columns:1fr;} .sidenav{position:static !important;} }
+
+  .sidenav{position:sticky; top:24px; align-self:start; background:var(--navy); border-radius:var(--r-card); padding:8px; }
+  .sidenav a{display:block; font-family:var(--font-label); font-size:14px; line-height:20px; font-weight:500; color:#d4e3ff; text-decoration:none; padding:12px 16px; border-left:4px solid transparent; border-radius:var(--r-btn);}
+  .sidenav a:hover{background:var(--navy-mid); color:var(--white);}
+  .sidenav a[aria-current="true"]{border-left-color:var(--gold); background:var(--navy-mid); color:var(--white); font-weight:600;}
+  .sidenav .grp{font-family:var(--font-label); font-size:11px; line-height:16px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:#7d96bf; padding:16px 16px 4px;}
+
+  main{min-width:0;}
+  section.zone{scroll-margin-top:24px; margin-bottom:32px;}
+  .zone-head{display:flex; align-items:baseline; gap:12px; margin-bottom:12px;}
+  .zone-head h2{font-size:24px; line-height:32px; font-weight:600; color:var(--navy);}
+  .zone-head .sub{font-family:var(--font-label); font-size:12px; line-height:16px; font-weight:500; color:var(--slate);}
+
+  /* ============ Cards & grid ============ */
+  .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:24px;}
+  .card{background:var(--white); border:1px solid var(--border); border-radius:var(--r-card); overflow:hidden;}
+  .card .hd{font-family:var(--font-label); font-size:13px; line-height:18px; font-weight:600; color:var(--navy); background:var(--sky); padding:10px 16px; display:flex; align-items:center; gap:8px;}
+  .card .hd .right{margin-left:auto; font-weight:500; color:var(--slate); font-size:11px;}
+  .card .bd{padding:16px;}
+  .card .bd p{font-size:14px; line-height:21px; color:var(--ink-variant);}
+  .card .meta{font-family:var(--font-label); font-size:11px; line-height:16px; font-weight:500; color:var(--slate); margin-top:10px;}
+  .span-12{grid-column:span 12;} .span-8{grid-column:span 8;} .span-7{grid-column:span 7;} .span-6{grid-column:span 6;} .span-5{grid-column:span 5;} .span-4{grid-column:span 4;} .span-3{grid-column:span 3;}
+  @media(max-width:1100px){ .span-8,.span-7,.span-6,.span-5,.span-4{grid-column:span 6;} .span-3{grid-column:span 6;} }
+  @media(max-width:700px){ .grid > *{grid-column:span 12 !important;} }
+
+  /* ===== Alert banners ===== */
+  .banner{border-radius:var(--r-card); padding:16px 24px; display:flex; gap:16px; align-items:flex-start;}
+  .banner .ic{flex-shrink:0; width:36px; height:36px; border-radius:var(--r-btn); display:flex; align-items:center; justify-content:center;}
+  .banner h3{font-size:18px; line-height:24px; font-weight:700; margin-bottom:2px;}
+  .banner p{font-size:14px; line-height:21px;}
+  .banner.gold{background:var(--gold); color:var(--navy);}
+  .banner.gold .ic{background:var(--navy);}
+  .banner.red{background:var(--red-container); border:1px solid var(--red);}
+  .banner.red h3{color:var(--red-ink);}
+  .banner.red p{color:var(--ink);}
+  .banner.red .ic{background:var(--red-ink);}
+  .banner .act{margin-left:auto; flex-shrink:0; align-self:center;}
+
+  /* ===== Buttons ===== */
+  .btn{display:inline-block; font-family:var(--font-label); font-size:13px; line-height:20px; font-weight:600; background:var(--navy); color:var(--white); border:none; border-radius:var(--r-btn); padding:8px 16px; cursor:pointer; text-decoration:none;}
+  .btn:hover{background:var(--navy-mid);}
+  .btn.secondary{background:transparent; color:var(--navy); border:2px solid var(--navy); padding:6px 14px;}
+  .btn.cta{background:var(--navy); color:var(--white);}
+  .banner.gold .btn.cta{background:var(--navy); color:var(--white);}
+
+  /* ===== Stat tiles ===== */
+  .tiles{display:grid; grid-template-columns:repeat(5,1fr); gap:24px; margin-top:16px;}
+  @media(max-width:1100px){ .tiles{grid-template-columns:repeat(3,1fr);} }
+  @media(max-width:700px){ .tiles{grid-template-columns:repeat(2,1fr);} }
+  .tile{background:var(--white); border:1px solid var(--border); border-radius:var(--r-card); padding:16px;}
+  .tile .lb{font-family:var(--font-label); font-size:11px; line-height:16px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--slate);}
+  .tile .nm{font-size:28px; line-height:36px; font-weight:700; color:var(--navy); margin-top:4px;}
+  .tile .dt{font-family:var(--font-label); font-size:11px; line-height:16px; font-weight:500; color:var(--slate); margin-top:2px;}
+  .tile .delta{display:inline-flex; align-items:center; gap:3px; font-family:var(--font-label); font-size:11px; font-weight:600; border-radius:9999px; padding:1px 8px; margin-left:6px; vertical-align:middle;}
+  .delta.up-bad{background:var(--red-container); color:var(--red-ink);}
+  .delta.down-good{background:var(--sky); color:var(--navy);}
+  .delta.flag{background:var(--gold); color:var(--navy);}
+
+  /* ===== Badges & chips ===== */
+  .badge{display:inline-flex; align-items:center; gap:4px; font-family:var(--font-label); font-size:12px; line-height:16px; font-weight:600; padding:2px 10px; border-radius:9999px; text-transform:uppercase; letter-spacing:.02em;}
+  .badge.alert{background:var(--navy); color:var(--white);}
+  .badge.risk{background:var(--red-ink); color:var(--white);}
+  .badge.coach{background:var(--slate); color:var(--white);}
+  .badge.lab{background:var(--navy-mid); color:var(--white);}
+  .chip{font-family:var(--font-label); font-size:11px; line-height:16px; font-weight:600; background:var(--surface-low); color:var(--navy); border:1px solid var(--outline-variant); border-radius:9999px; padding:2px 10px; display:inline-block;}
+
+  /* ===== Charts ===== */
+  .chart{width:100%; height:auto; display:block;}
+  .chart text{font-family:var(--font-label); font-size:11px; fill:var(--slate);}
+  .chart .axis{stroke:var(--outline-variant); stroke-width:1;}
+  .chart .gridline{stroke:var(--surface-low); stroke-width:1;}
+  .legend{display:flex; flex-wrap:wrap; gap:16px; margin-top:10px;}
+  .legend span{display:inline-flex; align-items:center; gap:6px; font-family:var(--font-label); font-size:11px; line-height:16px; font-weight:500; color:var(--slate);}
+  .swatch{width:12px; height:12px; border-radius:2px; display:inline-block; flex-shrink:0;}
+
+  /* ===== Adherence grid ===== */
+  .adh{display:grid; grid-template-columns:auto repeat(7,1fr); gap:6px; align-items:center; margin-top:4px;}
+  .adh .dlab, .adh .wlab{font-family:var(--font-label); font-size:10px; line-height:14px; font-weight:600; color:var(--slate); text-align:center;}
+  .adh .wlab{text-align:right; padding-right:4px;}
+  .adh .cell{aspect-ratio:1; border-radius:var(--r-btn); background:var(--navy); border:1px solid var(--navy);}
+  .adh .cell.partial{background:var(--gold); border-color:var(--gold);}
+  .adh .cell.missed{background:var(--red-container); border-color:var(--red);}
+  .adh .cell.future{background:var(--surface-low); border-color:var(--border);}
+
+  /* ===== Med list ===== */
+  .med-row{display:flex; justify-content:space-between; align-items:center; gap:12px; font-size:14px; line-height:20px; padding:10px 0; border-bottom:1px solid var(--surface-low);}
+  .med-row:last-of-type{border-bottom:none;}
+  .med-row .sub{font-family:var(--font-label); font-size:11px; line-height:16px; color:var(--slate); display:block;}
+  .med-status{display:inline-flex; align-items:center; gap:4px; font-family:var(--font-label); font-size:12px; line-height:16px; font-weight:600; flex-shrink:0;}
+  .med-status.done{color:var(--navy);}
+  .med-status.due{color:var(--gold-ink);}
+
+  /* ===== Progress bars ===== */
+  .prog{margin:10px 0 2px;}
+  .prog .pl{display:flex; justify-content:space-between; font-family:var(--font-label); font-size:12px; line-height:16px; font-weight:500; color:var(--ink-variant); margin-bottom:4px;}
+  .prog .track{height:10px; background:var(--surface-low); border:1px solid var(--border); border-radius:9999px; overflow:hidden;}
+  .prog .fill{height:100%; background:var(--navy); border-radius:9999px;}
+  .prog .fill.gold{background:var(--gold);}
+
+  /* ===== Messages / feed ===== */
+  .msg{display:grid; grid-template-columns:auto 1fr; gap:12px; padding:12px 0; border-bottom:1px solid var(--surface-low);}
+  .msg:last-of-type{border-bottom:none;}
+  .msg .av{width:32px; height:32px; border-radius:9999px; background:var(--navy-mid); color:var(--white); font-family:var(--font-label); font-size:12px; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .msg .av.gold{background:var(--gold); color:var(--navy);}
+  .msg h4{font-size:14px; line-height:20px; font-weight:700; color:var(--navy);}
+  .msg h4 .t{font-family:var(--font-label); font-size:11px; font-weight:500; color:var(--slate); margin-left:6px;}
+  .msg p{font-size:14px; line-height:20px; color:var(--ink-variant);}
+
+  /* ===== Data sources table ===== */
+  .src{display:grid; grid-template-columns:1fr auto; gap:4px 16px; padding:12px 0; border-bottom:1px solid var(--surface-low); align-items:center;}
+  .src:last-of-type{border-bottom:none;}
+  .src h4{font-size:14px; line-height:20px; font-weight:700; color:var(--navy);}
+  .src .d{font-family:var(--font-label); font-size:11px; line-height:16px; color:var(--slate);}
+  .src .chips{margin-top:4px; display:flex; gap:6px; flex-wrap:wrap;}
+
+  footer{background:var(--navy); color:#d4e3ff; font-size:14px; line-height:21px; padding:24px 40px;}
+  footer strong{color:var(--white);}
+  [hidden]{display:none !important;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="demo-banner" role="note">
+  <svg class="ico" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 1 15 14H1L8 1Zm0 4.5a.9.9 0 0 0-.9 1l.3 3a.6.6 0 0 0 1.2 0l.3-3a.9.9 0 0 0-.9-1Zm0 6a.9.9 0 1 0 0 1.8.9.9 0 0 0 0-1.8Z"/></svg>
+  <span>CONCEPT PROTOTYPE — Desktop web application view. All data is fictional and mocked. Not an official CMS product.</span>
+  <a href="hteap-diabetes-obesity-prototype.html">View mobile + briefing version →</a>
+</div>
+
+<header class="app on-navy">
+  <div class="brand">
+    <p class="app-name">Concept App &middot; Web</p>
+    <h1>Diabetes &amp; Obesity Prevention and Management</h1>
+  </div>
+  <p class="conn"><span class="dot" aria-hidden="true"></span><span>Connected via CMS Aligned Network &middot; last sync today 7:02 AM</span></p>
+  <div class="who">
+    <div class="avatar" id="who-avatar" aria-hidden="true">MR</div>
+    <div><span class="nm" id="who-name">Maria R.</span><br><span class="rl" id="who-role">Prevention plan &middot; Riverview Health</span></div>
+  </div>
+</header>
+
+<div class="scenario">
+  <span class="lbl">Demo control — choose a patient scenario:</span>
+  <button class="persona-btn" id="btn-maria" aria-pressed="true">Maria R., 58 — Pre-diabetes (Prevention)</button>
+  <button class="persona-btn" id="btn-robert" aria-pressed="false">Robert T., 67 — Type 2 Diabetes (Management)</button>
+</div>
+
+<div class="shell">
+  <nav class="sidenav on-navy" aria-label="Application sections">
+    <p class="grp">My Health</p>
+    <a href="#overview" aria-current="true">Overview</a>
+    <a href="#trends">Trends &amp; Labs</a>
+    <a href="#care">Care &amp; Medications</a>
+    <a href="#activity">Activity &amp; Nutrition</a>
+    <a href="#coaching">Coaching &amp; Programs</a>
+    <p class="grp">My Account</p>
+    <a href="#data">My Data &amp; Consent</a>
+  </nav>
+
+  <main id="main">
+
+    <!-- ================= MARIA ================= -->
+    <div id="view-maria">
+      <section class="zone" id="overview" aria-labelledby="m-ov-h">
+        <div class="zone-head"><h2 id="m-ov-h">Good morning, Maria</h2><span class="sub">Friday, June 6, 2026 &middot; Prevention plan, week 9</span></div>
+
+        <div class="banner red">
+          <div class="ic" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" fill="#fff" width="18" height="18"><path d="M8 1 15 14H1L8 1Zm0 4.5a.9.9 0 0 0-.9 1l.3 3a.6.6 0 0 0 1.2 0l.3-3a.9.9 0 0 0-.9-1Zm0 6a.9.9 0 1 0 0 1.8.9.9 0 0 0 0-1.8Z"/></svg></div>
+          <div>
+            <h3>You're in the pre-diabetes range — and making real progress</h3>
+            <p>Your latest A1c is <strong>6.1%</strong> (Jan 12 lab work). You've lost 7 lb since January. Staying on plan can move you back toward the normal range by your next test.</p>
+          </div>
+          <span class="act"><a class="btn" href="#trends">See my risk profile</a></span>
+        </div>
+
+        <div class="tiles">
+          <div class="tile"><p class="lb">A1c (latest)</p><p class="nm">6.1%<span class="delta flag">pre-diabetes</span></p><p class="dt">Jan 12, 2026 &middot; next test ~Jul 2026</p></div>
+          <div class="tile"><p class="lb">Weight</p><p class="nm">189 lb<span class="delta down-good">▼ 7 lb</span></p><p class="dt">goal 178 lb by December</p></div>
+          <div class="tile"><p class="lb">Activity this week</p><p class="nm">95 <span style="font-size:16px">min</span></p><p class="dt">goal 150 min/week</p></div>
+          <div class="tile"><p class="lb">MDPP program</p><p class="nm">9 / 16</p><p class="dt">sessions complete &middot; next Tue 6:00 PM</p></div>
+          <div class="tile"><p class="lb">BMI</p><p class="nm">29.4<span class="delta down-good">▼ 1.1</span></p><p class="dt">from clinical record, May visit</p></div>
+        </div>
+      </section>
+
+      <section class="zone" id="trends" aria-labelledby="m-tr-h">
+        <div class="zone-head"><h2 id="m-tr-h">Trends &amp; Labs</h2><span class="sub">From your clinical record via CMS Aligned Network (FHIR R4 / US Core)</span></div>
+        <div class="grid">
+          <div class="card span-12">
+            <p class="hd">Where your A1c sits today <span class="right">lab result &middot; Jan 12, 2026</span></p>
+            <div class="bd">
+              <svg class="chart" viewBox="0 0 560 110" role="img" aria-label="A1c risk scale from 5.0 to 7.0 percent. Normal is below 5.7, pre-diabetes 5.7 to 6.4, diabetes 6.5 and above. Maria's value of 6.1 sits in the pre-diabetes zone.">
+                <rect x="30" y="40" width="175" height="24" fill="#E1F3F8"/>
+                <rect x="205" y="40" width="200" height="24" fill="#FDB81E"/>
+                <rect x="405" y="40" width="125" height="24" fill="#ffdad6"/>
+                <text x="117" y="84" text-anchor="middle">Normal &lt;5.7%</text>
+                <text x="305" y="84" text-anchor="middle">Pre-diabetes 5.7–6.4%</text>
+                <text x="467" y="84" text-anchor="middle">Diabetes ≥6.5%</text>
+                <line x1="305" y1="30" x2="305" y2="70" stroke="#112E51" stroke-width="3"/>
+                <circle cx="305" cy="28" r="6" fill="#112E51"/>
+                <text x="305" y="16" text-anchor="middle" font-weight="600" fill="#112E51">You: 6.1%</text>
+              </svg>
+              <p class="meta">Your January result (6.1%) was unchanged from October (6.1%) and down from last June (6.3%). Direction matters: weight loss and activity are the two strongest levers.</p>
+            </div>
+          </div>
+
+          <div class="card span-7">
+            <p class="hd">Weight — six-month trend <span class="right">home scale + clinic vitals</span></p>
+            <div class="bd">
+              <svg class="chart" viewBox="0 0 560 210" role="img" aria-label="Line chart of weight by month: January 196, February 194, March 193, April 191, May 190, June 189 pounds. Dashed goal line at 178 pounds.">
+                <line class="gridline" x1="50" y1="40" x2="540" y2="40"/><text x="44" y="44" text-anchor="end">196</text>
+                <line class="gridline" x1="50" y1="86" x2="540" y2="86"/><text x="44" y="90" text-anchor="end">189</text>
+                <line class="gridline" x1="50" y1="124" x2="540" y2="124"/><text x="44" y="128" text-anchor="end">183</text>
+                <line x1="50" y1="156" x2="540" y2="156" stroke="#FDB81E" stroke-width="2" stroke-dasharray="6 4"/>
+                <text x="536" y="150" text-anchor="end" fill="#5e4200" font-weight="600">Goal 178 lb</text>
+                <line class="axis" x1="50" y1="175" x2="540" y2="175"/>
+                <polyline points="80,40 170,53 260,60 350,73 440,79 530,86" fill="none" stroke="#112E51" stroke-width="2.5"/>
+                <circle cx="80" cy="40" r="3.5" fill="#112E51"/><circle cx="170" cy="53" r="3.5" fill="#112E51"/><circle cx="260" cy="60" r="3.5" fill="#112E51"/><circle cx="350" cy="73" r="3.5" fill="#112E51"/><circle cx="440" cy="79" r="3.5" fill="#112E51"/><circle cx="530" cy="86" r="5" fill="#112E51"/>
+                <text x="80" y="192" text-anchor="middle">Jan</text><text x="170" y="192" text-anchor="middle">Feb</text><text x="260" y="192" text-anchor="middle">Mar</text><text x="350" y="192" text-anchor="middle">Apr</text><text x="440" y="192" text-anchor="middle">May</text><text x="530" y="192" text-anchor="middle">Jun</text>
+              </svg>
+              <div class="legend"><span><span class="swatch" style="background:#112E51"></span>Your weight</span><span><span class="swatch" style="background:#FDB81E"></span>Goal pace</span></div>
+            </div>
+          </div>
+
+          <div class="card span-5">
+            <p class="hd">Lab history <span class="right">all results, newest first</span></p>
+            <div class="bd">
+              <div class="med-row"><span>Hemoglobin A1c<span class="sub">Jan 12, 2026 &middot; Riverview Lab</span></span><span class="med-status due">6.1% — pre-diabetes range</span></div>
+              <div class="med-row"><span>Fasting glucose<span class="sub">Jan 12, 2026</span></span><span class="med-status due">108 mg/dL — elevated</span></div>
+              <div class="med-row"><span>Total cholesterol<span class="sub">Jan 12, 2026</span></span><span class="med-status done"><svg class="ico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.4 12.5 2.3 8.4l1.4-1.4 2.7 2.7 5.9-5.9 1.4 1.4-7.3 7.3Z"/></svg>182 mg/dL — in range</span></div>
+              <div class="med-row"><span>Blood pressure<span class="sub">May 20, 2026 &middot; clinic visit</span></span><span class="med-status done"><svg class="ico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.4 12.5 2.3 8.4l1.4-1.4 2.7 2.7 5.9-5.9 1.4 1.4-7.3 7.3Z"/></svg>124/78 — in range</span></div>
+              <p class="meta">Next A1c due around July 2026. The app will remind you and flag the new result the day it posts.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="zone" id="care" aria-labelledby="m-ca-h">
+        <div class="zone-head"><h2 id="m-ca-h">Care &amp; Prevention Plan</h2><span class="sub">No active medications — prevention pathway</span></div>
+        <div class="grid">
+          <div class="card span-7">
+            <p class="hd">Medicare Diabetes Prevention Program (MDPP)</p>
+            <div class="bd">
+              <p>You're enrolled in a CDC-recognized lifestyle change program at <strong>Riverview Community Center</strong>, covered at no cost.</p>
+              <div class="prog"><div class="pl"><span>Core sessions complete</span><span>9 of 16</span></div><div class="track"><div class="fill" style="width:56%"></div></div></div>
+              <div class="prog"><div class="pl"><span>Program weight-loss milestone (5%)</span><span>3.6% of 5%</span></div><div class="track"><div class="fill gold" style="width:72%"></div></div></div>
+              <p class="meta">Next session: Tue Jun 9, 6:00 PM &middot; Topic: eating out without going off-plan</p>
+              <a class="btn secondary" href="#coaching">Message my MDPP coach</a>
+            </div>
+          </div>
+          <div class="card span-5">
+            <p class="hd">Care team &middot; Riverview Health</p>
+            <div class="bd">
+              <div class="msg"><div class="av" aria-hidden="true">JP</div><div><h4>Dr. James Patel <span class="t">Primary care</span></h4><p>Annual wellness visit booked: Aug 14, 9:00 AM. A1c re-check ordered for July.</p></div></div>
+              <div class="msg"><div class="av gold" aria-hidden="true">LM</div><div><h4>Lisa M. <span class="t">MDPP lifestyle coach</span></h4><p>Sees your weekly weight and activity summary (you chose to share it).</p></div></div>
+              <p class="meta">If your next A1c reaches 6.5% or higher, the app will alert you and Dr. Patel the day the result posts.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="zone" id="activity" aria-labelledby="m-ac-h">
+        <div class="zone-head"><h2 id="m-ac-h">Activity &amp; Nutrition</h2><span class="sub">Patient-generated data: your fitness band + food log</span></div>
+        <div class="grid">
+          <div class="card span-7">
+            <p class="hd">Activity minutes — this week <span class="right">goal 150 min/week</span></p>
+            <div class="bd">
+              <svg class="chart" viewBox="0 0 560 180" role="img" aria-label="Bar chart of activity minutes by day this week: Saturday 20, Sunday 25, Monday 0, Tuesday 30, Wednesday 10, Thursday 0, Friday 10 minutes so far. Total 95 of 150 minute goal.">
+                <line class="axis" x1="40" y1="150" x2="540" y2="150"/>
+                <rect x="60" y="100" width="40" height="50" fill="#112E51"/><rect x="130" y="87" width="40" height="63" fill="#112E51"/>
+                <rect x="200" y="148" width="40" height="2" fill="#c4c6cf"/><rect x="270" y="75" width="40" height="75" fill="#112E51"/>
+                <rect x="340" y="125" width="40" height="25" fill="#112E51"/><rect x="410" y="148" width="40" height="2" fill="#c4c6cf"/>
+                <rect x="480" y="125" width="40" height="25" fill="#FDB81E"/>
+                <text x="80" y="166" text-anchor="middle">Sat</text><text x="150" y="166" text-anchor="middle">Sun</text><text x="220" y="166" text-anchor="middle">Mon</text><text x="290" y="166" text-anchor="middle">Tue</text><text x="360" y="166" text-anchor="middle">Wed</text><text x="430" y="166" text-anchor="middle">Thu</text><text x="500" y="166" text-anchor="middle">Fri</text>
+                <text x="80" y="94" text-anchor="middle">20</text><text x="150" y="81" text-anchor="middle">25</text><text x="290" y="69" text-anchor="middle">30</text><text x="360" y="119" text-anchor="middle">10</text><text x="500" y="119" text-anchor="middle" fill="#5e4200" font-weight="600">today</text>
+              </svg>
+              <p class="meta">55 minutes to go this week. A 20-minute walk after dinner tonight and a longer weekend walk closes the gap.</p>
+            </div>
+          </div>
+          <div class="card span-5">
+            <p class="hd">Nutrition — 7-day summary <span class="right">from your food log</span></p>
+            <div class="bd">
+              <div class="prog"><div class="pl"><span>Average calories</span><span>1,850 / 1,900 plan</span></div><div class="track"><div class="fill" style="width:97%"></div></div></div>
+              <div class="prog"><div class="pl"><span>Fiber</span><span>24 g / 28 g goal</span></div><div class="track"><div class="fill" style="width:86%"></div></div></div>
+              <div class="prog"><div class="pl"><span>Added sugar</span><span>31 g avg — target &lt;36 g</span></div><div class="track"><div class="fill" style="width:86%"></div></div></div>
+              <div class="prog"><div class="pl"><span>Days logged</span><span>6 of 7</span></div><div class="track"><div class="fill gold" style="width:86%"></div></div></div>
+              <p class="meta">Pattern spotted: weekday lunches are your highest added-sugar meals. Your coach left a tip in Coaching below.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="zone" id="coaching" aria-labelledby="m-co-h">
+        <div class="zone-head"><h2 id="m-co-h">Coaching &amp; Programs</h2><span class="sub">Personalized — generated from your record + your logs</span></div>
+        <div class="grid">
+          <div class="card span-7">
+            <p class="hd">This week's coaching</p>
+            <div class="bd">
+              <div class="msg"><div class="av gold" aria-hidden="true">LM</div><div><h4>Lisa M. <span class="t">MDPP coach &middot; yesterday</span></h4><p>Maria — great week. You're 1.4 lb from your program milestone. For those weekday lunches: swapping the sweetened iced tea alone saves ~22 g of sugar. Bring questions Tuesday!</p></div></div>
+              <div class="msg"><div class="av" aria-hidden="true">CA</div><div><h4>Concept App <span class="t">auto-coaching &middot; today 7:05 AM</span></h4><p>You've hit your activity goal in 6 of the last 8 weeks — the two misses were weeks with no weekend walk. Want a standing Saturday-morning reminder?</p><a class="btn secondary" href="#coaching" style="margin-top:8px">Set Saturday reminder</a></div></div>
+            </div>
+          </div>
+          <div class="card span-5">
+            <p class="hd">Prevention resources matched to you</p>
+            <div class="bd">
+              <div class="med-row"><span>MDPP — enrolled<span class="sub">CDC-recognized lifestyle change program</span></span><span class="chip">Active</span></div>
+              <div class="med-row"><span>Medicare nutrition counseling<span class="sub">may be covered with referral — ask Dr. Patel</span></span><span class="chip">Suggested</span></div>
+              <div class="med-row"><span>Community walking group<span class="sub">Riverview Community Center, Sat 9 AM</span></span><span class="chip">Near you</span></div>
+              <p class="meta">Matched using your record (A1c, BMI), your location, and your plan benefits.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= ROBERT ================= -->
+    <div id="view-robert" hidden>
+      <section class="zone" id="overview-r" aria-labelledby="r-ov-h">
+        <div class="zone-head"><h2 id="r-ov-h">Good morning, Robert</h2><span class="sub">Friday, June 6, 2026 &middot; Type 2 diabetes management plan</span></div>
+
+        <div class="banner gold">
+          <div class="ic" aria-hidden="true"><svg class="ico" viewBox="0 0 16 16" fill="#FDB81E" width="18" height="18"><path d="M8 1 15 14H1L8 1Zm0 4.5a.9.9 0 0 0-.9 1l.3 3a.6.6 0 0 0 1.2 0l.3-3a.9.9 0 0 0-.9-1Zm0 6a.9.9 0 1 0 0 1.8.9.9 0 0 0 0-1.8Z"/></svg></div>
+          <div>
+            <h3>Your A1c is trending up — your care team has been notified</h3>
+            <p>Yesterday's lab result came back at <strong>7.9%</strong>, up from 7.4% in March. Your morning glucose has also drifted above target for two weeks. Dr. Nguyen's office has an opening Jun 18.</p>
+          </div>
+          <span class="act"><button class="btn cta">Schedule Jun 18, 10:30 AM</button></span>
+        </div>
+
+        <div class="tiles">
+          <div class="tile"><p class="lb">A1c (latest)</p><p class="nm">7.9%<span class="delta up-bad">▲ 0.5</span></p><p class="dt">Jun 5, 2026 &middot; target &lt;7.5%</p></div>
+          <div class="tile"><p class="lb">Morning glucose, 14-day avg</p><p class="nm">140<span class="delta up-bad">▲ 11</span></p><p class="dt">mg/dL &middot; target 80–130</p></div>
+          <div class="tile"><p class="lb">Medications today</p><p class="nm">1 / 2</p><p class="dt">evening dose due 6:00 PM</p></div>
+          <div class="tile"><p class="lb">Steps today</p><p class="nm">4,820</p><p class="dt">goal 7,000 &middot; down 22% this week</p></div>
+          <div class="tile"><p class="lb">Weight</p><p class="nm">212 lb<span class="delta down-good">▼ 3 lb</span></p><p class="dt">since March visit</p></div>
+        </div>
+      </section>
+
+      <section class="zone" id="trends-r" aria-labelledby="r-tr-h">
+        <div class="zone-head"><h2 id="r-tr-h">Trends &amp; Labs</h2><span class="sub">From your clinical record via CMS Aligned Network (FHIR R4 / US Core)</span></div>
+        <div class="grid">
+          <div class="card span-7">
+            <p class="hd">A1c — five quarterly results <span class="right">target &lt;7.5% (set with Dr. Nguyen)</span></p>
+            <div class="bd">
+              <svg class="chart" viewBox="0 0 560 230" role="img" aria-label="Line chart of A1c over five quarters: June 2025 8.4, September 8.0, December 7.6, March 2026 7.4, June 2026 7.9 percent. Shaded band marks the target zone below 7.5 percent. The latest point is above target.">
+                <rect x="50" y="122" width="490" height="68" fill="#E1F3F8"/>
+                <text x="56" y="184" fill="#112E51" font-weight="600">In-target zone &lt;7.5%</text>
+                <line class="gridline" x1="50" y1="54" x2="540" y2="54"/><text x="44" y="58" text-anchor="end">8.5</text>
+                <line class="gridline" x1="50" y1="88" x2="540" y2="88"/><text x="44" y="92" text-anchor="end">8.0</text>
+                <line class="gridline" x1="50" y1="122" x2="540" y2="122"/><text x="44" y="126" text-anchor="end">7.5</text>
+                <line class="gridline" x1="50" y1="156" x2="540" y2="156"/><text x="44" y="160" text-anchor="end">7.0</text>
+                <line class="axis" x1="50" y1="190" x2="540" y2="190"/>
+                <polyline points="90,61 200,88 310,115 420,129 530,95" fill="none" stroke="#2e486c" stroke-width="2.5"/>
+                <circle cx="90" cy="61" r="4" fill="#2e486c"/><circle cx="200" cy="88" r="4" fill="#2e486c"/><circle cx="310" cy="115" r="4" fill="#2e486c"/><circle cx="420" cy="129" r="4" fill="#112E51"/><circle cx="530" cy="95" r="6" fill="#D22630"/>
+                <text x="530" y="80" text-anchor="middle" fill="#93000a" font-weight="600">7.9%</text>
+                <text x="90" y="208" text-anchor="middle">Jun '25</text><text x="200" y="208" text-anchor="middle">Sep '25</text><text x="310" y="208" text-anchor="middle">Dec '25</text><text x="420" y="208" text-anchor="middle">Mar '26</text><text x="530" y="208" text-anchor="middle">Jun '26</text>
+              </svg>
+              <div class="legend"><span><span class="swatch" style="background:#E1F3F8"></span>Target zone</span><span><span class="swatch" style="background:#2e486c"></span>Quarterly A1c</span><span><span class="swatch" style="background:#D22630"></span>Latest — above target</span></div>
+            </div>
+          </div>
+
+          <div class="card span-5">
+            <p class="hd">Morning (fasting) glucose — past 14 days <span class="right">your meter, synced</span></p>
+            <div class="bd">
+              <svg class="chart" viewBox="0 0 560 200" role="img" aria-label="Line chart of morning glucose readings over 14 days, rising from 128 to 158 milligrams per deciliter. Shaded band marks the 80 to 130 target range; most recent readings sit above it.">
+                <rect x="50" y="83" width="490" height="68" fill="#E1F3F8"/>
+                <text x="56" y="146" fill="#112E51" font-weight="600">Target 80–130</text>
+                <line class="gridline" x1="50" y1="56" x2="540" y2="56"/><text x="44" y="60" text-anchor="end">150</text>
+                <line class="gridline" x1="50" y1="83" x2="540" y2="83"/><text x="44" y="87" text-anchor="end">130</text>
+                <line class="gridline" x1="50" y1="124" x2="540" y2="124"/><text x="44" y="128" text-anchor="end">100</text>
+                <line class="axis" x1="50" y1="165" x2="540" y2="165"/>
+                <polyline points="60,86 96,91 132,82 168,76 204,85 240,72 276,67 312,74 348,63 384,68 420,59 456,53 492,60 528,45" fill="none" stroke="#2e486c" stroke-width="2.5"/>
+                <circle cx="528" cy="45" r="5" fill="#D22630"/>
+                <text x="60" y="182" text-anchor="middle">May 24</text><text x="294" y="182" text-anchor="middle">May 31</text><text x="528" y="182" text-anchor="middle">Jun 6</text>
+              </svg>
+              <p class="meta">11 of your last 14 morning readings were above 130 mg/dL. This pattern, plus the new A1c, is what triggered the care-team alert.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="zone" id="care-r" aria-labelledby="r-ca-h">
+        <div class="zone-head"><h2 id="r-ca-h">Care &amp; Medications</h2><span class="sub">Prescriptions from your record &middot; fills from your claims data</span></div>
+        <div class="grid">
+          <div class="card span-5">
+            <p class="hd">Today's medications</p>
+            <div class="bd">
+              <div class="med-row"><span>Metformin 500 mg<span class="sub">with breakfast</span></span><span class="med-status done"><svg class="ico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M6.4 12.5 2.3 8.4l1.4-1.4 2.7 2.7 5.9-5.9 1.4 1.4-7.3 7.3Z"/></svg>Taken 7:05 AM</span></div>
+              <div class="med-row"><span>Empagliflozin 10 mg<span class="sub">with dinner</span></span><span class="med-status due">Due 6:00 PM</span></div>
+              <div class="med-row"><span>Metformin refill<span class="sub">ready at Maple St. Pharmacy — from claims data</span></span><span class="chip">Ready</span></div>
+              <a class="btn secondary" href="#care-r" style="margin-top:10px">Set pickup reminder</a>
+            </div>
+          </div>
+          <div class="card span-4">
+            <p class="hd">Adherence — last 4 weeks <span class="right">26 of 28 days</span></p>
+            <div class="bd">
+              <div class="adh" role="img" aria-label="Medication adherence grid for the last four weeks: both doses taken on 26 of 28 days, one day with a single dose, one day missed.">
+                <span class="wlab" aria-hidden="true"></span><span class="dlab">S</span><span class="dlab">S</span><span class="dlab">M</span><span class="dlab">T</span><span class="dlab">W</span><span class="dlab">T</span><span class="dlab">F</span>
+                <span class="wlab">May 11</span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span>
+                <span class="wlab">May 18</span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell partial"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span>
+                <span class="wlab">May 25</span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell missed"></span><span class="cell"></span><span class="cell"></span>
+                <span class="wlab">Jun 1</span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell future"></span>
+              </div>
+              <div class="legend"><span><span class="swatch" style="background:#112E51"></span>Both doses</span><span><span class="swatch" style="background:#FDB81E"></span>One dose</span><span><span class="swatch" style="background:#ffdad6; border:1px solid #D22630"></span>Missed</span></div>
+            </div>
+          </div>
+          <div class="card span-3">
+            <p class="hd">Care team</p>
+            <div class="bd">
+              <div class="msg"><div class="av" aria-hidden="true">AN</div><div><h4>Dr. Alice Nguyen <span class="t">Endocrinology</span></h4><p>Notified of your Jun 5 A1c. Opening: Jun 18.</p></div></div>
+              <div class="msg"><div class="av" aria-hidden="true">SO</div><div><h4>Sam Ortiz, RN <span class="t">Care manager</span></h4><p>May call to check in before your visit.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="zone" id="activity-r" aria-labelledby="r-ac-h">
+        <div class="zone-head"><h2 id="r-ac-h">Activity &amp; Nutrition</h2><span class="sub">Patient-generated data: your fitness band + food log</span></div>
+        <div class="grid">
+          <div class="card span-7">
+            <p class="hd">Steps — this week <span class="right">goal 7,000/day</span></p>
+            <div class="bd">
+              <svg class="chart" viewBox="0 0 560 180" role="img" aria-label="Bar chart of steps by day this week: Saturday 6800, Sunday 7400, Monday 5900, Tuesday 6200, Wednesday 4100, Thursday 3800, Friday 4820 so far. Goal line at 7000 steps.">
+                <line x1="40" y1="49" x2="540" y2="49" stroke="#FDB81E" stroke-width="2" stroke-dasharray="6 4"/>
+                <text x="536" y="43" text-anchor="end" fill="#5e4200" font-weight="600">Goal 7,000</text>
+                <line class="axis" x1="40" y1="150" x2="540" y2="150"/>
+                <rect x="60" y="52" width="40" height="98" fill="#112E51"/><rect x="130" y="43" width="40" height="107" fill="#112E51"/>
+                <rect x="200" y="65" width="40" height="85" fill="#112E51"/><rect x="270" y="60" width="40" height="90" fill="#112E51"/>
+                <rect x="340" y="91" width="40" height="59" fill="#2e486c"/><rect x="410" y="95" width="40" height="55" fill="#2e486c"/>
+                <rect x="480" y="80" width="40" height="70" fill="#FDB81E"/>
+                <text x="80" y="166" text-anchor="middle">Sat</text><text x="150" y="166" text-anchor="middle">Sun</text><text x="220" y="166" text-anchor="middle">Mon</text><text x="290" y="166" text-anchor="middle">Tue</text><text x="360" y="166" text-anchor="middle">Wed</text><text x="430" y="166" text-anchor="middle">Thu</text><text x="500" y="166" text-anchor="middle">Fri</text>
+                <text x="500" y="74" text-anchor="middle" fill="#5e4200" font-weight="600">today</text>
+              </svg>
+              <p class="meta">Activity is down 22% vs. your 4-week average — and your glucose drift began the same week. The two are likely related; see Coaching.</p>
+            </div>
+          </div>
+          <div class="card span-5">
+            <p class="hd">Nutrition — 7-day summary <span class="right">from your food log</span></p>
+            <div class="bd">
+              <div class="prog"><div class="pl"><span>Carbohydrates per dinner</span><span>avg 88 g — target &lt;60 g</span></div><div class="track"><div class="fill gold" style="width:100%"></div></div></div>
+              <div class="prog"><div class="pl"><span>Average calories</span><span>2,150 / 2,000 plan</span></div><div class="track"><div class="fill" style="width:100%"></div></div></div>
+              <div class="prog"><div class="pl"><span>Sodium</span><span>2,250 mg avg — target &lt;2,300</span></div><div class="track"><div class="fill" style="width:98%"></div></div></div>
+              <div class="prog"><div class="pl"><span>Days logged</span><span>5 of 7</span></div><div class="track"><div class="fill gold" style="width:71%"></div></div></div>
+              <p class="meta">Dinners are running heavy on carbs the same evenings your next-morning glucose is highest.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="zone" id="coaching-r" aria-labelledby="r-co-h">
+        <div class="zone-head"><h2 id="r-co-h">Coaching &amp; Programs</h2><span class="sub">Personalized — generated from your record + your logs</span></div>
+        <div class="grid">
+          <div class="card span-7">
+            <p class="hd">This week's coaching</p>
+            <div class="bd">
+              <div class="msg"><div class="av" aria-hidden="true">CA</div><div><h4>Concept App <span class="t">auto-coaching &middot; today 7:05 AM</span></h4><p>Your evening glucose runs highest after dinners over 80 g of carbs, and your activity is down 22% this week. Lighter dinners plus a short walk have worked for you before — your 7-day average dropped 9 mg/dL the last time you did both. Try it tonight?</p><a class="btn secondary" href="#coaching-r" style="margin-top:8px">Add tonight's walk to my plan</a></div></div>
+              <div class="msg"><div class="av gold" aria-hidden="true">DW</div><div><h4>Coach Dana W. <span class="t">Diabetes coach &middot; Wed</span></h4><p>Robert — saw the new lab result. Don't be discouraged: your December-to-March trend proves you can move this number. Let's review your dinner plan before your Jun 18 visit so you walk in with momentum.</p></div></div>
+            </div>
+          </div>
+          <div class="card span-5">
+            <p class="hd">Programs &amp; support matched to you</p>
+            <div class="bd">
+              <div class="med-row"><span>Diabetes self-management education (DSMES)<span class="sub">covered benefit — referral on file</span></span><span class="chip">Eligible</span></div>
+              <div class="med-row"><span>Medical nutrition therapy<span class="sub">covered with diabetes diagnosis</span></span><span class="chip">Suggested</span></div>
+              <div class="med-row"><span>Maple St. Pharmacy med-sync<span class="sub">align refills to one monthly pickup</span></span><span class="chip">Available</span></div>
+              <p class="meta">Matched using your diagnosis, claims history, and plan benefits.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= SHARED: DATA & CONSENT ================= -->
+    <section class="zone" id="data" aria-labelledby="dc-h">
+      <div class="zone-head"><h2 id="dc-h">My Data &amp; Consent</h2><span class="sub">You decide what this app can see — and you can change it anytime</span></div>
+      <div class="grid">
+        <div class="card span-7">
+          <p class="hd">Connected sources via CMS Aligned Network</p>
+          <div class="bd">
+            <div class="src">
+              <div><h4>Riverview Health (EHR)</h4><p class="d">Labs, vitals, problems, medications &middot; last sync today 7:02 AM</p><div class="chips"><span class="chip">FHIR R4</span><span class="chip">US Core</span></div></div>
+              <button class="btn secondary">Manage</button>
+            </div>
+            <div class="src">
+              <div><h4>Medicare claims</h4><p class="d">Pharmacy fills, visits, utilization &middot; last sync today 6:45 AM</p><div class="chips"><span class="chip">Claims</span></div></div>
+              <button class="btn secondary">Manage</button>
+            </div>
+            <div class="src">
+              <div><h4>Regional lab network</h4><p class="d">Lab results as they post &middot; last sync yesterday 4:10 PM</p><div class="chips"><span class="chip">FHIR R4</span></div></div>
+              <button class="btn secondary">Manage</button>
+            </div>
+            <div class="src">
+              <div><h4>My fitness band &amp; smart scale</h4><p class="d">Steps, activity minutes, weight &middot; syncs continuously</p><div class="chips"><span class="chip">Device data</span></div></div>
+              <button class="btn secondary">Manage</button>
+            </div>
+          </div>
+        </div>
+        <div class="card span-5">
+          <p class="hd">Your consent &amp; privacy controls</p>
+          <div class="bd">
+            <p>You authorized this app on <strong>Mar 3, 2026</strong> using your verified digital identity (SMART on FHIR / OAuth 2.0). Access is scoped to the sources listed, fully logged, and revocable in one step.</p>
+            <div class="med-row" style="margin-top:8px"><span>Access log<span class="sub">reads of your record by this app</span></span><span class="chip">14 this month</span></div>
+            <div class="med-row"><span>Sharing with care team<span class="sub">weekly summary to your coach</span></span><span class="chip">On — your choice</span></div>
+            <div class="med-row"><span>Advertising or sale of data<span class="sub">never permitted</span></span><span class="chip">Blocked</span></div>
+            <button class="btn secondary" style="margin-top:10px">Revoke all access</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <strong>Prototype for discussion purposes only.</strong> All patients, providers, data values, and the app itself are fictional. Desktop companion to the mobile concept — CMS Health Tech Ecosystem "Patient-Facing Apps — Diabetes and Obesity" use case. Not an official CMS product.
+</footer>
+
+<script>
+(function(){
+  // ----- Persona toggle -----
+  var btnM=document.getElementById('btn-maria'), btnR=document.getElementById('btn-robert');
+  var vM=document.getElementById('view-maria'), vR=document.getElementById('view-robert');
+  var whoName=document.getElementById('who-name'), whoRole=document.getElementById('who-role'), whoAv=document.getElementById('who-avatar');
+  function setPersona(maria){
+    btnM.setAttribute('aria-pressed', maria?'true':'false');
+    btnR.setAttribute('aria-pressed', maria?'false':'true');
+    vM.hidden=!maria; vR.hidden=maria;
+    whoName.textContent = maria ? 'Maria R.' : 'Robert T.';
+    whoRole.textContent = maria ? 'Prevention plan · Riverview Health' : 'T2D management · Riverview Health';
+    whoAv.textContent = maria ? 'MR' : 'RT';
+    syncNav();
+  }
+  btnM.addEventListener('click',function(){setPersona(true);});
+  btnR.addEventListener('click',function(){setPersona(false);});
+
+  // ----- Sidebar: map anchors to whichever persona view is visible -----
+  var nav=document.querySelectorAll('.sidenav a');
+  var map={ '#overview':['overview','overview-r'], '#trends':['trends','trends-r'], '#care':['care','care-r'], '#activity':['activity','activity-r'], '#coaching':['coaching','coaching-r'], '#data':['data','data'] };
+  function targetFor(hash){
+    var pair=map[hash]; if(!pair) return null;
+    var maria = !vM.hidden;
+    return document.getElementById(maria ? pair[0] : pair[1]);
+  }
+  nav.forEach(function(a){
+    a.addEventListener('click',function(e){
+      var t=targetFor(a.getAttribute('href'));
+      if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); setCurrent(a); }
+    });
+  });
+  function setCurrent(active){
+    nav.forEach(function(a){ a.setAttribute('aria-current', a===active ? 'true':'false'); });
+  }
+  function syncNav(){ setCurrent(nav[0]); window.scrollTo({top:0}); }
+
+  // ----- Scroll spy -----
+  var spy=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        var id=en.target.id.replace(/-r$/,'');
+        nav.forEach(function(a){ a.setAttribute('aria-current', a.getAttribute('href')==='#'+id ? 'true':'false'); });
+      }
+    });
+  },{rootMargin:'-30% 0px -60% 0px'});
+  document.querySelectorAll('section.zone').forEach(function(s){ spy.observe(s); });
+})();
+</script>
+</body>
+</html>

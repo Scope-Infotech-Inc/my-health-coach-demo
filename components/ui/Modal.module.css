@@ -1,0 +1,75 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(17, 46, 81, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  animation: overlay-in var(--duration-fast) var(--ease-standard);
+}
+
+.dialog {
+  width: 100%;
+  background: var(--surface-card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-overlay);
+  max-height: calc(100vh - 2 * var(--space-6));
+  overflow-y: auto;
+  animation: dialog-in var(--duration) var(--ease-standard);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-6) 0;
+}
+
+.title {
+  font-family: var(--font-sans);
+  font-size: var(--headline-md-size);
+  line-height: var(--headline-md-line);
+  font-weight: var(--weight-semibold);
+  color: var(--text-heading);
+}
+
+.close {
+  background: transparent;
+  border: none;
+  color: var(--slate-gray);
+  cursor: pointer;
+  display: inline-flex;
+  padding: var(--space-1);
+  border-radius: var(--radius);
+}
+
+.close:hover {
+  background: var(--surface-sunken);
+}
+
+.content {
+  padding: var(--space-4) var(--space-6);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding: 0 var(--space-6) var(--space-6);
+}
+
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}

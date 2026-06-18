@@ -1,0 +1,25 @@
+.bar {
+  background: var(--navy-deep);
+  padding: var(--space-5) var(--margin-mobile) var(--space-4);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.greeting {
+  font-family: var(--font-sans);
+  font-size: var(--headline-lg-mobile-size);
+  line-height: var(--headline-lg-mobile-line);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.idRow {
+  display: flex;
+}

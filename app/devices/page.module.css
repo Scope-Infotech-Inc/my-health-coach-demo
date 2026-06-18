@@ -1,0 +1,299 @@
+/* /devices route — connected device cards + available-to-connect grid.
+   Composes the shared Card/Button primitives; this module only handles the
+   route-specific layout, the brand-initials block, metric chips, and the
+   scripted pairing modal's step visuals. Tokens only; no new colors. */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+@media (max-width: 879px) {
+  .page {
+    gap: var(--space-10);
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.sectionTitle {
+  font-family: var(--font-sans);
+  font-size: var(--headline-md-size);
+  line-height: var(--headline-md-line);
+  font-weight: var(--headline-md-weight);
+  color: var(--text-heading);
+}
+
+/* ---- Connected list: one card per device, stacked full width ---- */
+.connectedList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.deviceRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.brandBlock {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-lg);
+  background: var(--navy-deep);
+  color: var(--on-primary);
+  font-family: var(--font-label);
+  font-weight: var(--weight-bold);
+  font-size: 18px;
+  letter-spacing: 0.02em;
+}
+
+.deviceMeta {
+  flex: 1 1 200px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.deviceModel {
+  font-family: var(--font-sans);
+  font-size: var(--body-md-size);
+  line-height: var(--body-md-line);
+  font-weight: var(--weight-semibold);
+  color: var(--text-heading);
+}
+
+.deviceBrand {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: var(--label-sm-weight);
+  color: var(--text-subtle);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+
+.metricChip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--sky-tint);
+  color: var(--navy-deep);
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: var(--label-sm-weight);
+  white-space: nowrap;
+}
+
+.syncLine {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: var(--label-sm-weight);
+  color: var(--text-subtle);
+}
+
+.syncLine .syncIcon {
+  font-size: 14px;
+  color: var(--slate-gray);
+}
+
+.deviceActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .deviceActions {
+    width: 100%;
+    margin-top: var(--space-2);
+  }
+
+  .deviceActions > * {
+    flex: 1 1 0;
+  }
+}
+
+/* ---- Available grid: grouped by category ---- */
+.categoryGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.categoryLabel {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.availableGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-4);
+}
+
+.availableCard {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.brandBlockSm {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--surface-container-low);
+  color: var(--navy-deep);
+  font-family: var(--font-label);
+  font-weight: var(--weight-bold);
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
+
+.availableBody {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.pairAction {
+  margin-top: var(--space-3);
+}
+
+/* ---- Pairing modal steps ---- */
+.pairStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+}
+
+.pairStatus {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-pill);
+  background: var(--sky-tint);
+  color: var(--navy-deep);
+}
+
+.pairStatus.found {
+  background: var(--success-container);
+  color: var(--on-success-container);
+}
+
+.pairStatus .glyph {
+  font-size: 32px;
+}
+
+/* Spinner ring — motion only; reduced-motion renders a static state instead. */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  border: 3px solid var(--surface-container-highest);
+  border-top-color: var(--navy-deep);
+  animation: spin 900ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
+}
+
+.pairHeadline {
+  font-family: var(--font-sans);
+  font-size: var(--body-lg-size);
+  line-height: var(--body-lg-line);
+  font-weight: var(--weight-semibold);
+  color: var(--text-heading);
+}
+
+.pairBody {
+  font-size: var(--body-md-size);
+  line-height: var(--body-md-line);
+  color: var(--text-muted);
+  max-width: 38ch;
+}
+
+.pairDevice {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-3);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  background: var(--surface-card);
+  text-align: left;
+}
+
+.pairDeviceMeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.pairNote {
+  width: 100%;
+}
+
+/* ---- Loading / error skeleton ---- */
+.skeletonCard {
+  height: 96px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-raised);
+}
+
+.skeletonStack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}

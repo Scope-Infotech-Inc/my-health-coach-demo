@@ -1,0 +1,106 @@
+.sidebar {
+  position: sticky;
+  top: var(--topbar-height);
+  align-self: start;
+  height: calc(100vh - var(--proscenium-height) - var(--topbar-height));
+  overflow-y: auto;
+  background: var(--white);
+  border-right: 1px solid var(--border-hairline);
+  padding: var(--space-6) var(--space-3) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.groupLabel {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  padding: 0 var(--space-3) var(--space-1);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-left: var(--border-accent) solid transparent;
+  margin-left: -1px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  text-decoration: none;
+  color: var(--text-body);
+  font-family: var(--font-label);
+  font-size: var(--label-md-size);
+  line-height: var(--label-md-line);
+  font-weight: var(--weight-medium);
+  transition:
+    background var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard);
+}
+
+.item:hover {
+  background: var(--sky-tint);
+  color: var(--navy-deep);
+}
+
+.active {
+  border-left-color: var(--active-rule);
+  background: var(--sky-tint);
+  color: var(--navy-deep);
+  font-weight: var(--weight-semibold);
+}
+
+.icon {
+  font-size: 20px;
+  color: var(--slate-gray);
+  flex-shrink: 0;
+}
+
+.item:hover .icon,
+.active .icon {
+  color: var(--navy-deep);
+}
+
+.label {
+  min-width: 0;
+}
+
+/* Icon rail when the inner content area gets cramped (≤700px main). */
+@media (max-width: 760px) {
+  .sidebar {
+    padding-left: var(--space-2);
+    padding-right: var(--space-2);
+  }
+  .groupLabel {
+    text-align: center;
+    padding: 0;
+    font-size: 9px;
+  }
+  .label {
+    display: none;
+  }
+  .item {
+    justify-content: center;
+    gap: 0;
+    padding: var(--space-2);
+  }
+}

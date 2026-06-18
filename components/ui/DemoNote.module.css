@@ -1,0 +1,17 @@
+.note {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius);
+  background: var(--sky-tint);
+  color: var(--navy-deep);
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: var(--weight-medium);
+}
+
+.note :global(.material-symbols-outlined) {
+  font-size: 15px;
+}

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTEAP Concept Prototype — Diabetes &amp; Obesity Prevention and Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&family=Lexend:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  /* ============ Institutional Integrity design tokens ============ */
+  :root{
+    --navy:#112E51;            /* navy-deep: headers, primary actions, brand */
+    --navy-ink:#001936;        /* primary (deepest) */
+    --navy-mid:#2e486c;        /* on-primary-fixed-variant */
+    --sky:#E1F3F8;             /* sky-tint: highlights, info callouts, success */
+    --gold:#FDB81E;            /* caution-gold: alerts, active indicators, CTA */
+    --gold-ink:#5e4200;        /* on-tertiary-fixed-variant */
+    --slate:#5B616B;           /* slate-gray: secondary text, borders */
+    --red:#D22630;             /* error-red */
+    --red-container:#ffdad6;   /* error-container */
+    --red-ink:#93000a;         /* on-error-container */
+    --surface:#f9f9f9;
+    --surface-low:#f3f3f3;
+    --white:#ffffff;
+    --ink:#1a1c1c;             /* on-surface */
+    --ink-variant:#43474e;     /* on-surface-variant */
+    --outline:#74777f;
+    --outline-variant:#c4c6cf;
+    --border:#e2e2e2;          /* neutral structural border */
+    --shadow-atmos:0 4px 12px rgba(17,46,81,.08);
+    --r-btn:0.25rem;           /* buttons, inputs, alerts */
+    --r-card:0.5rem;           /* cards, modals */
+    --font-body:"Public Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    --font-label:"Lexend", "Public Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:var(--font-body); font-size:16px; line-height:24px; color:var(--ink); background:var(--white);}
+  a{color:var(--navy);}
+  .skip-link{position:absolute; left:-9999px; top:0; background:var(--white); padding:8px 16px; z-index:100;}
+  .skip-link:focus{left:0;}
+  :focus-visible{outline:3px solid var(--navy); outline-offset:2px;}
+  .on-navy :focus-visible, nav.tabs :focus-visible{outline-color:var(--gold);}
+
+  .container{max-width:1280px; margin:0 auto; padding-left:40px; padding-right:40px;}
+  @media(max-width:1023px){ .container{padding-left:24px; padding-right:24px;} }
+  @media(max-width:599px){ .container{padding-left:16px; padding-right:16px;} }
+
+  /* ============ Utility strip + header ============ */
+  .demo-banner{background:var(--gold); color:var(--navy); font-family:var(--font-label); font-size:12px; line-height:16px; font-weight:600; letter-spacing:.01em; padding:8px 0;}
+  .demo-banner .container{display:flex; align-items:center; gap:8px;}
+  header.gov{background:var(--navy); color:var(--white); padding:32px 0;}
+  header.gov .eyebrow{font-family:var(--font-label); font-size:12px; line-height:16px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:#aec8f3;}
+  header.gov h1{font-size:32px; line-height:40px; font-weight:700; letter-spacing:-0.01em; margin-top:8px;}
+  @media(max-width:599px){ header.gov h1{font-size:28px; line-height:36px;} }
+  header.gov p.sub{font-size:16px; line-height:24px; color:#d4e3ff; margin-top:8px; max-width:62rem;}
+
+  /* ============ Takeaway strip ============ */
+  .takeaway{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:32px;}
+  @media(max-width:880px){ .takeaway{grid-template-columns:1fr;} }
+  .tk{background:var(--white); border:1px solid var(--border); border-radius:var(--r-card); overflow:hidden;}
+  .tk h2{font-family:var(--font-label); font-size:12px; line-height:16px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--navy); background:var(--sky); padding:8px 16px;}
+  .tk p{font-size:16px; line-height:24px; color:var(--ink-variant); padding:16px;}
+
+  /* ============ Tab navigation (navy bar, gold active indicator) ============ */
+  nav.tabs{background:var(--navy); margin-top:32px; border-radius:var(--r-btn);}
+  [role="tablist"]{display:flex; gap:0;}
+  [role="tab"]{appearance:none; border:none; background:transparent; font-family:var(--font-label); font-size:14px; line-height:20px; letter-spacing:.01em; font-weight:500; color:#d4e3ff; padding:16px 24px; cursor:pointer; border-bottom:4px solid transparent;}
+  [role="tab"][aria-selected="true"]{color:var(--white); font-weight:600; border-bottom-color:var(--gold);}
+  [role="tab"]:hover{color:var(--white); background:var(--navy-mid);}
+  [role="tabpanel"]{padding:32px 0 56px;}
+  [hidden]{display:none !important;}
+
+  /* ============ Patient experience ============ */
+  .persona-bar{display:flex; flex-wrap:wrap; align-items:center; gap:16px; margin-bottom:24px;}
+  .persona-bar .lbl{font-family:var(--font-label); font-size:14px; line-height:20px; font-weight:500; color:var(--slate);}
+  .persona-btn{font-family:var(--font-label); font-size:14px; line-height:20px; font-weight:500; padding:8px 16px; border-radius:var(--r-btn); border:2px solid var(--navy); background:transparent; color:var(--navy); cursor:pointer;}
+  .persona-btn[aria-pressed="true"]{background:var(--navy); color:var(--white); font-weight:600;}
+  .pt-grid{display:grid; grid-template-columns:auto 1fr; gap:40px; align-items:start;}
+  @media(max-width:880px){ .pt-grid{grid-template-columns:1fr;} }
+
+  /* ===== Phone ===== */
+  .phone{width:375px; max-width:100%; background:var(--navy-ink); border-radius:38px; padding:12px; box-shadow:var(--shadow-atmos), 0 12px 28px rgba(17,46,81,.18); flex-shrink:0;}
+  .screen{background:var(--surface); border-radius:28px; overflow:hidden;}
+  .app-head{background:var(--navy); color:var(--white); padding:16px 16px 12px;}
+  .app-head .app-name{font-family:var(--font-label); font-size:12px; line-height:16px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:#aec8f3;}
+  .app-head h3{font-size:20px; line-height:28px; font-weight:700; margin-top:2px;}
+  .conn{display:flex; align-items:center; gap:6px; font-family:var(--font-label); font-size:11px; line-height:16px; font-weight:500; margin-top:6px; color:#d4e3ff;}
+  .conn .dot{width:8px; height:8px; border-radius:9999px; background:var(--gold); display:inline-block; flex-shrink:0;}
+  .screen-body{padding:12px 12px 18px; display:flex; flex-direction:column; gap:12px; min-height:540px;}
+
+  .card{background:var(--white); border:1px solid var(--border); border-radius:var(--r-card); padding:14px 16px;}
+  .card h4{font-size:14px; line-height:20px; font-weight:700; display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-bottom:6px; color:var(--navy);}
+  .card p{font-size:14px; line-height:20px; color:var(--ink-variant);}
+  .card .meta{font-family:var(--font-label); font-size:11px; line-height:16px; font-weight:500; color:var(--slate); margin-top:8px;}
+  .card.alert{background:var(--gold); border-color:var(--gold);}
+  .card.alert h4, .card.alert p{color:var(--navy);}
+  .card.alert .meta{color:var(--gold-ink);}
+  .card.risk{background:var(--red-container); border-color:var(--red);}
+  .card.risk h4{color:var(--red-ink);}
+  .card.risk p{color:var(--ink);}
+  .card.good{background:var(--sky); border-color:var(--outline-variant);}
+  .card.good h4, .card.good p{color:var(--navy);}
+
+  .badge{display:inline-flex; align-items:center; gap:4px; font-family:var(--font-label); font-size:12px; line-height:16px; font-weight:600; padding:2px 10px; border-radius:9999px; text-transform:uppercase; letter-spacing:.02em;}
+  .badge.alert{background:var(--navy); color:var(--white);}
+  .badge.risk{background:var(--red-ink); color:var(--white);}
+  .badge.coach{background:var(--slate); color:var(--white);}
+  .badge.med{background:var(--navy); color:var(--white);}
+  .badge.lab{background:var(--navy-mid); color:var(--white);}
+  .badge.prog{background:var(--navy); color:var(--white);}
+  .ico{width:14px; height:14px; flex-shrink:0;}
+
+  .med-row{display:flex; justify-content:space-between; align-items:center; gap:8px; font-size:14px; line-height:20px; padding:6px 0; border-bottom:1px solid var(--surface-low);}
+  .med-row:last-of-type{border-bottom:none;}
+  .med-status{display:inline-flex; align-items:center; gap:4px; font-family:var(--font-label); font-size:12px; line-height:16px; font-weight:600;}
+  .med-status.done{color:var(--navy);}
+  .med-status.due{color:var(--gold-ink);}
+
+  .ring-row{display:flex; gap:16px; align-items:center;}
+  .ring-row svg{flex-shrink:0;}
+  .stat-num{font-size:18px; line-height:24px; font-weight:700; color:var(--navy);}
+  .stat-sub{font-family:var(--font-label); font-size:11px; line-height:16px; font-weight:500; color:var(--slate);}
+
+  .app-btn{display:inline-block; font-family:var(--font-label); font-size:13px; line-height:20px; font-weight:600; background:var(--navy); color:var(--white); border:none; border-radius:var(--r-btn); padding:8px 16px; margin-top:10px; cursor:pointer;}
+  .app-btn:hover{background:var(--navy-mid);}
+  .app-btn.secondary{background:transparent; color:var(--navy); border:2px solid var(--navy); padding:6px 14px;}
+  .app-btn.cta{background:var(--gold); color:var(--navy);}
+  .card.alert .app-btn.cta{background:var(--navy); color:var(--white);}
+  .card.good .app-btn{background:var(--navy);}
+
+  /* ===== Annotations ===== */
+  .annos h3{font-size:24px; line-height:32px; font-weight:600; color:var(--navy); margin-bottom:8px;}
+  .annos p.lead{font-size:16px; line-height:24px; color:var(--ink-variant); margin-bottom:24px; max-width:36rem;}
+  .anno{display:grid; grid-template-columns:auto 1fr; gap:16px; background:var(--white); border:1px solid var(--border); border-radius:var(--r-card); padding:16px; margin-bottom:12px; max-width:38rem;}
+  .anno .ic{width:36px; height:36px; border-radius:var(--r-btn); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .anno .ic svg{width:18px; height:18px;}
+  .anno h4{font-size:15px; line-height:20px; font-weight:700; color:var(--navy); margin-bottom:2px;}
+  .anno p{font-size:14px; line-height:20px; color:var(--ink-variant);}
+  .anno code{font-family:var(--font-label); font-size:12px; background:var(--sky); padding:1px 6px; border-radius:var(--r-btn); color:var(--navy);}
+
+  /* ============ Ecosystem ============ */
+  .eco-intro{max-width:48rem; margin-bottom:32px;}
+  .eco-intro h3{font-size:24px; line-height:32px; font-weight:600; color:var(--navy); margin-bottom:8px;}
+  .eco-intro p{font-size:16px; line-height:24px; color:var(--ink-variant);}
+  .flow{display:grid; grid-template-columns:1fr auto 1.15fr auto 1fr; gap:16px; align-items:stretch; margin-bottom:40px;}
+  @media(max-width:880px){ .flow{grid-template-columns:1fr;} .flow .arrow{transform:rotate(90deg); justify-self:center;} }
+  .col{display:flex; flex-direction:column; gap:12px;}
+  .col-title{font-family:var(--font-label); font-size:12px; line-height:16px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--slate); text-align:center;}
+  .node{background:var(--white); border:1px solid var(--border); border-radius:var(--r-card); padding:14px 16px; font-size:14px; line-height:20px;}
+  .node strong{display:block; font-size:15px; line-height:20px; color:var(--navy);}
+  .node span{font-family:var(--font-label); font-size:12px; line-height:16px; font-weight:500; color:var(--slate);}
+  .node.hub{background:var(--navy); color:var(--white); border:none; padding:20px 16px;}
+  .node.hub strong{color:var(--white); font-size:16px;}
+  .node.hub span{color:#d4e3ff;}
+  .node.consent{background:var(--sky); border-color:var(--outline-variant);}
+  .node.consent strong{display:flex; align-items:center; gap:6px;}
+  .arrow{display:flex; align-items:center; justify-content:center; color:var(--slate); font-size:22px; font-weight:700;}
+  .chipset{display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;}
+  .chip{font-family:var(--font-label); font-size:11px; line-height:16px; font-weight:600; background:var(--surface-low); color:var(--navy); border:1px solid var(--outline-variant); border-radius:9999px; padding:2px 10px;}
+  .hub .chip{background:var(--navy-mid); color:#d4e3ff; border-color:var(--navy-mid);}
+
+  .fw h3{font-size:24px; line-height:32px; font-weight:600; color:var(--navy); margin-bottom:16px;}
+  .fw-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:16px;}
+  @media(max-width:980px){ .fw-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:599px){ .fw-grid{grid-template-columns:1fr;} }
+  .fw-card{background:var(--white); border:1px solid var(--border); border-radius:var(--r-card); overflow:hidden;}
+  .fw-card h4{font-family:var(--font-label); font-size:13px; line-height:18px; font-weight:600; color:var(--navy); background:var(--sky); padding:8px 12px;}
+  .fw-card p{font-size:13px; line-height:18px; color:var(--ink-variant); padding:12px;}
+
+  .note{background:var(--sky); border:1px solid var(--outline-variant); border-radius:var(--r-btn); padding:16px 24px; font-size:14px; line-height:21px; color:var(--navy); max-width:60rem; margin-top:32px;}
+
+  footer{background:var(--navy); color:#d4e3ff; font-size:14px; line-height:21px; padding:24px 0; margin-top:16px;}
+  footer strong{color:var(--white);}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="demo-banner" role="note"><div class="container">
+  <svg class="ico" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 1 15 14H1L8 1Zm0 4.5a.9.9 0 0 0-.9 1l.3 3a.6.6 0 0 0 1.2 0l.3-3a.9.9 0 0 0-.9-1Zm0 6a.9.9 0 1 0 0 1.8.9.9 0 0 0 0-1.8Z"/></svg>
+  <span>CONCEPT PROTOTYPE — All data shown is fictional and mocked for demonstration. Not an official CMS product or endorsement.</span>
+  <a href="hteap-diabetes-obesity-prototype-desktop.html" style="color:var(--navy); font-weight:600; margin-left:auto;">View desktop web-app version →</a>
+</div></div>
+
+<header class="gov on-navy">
+  <div class="container">
+    <p class="eyebrow">CMS Health Tech Ecosystem &middot; Patient-Facing Apps Use Case</p>
+    <h1>Diabetes &amp; Obesity Prevention and Management — Concept Prototype</h1>
+    <p class="sub">A patient-facing app that connects to CMS Aligned Networks and, with patient consent, uses the patient's clinical and claims record to deliver personalized coaching, reminders, and risk alerts — adapting to both prevention (pre-diabetes) and active disease management.</p>
+  </div>
+</header>
+
+<div class="container">
+  <div class="takeaway" aria-label="Key takeaways">
+    <div class="tk"><h2>The problem</h2><p>Tens of millions of Medicare beneficiaries live with diabetes, pre-diabetes, or obesity. Today's wellness apps can't see the clinical record, so guidance is generic.</p></div>
+    <div class="tk"><h2>The approach</h2><p>With patient consent, the app pulls labs, medications, and claims through a CMS Aligned Network (FHIR-based exchange) and turns them into tailored, day-to-day support.</p></div>
+    <div class="tk"><h2>The payoff</h2><p>Earlier intervention for at-risk patients, better medication adherence, and escalation to the care team when the data signals trouble — not months later at the next visit.</p></div>
+  </div>
+</div>
+
+<main id="main" class="container">
+  <nav class="tabs" aria-label="Prototype views">
+    <div role="tablist" aria-label="Prototype views">
+      <button role="tab" id="tab-patient" aria-selected="true" aria-controls="panel-patient">1 &middot; Patient Experience</button>
+      <button role="tab" id="tab-eco" aria-selected="false" aria-controls="panel-eco" tabindex="-1">2 &middot; How It Works — Ecosystem View</button>
+    </div>
+  </nav>
+
+  <!-- ============ PANEL 1: PATIENT EXPERIENCE ============ -->
+  <section role="tabpanel" id="panel-patient" aria-labelledby="tab-patient">
+    <div class="persona-bar">
+      <span class="lbl" id="persona-label">Choose a patient scenario:</span>
+      <button class="persona-btn" id="btn-maria" aria-pressed="true">Maria R., 58 — Pre-diabetes (Prevention)</button>
+      <button class="persona-btn" id="btn-robert" aria-pressed="false">Robert T., 67 — Type 2 Diabetes (Management)</button>
+    </div>
+
+    <div class="pt-grid">
+      <!-- ===== PHONE ===== -->
+      <div class="phone" role="img" aria-label="Smartphone mockup showing the patient app">
+        <div class="screen">
+          <div class="app-head">
+            <p class="app-name">Concept App</p>
+            <h3 id="greet">Good morning, Maria</h3>
+            <p class="conn"><span class="dot" aria-hidden="true"></span><span id="conn-text">Connected to your records via a CMS Aligned Network &middot; updated today 7:02 AM</span></p>
+          </div>
+
+          <!-- MARIA -->
+          <div class="screen-body" id="screen-maria">
+            <div class="card risk">
+              <h4><span class="badge risk"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 1 15 14H1L8 1Zm0 4.5a.9.9 0 0 0-.9 1l.3 3a.6.6 0 0 0 1.2 0l.3-3a.9.9 0 0 0-.9-1Zm0 6a.9.9 0 1 0 0 1.8.9.9 0 0 0 0-1.8Z"/></svg>Risk Insight</span> You're in the pre-diabetes range</h4>
+              <p>Your latest A1c is <strong>6.1%</strong> (from your Jan 12 lab work). Small changes now can prevent type 2 diabetes.</p>
+              <p class="meta">Source: lab result from your clinical record</p>
+            </div>
+            <div class="card good">
+              <h4><span class="badge prog"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M6.4 12.5 2.3 8.4l1.4-1.4 2.7 2.7 5.9-5.9 1.4 1.4-7.3 7.3Z"/></svg>Prevention</span> You may qualify for a no-cost program</h4>
+              <p>Based on your A1c and BMI, you appear eligible for the <strong>Medicare Diabetes Prevention Program (MDPP)</strong> — a CDC-recognized lifestyle change program.</p>
+              <button class="app-btn">Find a program near me</button>
+              <p class="meta">Eligibility screened against your record — confirm with your clinician</p>
+            </div>
+            <div class="card">
+              <h4><span class="badge lab">Trend</span> Weight — on your way</h4>
+              <div class="ring-row">
+                <svg width="150" height="44" viewBox="0 0 150 44" role="img" aria-label="Line chart of weight declining from 196 to 189 pounds over five months">
+                  <polyline points="5,10 40,16 75,20 110,26 145,30" fill="none" stroke="#112E51" stroke-width="2.5"/>
+                  <circle cx="145" cy="30" r="3.5" fill="#112E51"/>
+                </svg>
+                <div><p class="stat-num">189 lb</p><p class="stat-sub">down 7 lb since Jan &middot; goal 178 lb</p></div>
+              </div>
+            </div>
+            <div class="card">
+              <h4><span class="badge coach">Coach</span> This week's focus</h4>
+              <p>You logged 95 of your 150 activity minutes. A 20-minute walk after dinner tonight keeps you on pace — want a reminder?</p>
+              <button class="app-btn secondary">Set reminder</button>
+            </div>
+          </div>
+
+          <!-- ROBERT -->
+          <div class="screen-body" id="screen-robert" hidden>
+            <div class="card alert">
+              <h4><span class="badge alert"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 1 15 14H1L8 1Zm0 4.5a.9.9 0 0 0-.9 1l.3 3a.6.6 0 0 0 1.2 0l.3-3a.9.9 0 0 0-.9-1Zm0 6a.9.9 0 1 0 0 1.8.9.9 0 0 0 0-1.8Z"/></svg>Alert</span> Your A1c is trending up</h4>
+              <p>Your A1c rose from <strong>7.4% to 7.9%</strong> since your last test. We've flagged this for your care team at Riverview Health.</p>
+              <button class="app-btn cta">Schedule a visit</button>
+              <p class="meta">Source: lab result received yesterday via your clinical record</p>
+            </div>
+            <div class="card">
+              <h4><span class="badge med">Medications</span> Today</h4>
+              <div class="med-row"><span>Metformin 500 mg — morning</span><span class="med-status done"><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M6.4 12.5 2.3 8.4l1.4-1.4 2.7 2.7 5.9-5.9 1.4 1.4-7.3 7.3Z"/></svg>Taken 7:05 AM</span></div>
+              <div class="med-row"><span>Empagliflozin 10 mg — evening</span><span class="med-status due">Due 6:00 PM</span></div>
+              <p class="meta">Refill ready: Metformin at Maple St. Pharmacy (from your claims data)</p>
+            </div>
+            <div class="card">
+              <h4><span class="badge lab">Trend</span> A1c over time</h4>
+              <div class="ring-row">
+                <svg width="150" height="44" viewBox="0 0 150 44" role="img" aria-label="Line chart of A1c: 8.4, 8.0, 7.6, 7.4, then rising to 7.9 percent over five quarters">
+                  <polyline points="5,8 40,14 75,22 110,26 145,15" fill="none" stroke="#2e486c" stroke-width="2.5"/>
+                  <circle cx="145" cy="15" r="3.5" fill="#D22630"/>
+                </svg>
+                <div><p class="stat-num">7.9%</p><p class="stat-sub">target &lt;7.5% &middot; last 5 quarterly results</p></div>
+              </div>
+            </div>
+            <div class="card">
+              <h4><span class="badge coach">Coach</span> Connected to your real data</h4>
+              <p>Your activity is down 22% this week and your evening glucose readings are running higher. Lighter dinners + a short walk have helped you before — try it tonight?</p>
+              <button class="app-btn secondary">See my plan</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== ANNOTATIONS ===== -->
+      <div class="annos">
+        <h3>What's happening behind the screen</h3>
+        <p class="lead">Every card on the phone is driven by real record data the patient consented to share — not self-reported guesswork. That is the difference a CMS Aligned Network connection makes.</p>
+
+        <div class="anno"><div class="ic" style="background:var(--navy)" aria-hidden="true"><svg viewBox="0 0 16 16" fill="#fff"><path d="M6 1h4v2h-1v3.2l3.6 6.3A1.5 1.5 0 0 1 11.3 15H4.7a1.5 1.5 0 0 1-1.3-2.5L7 6.2V3H6V1Zm2 6.6L5.6 12h4.8L8 7.6Z"/></svg></div>
+          <div><h4>Labs &amp; vitals from the clinical record</h4><p>A1c, glucose, weight, BMI, and kidney function pulled as <code>FHIR R4 / US Core</code> resources through the Aligned Network — so risk alerts fire on real results, within days of the draw.</p></div></div>
+
+        <div class="anno"><div class="ic" style="background:var(--navy-mid)" aria-hidden="true"><svg viewBox="0 0 16 16" fill="#fff"><path d="M4.5 1A2.5 2.5 0 0 0 2 3.5v9A2.5 2.5 0 0 0 4.5 15h7a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 11.5 1h-7ZM5 4h6v1.5H5V4Zm0 3.5h6V9H5V7.5Zm0 3.5h4v1.5H5V11Z"/></svg></div>
+          <div><h4>Medications &amp; refills from claims</h4><p>Pharmacy fill history (e.g., Medicare claims data) powers adherence nudges and refill-ready notices — the app knows what was actually dispensed, not just what was prescribed.</p></div></div>
+
+        <div class="anno"><div class="ic" style="background:var(--slate)" aria-hidden="true"><svg viewBox="0 0 16 16" fill="#fff"><path d="M1 13h2V7H1v6Zm4 0h2V3H5v10Zm4 0h2V9H9v4Zm4 0h2V5h-2v8Z"/></svg></div>
+          <div><h4>Patient-generated data</h4><p>Steps, logged meals, and connected-device glucose readings combine with the clinical record to personalize day-to-day coaching for prevention or active management.</p></div></div>
+
+        <div class="anno"><div class="ic" style="background:var(--sky)" aria-hidden="true"><svg viewBox="0 0 16 16" fill="#112E51"><path d="M8 1 2 3.5v4c0 3.5 2.6 6.6 6 7.5 3.4-.9 6-4 6-7.5v-4L8 1Zm-1 9.5L4.5 8l1-1L7 8.5 10.5 5l1 1L7 10.5Z"/></svg></div>
+          <div><h4>Consent and identity first</h4><p>The patient authorizes access through <code>SMART on FHIR / OAuth 2.0</code> with verified digital identity. Access is scoped, auditable, and revocable by the patient at any time.</p></div></div>
+
+        <div class="anno"><div class="ic" style="background:var(--red-ink)" aria-hidden="true"><svg viewBox="0 0 16 16" fill="#fff"><path d="M8 2a3 3 0 0 1 3 3v1h1.5A1.5 1.5 0 0 1 14 7.5v5A1.5 1.5 0 0 1 12.5 14h-9A1.5 1.5 0 0 1 2 12.5v-5A1.5 1.5 0 0 1 3.5 6H5V5a3 3 0 0 1 3-3Zm0 1.5A1.5 1.5 0 0 0 6.5 5v1h3V5A1.5 1.5 0 0 0 8 3.5ZM7 8v1.5H5.5V11H7v1.5h2V11h1.5V9.5H9V8H7Z"/></svg></div>
+          <div><h4>Escalation to a human</h4><p>Per the use-case pledge: the app offers direct assistance when appropriate and directs the patient to a health professional when the data warrants it — like Robert's rising A1c.</p></div></div>
+
+        <div class="anno"><div class="ic" style="background:var(--gold)" aria-hidden="true"><svg viewBox="0 0 16 16" fill="#112E51"><path d="M8 2a6 6 0 0 1 5.7 4.1l1.3-.5v3.9h-3.9l1.2-1.2A4.5 4.5 0 0 0 8 3.5V2ZM2.9 9.9A4.5 4.5 0 0 0 8 12.5V14a6 6 0 0 1-5.7-4.1L1 10.4V6.5h3.9L3.7 7.7l-.8 2.2Z"/></svg></div>
+          <div><h4>One app, two modes</h4><p>The same platform adapts: prevention mode for pre-diabetic patients (risk scores, MDPP referral, lifestyle goals) and management mode for diagnosed patients (meds, labs, care-team alerts). Toggle the personas above to compare.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PANEL 2: ECOSYSTEM ============ -->
+  <section role="tabpanel" id="panel-eco" aria-labelledby="tab-eco" hidden>
+    <div class="eco-intro">
+      <h3>How the data flows</h3>
+      <p>The app never scrapes portals or asks patients to fax records. It queries a <strong>CMS Aligned Network</strong> — a health information network that has pledged to meet the CMS Interoperability Framework criteria — and receives standardized data the patient has consented to share.</p>
+    </div>
+
+    <div class="flow" aria-label="Data flow diagram from data sources through a CMS Aligned Network to the patient app">
+      <div class="col">
+        <p class="col-title">Data sources</p>
+        <div class="node"><strong>Hospital / Clinic EHRs</strong><span>encounters, problems, labs, vitals, meds</span></div>
+        <div class="node"><strong>Lab networks</strong><span>A1c, glucose, lipid panels</span></div>
+        <div class="node"><strong>Pharmacy &amp; payer claims</strong><span>fills, refills, utilization (incl. Medicare claims)</span></div>
+        <div class="node"><strong>Patient devices &amp; apps</strong><span>steps, weight, CGM readings, food logs</span></div>
+      </div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="col">
+        <p class="col-title">Exchange &amp; trust layer</p>
+        <div class="node hub">
+          <strong>CMS Aligned Network</strong>
+          <span>Standards-based query/respond across federated networks; self-attested to CMS Interoperability Framework criteria</span>
+          <div class="chipset"><span class="chip">HL7 FHIR R4</span><span class="chip">US Core / USCDI</span><span class="chip">Bulk &amp; individual query</span></div>
+        </div>
+        <div class="node consent">
+          <strong><svg class="ico" viewBox="0 0 16 16" aria-hidden="true" fill="#112E51"><path d="M8 1 2 3.5v4c0 3.5 2.6 6.6 6 7.5 3.4-.9 6-4 6-7.5v-4L8 1Zm-1 9.5L4.5 8l1-1L7 8.5 10.5 5l1 1L7 10.5Z"/></svg>Patient consent &amp; identity gate</strong>
+          <span>Verified digital identity; SMART on FHIR / OAuth 2.0 scoped authorization; patient can revoke anytime; access logged</span>
+        </div>
+      </div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="col">
+        <p class="col-title">Patient-facing app</p>
+        <div class="node"><strong>Personalized coaching</strong><span>goals and guidance tuned to the actual record</span></div>
+        <div class="node"><strong>Reminders</strong><span>medications, refills, screenings, activity</span></div>
+        <div class="node"><strong>Risk alerts</strong><span>lab-trend detection with care-team escalation</span></div>
+        <div class="node"><strong>Prevention resources</strong><span>MDPP referral and lifestyle programs for pre-diabetic patients</span></div>
+      </div>
+    </div>
+
+    <div class="fw">
+      <h3>Alignment with the CMS Interoperability Framework (five criteria categories)</h3>
+      <div class="fw-grid">
+        <div class="fw-card"><h4>Patient access &amp; empowerment</h4><p>Patients get their full record working for them in a tool they choose — and control the sharing.</p></div>
+        <div class="fw-card"><h4>Provider access &amp; delegation</h4><p>Care teams receive escalations and can view patient-shared trends between visits.</p></div>
+        <div class="fw-card"><h4>Data availability &amp; standards</h4><p>Clinical and claims data exchanged as FHIR R4 / US Core, aligned to USCDI.</p></div>
+        <div class="fw-card"><h4>Network connectivity &amp; transparency</h4><p>Queries ride existing federated network connectivity — no new point-to-point interfaces per provider.</p></div>
+        <div class="fw-card"><h4>Identity, security &amp; trust</h4><p>Verified identity, scoped OAuth 2.0 consent, auditable access, patient-revocable at any time.</p></div>
+      </div>
+    </div>
+
+    <p class="note"><strong>Security &amp; privacy posture (concept):</strong> designed to operate as an unclassified system aligned with the HIPAA Privacy and Security Rules and NIST SP 800-53 Rev. 5 controls at a FIPS 199 Moderate baseline. Patient data is accessed only under patient-directed consent and never sold or used for advertising. Interface designed to Section 508 / WCAG 2.1 AA.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <strong>Prototype for discussion purposes only.</strong> All patients, providers, data values, and the app itself are fictional. Prepared to illustrate the CMS Health Tech Ecosystem "Patient-Facing Apps — Diabetes and Obesity" use case. Not an official CMS product.
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ----- Tabs (keyboard accessible) -----
+  var tabs=[document.getElementById('tab-patient'),document.getElementById('tab-eco')];
+  var panels=[document.getElementById('panel-patient'),document.getElementById('panel-eco')];
+  function selectTab(i){
+    tabs.forEach(function(t,j){
+      t.setAttribute('aria-selected', j===i ? 'true':'false');
+      t.tabIndex = j===i ? 0 : -1;
+      panels[j].hidden = j!==i;
+    });
+    tabs[i].focus();
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){selectTab(i);});
+    t.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();selectTab((i+1)%tabs.length);}
+      if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();selectTab((i-1+tabs.length)%tabs.length);}
+    });
+  });
+
+  // ----- Persona toggle -----
+  var btnM=document.getElementById('btn-maria'), btnR=document.getElementById('btn-robert');
+  var scrM=document.getElementById('screen-maria'), scrR=document.getElementById('screen-robert');
+  var greet=document.getElementById('greet');
+  function setPersona(maria){
+    btnM.setAttribute('aria-pressed', maria?'true':'false');
+    btnR.setAttribute('aria-pressed', maria?'false':'true');
+    scrM.hidden=!maria; scrR.hidden=maria;
+    greet.textContent = maria ? 'Good morning, Maria' : 'Good morning, Robert';
+  }
+  btnM.addEventListener('click',function(){setPersona(true);});
+  btnR.addEventListener('click',function(){setPersona(false);});
+})();
+</script>
+</body>
+</html>

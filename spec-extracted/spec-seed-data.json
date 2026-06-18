@@ -1,0 +1,5485 @@
+{
+  "demoToday": "2026-06-06",
+  "patients": {
+    "maria": {
+      "firstName": "Maria",
+      "lastNameInitial": "R",
+      "age": 58,
+      "planType": "prevention",
+      "providerOrg": "Riverview Health",
+      "avatarInitials": "MR",
+      "headerRole": "Prevention plan · Riverview Health",
+      "banner": {
+        "severity": "red",
+        "title": "You're in the pre-diabetes range — and making real progress",
+        "ctaLabel": "See my risk profile"
+      },
+      "tiles": [
+        {
+          "label": "A1c (latest)",
+          "value": "6.1%",
+          "deltaText": "pre-diabetes",
+          "deltaTone": "flag",
+          "detail": "Jan 12, 2026 · next test ~Jul 2026"
+        },
+        {
+          "label": "Weight",
+          "value": "189 lb",
+          "deltaText": "▼ 7 lb",
+          "deltaTone": "down-good",
+          "detail": "goal 178 lb by December"
+        },
+        {
+          "label": "Activity this week",
+          "value": "95 min",
+          "detail": "goal 150 min/week"
+        },
+        {
+          "label": "MDPP program",
+          "value": "9 / 16",
+          "detail": "sessions complete · next Tue 6:00 PM"
+        },
+        {
+          "label": "BMI",
+          "value": "29.4",
+          "deltaText": "▼ 1.1",
+          "deltaTone": "down-good",
+          "detail": "from clinical record, May visit"
+        }
+      ],
+      "a1cHistory": [
+        {
+          "collectedOn": "2025-06-15",
+          "value": 6.3
+        },
+        {
+          "collectedOn": "2025-10-10",
+          "value": 6.1
+        },
+        {
+          "collectedOn": "2026-01-12",
+          "value": 6.1
+        }
+      ],
+      "riskScale": {
+        "min": 5,
+        "max": 7,
+        "zones": [
+          {
+            "label": "Normal <5.7%",
+            "to": 5.7,
+            "tone": "sky"
+          },
+          {
+            "label": "Pre-diabetes 5.7–6.4%",
+            "to": 6.5,
+            "tone": "gold"
+          },
+          {
+            "label": "Diabetes ≥6.5%",
+            "to": 7,
+            "tone": "red-container"
+          }
+        ],
+        "marker": 6.1,
+        "markerLabel": "You: 6.1%"
+      },
+      "labs": [
+        {
+          "display": "Hemoglobin A1c",
+          "detail": "Jan 12, 2026 · Riverview Lab",
+          "valueText": "6.1% — pre-diabetes range",
+          "rangeFlag": "prediabetes"
+        },
+        {
+          "display": "Fasting glucose",
+          "detail": "Jan 12, 2026",
+          "valueText": "108 mg/dL — elevated",
+          "rangeFlag": "elevated"
+        },
+        {
+          "display": "Total cholesterol",
+          "detail": "Jan 12, 2026",
+          "valueText": "182 mg/dL — in range",
+          "rangeFlag": "in_range"
+        },
+        {
+          "display": "Blood pressure",
+          "detail": "May 20, 2026 · clinic visit",
+          "valueText": "124/78 — in range",
+          "rangeFlag": "in_range"
+        }
+      ],
+      "weightMonthly": [
+        {
+          "month": "2026-01",
+          "lb": 196
+        },
+        {
+          "month": "2026-02",
+          "lb": 194
+        },
+        {
+          "month": "2026-03",
+          "lb": 193
+        },
+        {
+          "month": "2026-04",
+          "lb": 191
+        },
+        {
+          "month": "2026-05",
+          "lb": 190
+        },
+        {
+          "month": "2026-06",
+          "lb": 189
+        }
+      ],
+      "weightGoal": {
+        "lb": 178,
+        "label": "Goal 178 lb"
+      },
+      "activityWeek": {
+        "unit": "minutes",
+        "goalWeekly": 150,
+        "days": [
+          {
+            "d": "Sat",
+            "v": 20
+          },
+          {
+            "d": "Sun",
+            "v": 25
+          },
+          {
+            "d": "Mon",
+            "v": 0
+          },
+          {
+            "d": "Tue",
+            "v": 30
+          },
+          {
+            "d": "Wed",
+            "v": 10
+          },
+          {
+            "d": "Thu",
+            "v": 0
+          },
+          {
+            "d": "Fri",
+            "v": 10,
+            "today": true
+          }
+        ],
+        "total": 95
+      },
+      "nutrition": [
+        {
+          "label": "Average calories",
+          "valueText": "1,850 / 1,900 plan",
+          "pct": 97,
+          "tone": "navy"
+        },
+        {
+          "label": "Fiber",
+          "valueText": "24 g / 28 g goal",
+          "pct": 86,
+          "tone": "navy"
+        },
+        {
+          "label": "Added sugar",
+          "valueText": "31 g avg — target <36 g",
+          "pct": 86,
+          "tone": "navy"
+        },
+        {
+          "label": "Days logged",
+          "valueText": "6 of 7",
+          "pct": 86,
+          "tone": "gold"
+        }
+      ],
+      "mdpp": {
+        "sessionsComplete": 9,
+        "sessionsTotal": 16,
+        "milestonePct": 3.6,
+        "milestoneGoalPct": 5,
+        "nextSession": "Tue Jun 9, 6:00 PM",
+        "nextTopic": "eating out without going off-plan",
+        "location": "Riverview Community Center"
+      },
+      "careTeam": [
+        {
+          "name": "Dr. James Patel",
+          "role": "Primary care",
+          "note": "Annual wellness visit booked: Aug 14, 9:00 AM. A1c re-check ordered for July.",
+          "avatar": "JP",
+          "avatarStyle": "navy"
+        },
+        {
+          "name": "Lisa M.",
+          "role": "MDPP lifestyle coach",
+          "note": "Sees your weekly weight and activity summary (you chose to share it).",
+          "avatar": "LM",
+          "avatarStyle": "gold"
+        }
+      ],
+      "escalationRule": "If your next A1c reaches 6.5% or higher, the app will alert you and Dr. Patel the day the result posts.",
+      "messages": [
+        {
+          "senderName": "Lisa M.",
+          "senderRole": "MDPP coach",
+          "sentLabel": "yesterday",
+          "senderType": "human",
+          "avatar": "LM",
+          "avatarStyle": "gold"
+        },
+        {
+          "senderName": "Concept App",
+          "senderRole": "auto-coaching",
+          "sentLabel": "today 7:05 AM",
+          "senderType": "auto",
+          "avatar": "CA",
+          "avatarStyle": "navy",
+          "actionLabel": "Set Saturday reminder"
+        }
+      ],
+      "programs": [
+        {
+          "name": "MDPP — enrolled",
+          "detail": "CDC-recognized lifestyle change program",
+          "statusChip": "Active"
+        },
+        {
+          "name": "Medicare nutrition counseling",
+          "detail": "may be covered with referral — ask Dr. Patel",
+          "statusChip": "Suggested"
+        },
+        {
+          "name": "Community walking group",
+          "detail": "Riverview Community Center, Sat 9 AM",
+          "statusChip": "Near you"
+        }
+      ],
+      "sex": "female",
+      "preferredLanguage": "en",
+      "secondaryLanguage": "es",
+      "raceEthnicity": "Hispanic or Latino (White)",
+      "medicareContext": "disability_under65",
+      "dualEligible": true,
+      "rurality": "urban",
+      "socialDrivers": [
+        {
+          "domain": "food_insecurity",
+          "status": "at_risk",
+          "note": "Limited access to affordable fresh produce; benefits from food-resource programs.",
+          "surfaces": [
+            "nearby",
+            "programs",
+            "coaching"
+          ],
+          "zCode": "Z59.41"
+        }
+      ]
+    },
+    "robert": {
+      "firstName": "Robert",
+      "lastNameInitial": "T",
+      "age": 67,
+      "planType": "t2d_management",
+      "providerOrg": "Riverview Health",
+      "avatarInitials": "RT",
+      "headerRole": "T2D management · Riverview Health",
+      "banner": {
+        "severity": "gold",
+        "title": "Your A1c is trending up — your care team has been notified",
+        "ctaLabel": "Schedule Jun 18, 10:30 AM",
+        "careTeamNotified": true
+      },
+      "tiles": [
+        {
+          "label": "A1c (latest)",
+          "value": "7.9%",
+          "deltaText": "▲ 0.5",
+          "deltaTone": "up-bad",
+          "detail": "Jun 5, 2026 · target <7.5%"
+        },
+        {
+          "label": "Morning glucose, 14-day avg",
+          "value": "140",
+          "deltaText": "▲ 11",
+          "deltaTone": "up-bad",
+          "detail": "mg/dL · target 80–130"
+        },
+        {
+          "label": "Medications today",
+          "value": "1 / 2",
+          "detail": "evening dose due 6:00 PM"
+        },
+        {
+          "label": "Steps today",
+          "value": "4,820",
+          "detail": "goal 7,000 · down 22% this week"
+        },
+        {
+          "label": "Weight",
+          "value": "212 lb",
+          "deltaText": "▼ 3 lb",
+          "deltaTone": "down-good",
+          "detail": "since March visit"
+        }
+      ],
+      "a1cQuarterly": [
+        {
+          "collectedOn": "2025-06-15",
+          "value": 8.4
+        },
+        {
+          "collectedOn": "2025-09-15",
+          "value": 8
+        },
+        {
+          "collectedOn": "2025-12-15",
+          "value": 7.6
+        },
+        {
+          "collectedOn": "2026-03-15",
+          "value": 7.4
+        },
+        {
+          "collectedOn": "2026-06-05",
+          "value": 7.9,
+          "aboveTarget": true
+        }
+      ],
+      "a1cTarget": {
+        "max": 7.5,
+        "label": "In-target zone <7.5%",
+        "setWith": "Dr. Nguyen"
+      },
+      "glucose14d": {
+        "unit": "mg/dL",
+        "targetMin": 80,
+        "targetMax": 130,
+        "from": "2026-05-24",
+        "to": "2026-06-06",
+        "values": [
+          128,
+          124,
+          131,
+          135,
+          129,
+          138,
+          142,
+          137,
+          145,
+          141,
+          148,
+          152,
+          147,
+          158
+        ],
+        "aboveTargetCount": 11,
+        "avg": 140
+      },
+      "medications": [
+        {
+          "name": "Metformin",
+          "dose": "500 mg",
+          "timing": "with breakfast",
+          "todayStatus": "taken",
+          "takenAt": "7:05 AM"
+        },
+        {
+          "name": "Empagliflozin",
+          "dose": "10 mg",
+          "timing": "with dinner",
+          "todayStatus": "due",
+          "dueAt": "6:00 PM"
+        }
+      ],
+      "refill": {
+        "description": "Metformin refill",
+        "detail": "ready at Maple St. Pharmacy — from claims data",
+        "statusChip": "Ready"
+      },
+      "adherence": {
+        "weeksStarting": [
+          "2026-05-11",
+          "2026-05-18",
+          "2026-05-25",
+          "2026-06-01"
+        ],
+        "summary": "26 of 28 days",
+        "grid": [
+          [
+            "taken",
+            "taken",
+            "taken",
+            "taken",
+            "taken",
+            "taken",
+            "taken"
+          ],
+          [
+            "taken",
+            "taken",
+            "taken",
+            "partial",
+            "taken",
+            "taken",
+            "taken"
+          ],
+          [
+            "taken",
+            "taken",
+            "taken",
+            "taken",
+            "missed",
+            "taken",
+            "taken"
+          ],
+          [
+            "taken",
+            "taken",
+            "taken",
+            "taken",
+            "taken",
+            "taken",
+            "pending"
+          ]
+        ]
+      },
+      "stepsWeek": {
+        "goalDaily": 7000,
+        "days": [
+          {
+            "d": "Sat",
+            "v": 6800
+          },
+          {
+            "d": "Sun",
+            "v": 7400
+          },
+          {
+            "d": "Mon",
+            "v": 5900
+          },
+          {
+            "d": "Tue",
+            "v": 6200
+          },
+          {
+            "d": "Wed",
+            "v": 4100
+          },
+          {
+            "d": "Thu",
+            "v": 3800
+          },
+          {
+            "d": "Fri",
+            "v": 4820,
+            "today": true
+          }
+        ],
+        "weekOverWeek": "-22% vs 4-week average"
+      },
+      "nutrition": [
+        {
+          "label": "Carbohydrates per dinner",
+          "valueText": "avg 88 g — target <60 g",
+          "pct": 100,
+          "tone": "gold"
+        },
+        {
+          "label": "Average calories",
+          "valueText": "2,150 / 2,000 plan",
+          "pct": 100,
+          "tone": "navy"
+        },
+        {
+          "label": "Sodium",
+          "valueText": "2,250 mg avg — target <2,300",
+          "pct": 98,
+          "tone": "navy"
+        },
+        {
+          "label": "Days logged",
+          "valueText": "5 of 7",
+          "pct": 71,
+          "tone": "gold"
+        }
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Alice Nguyen",
+          "role": "Endocrinology",
+          "note": "Notified of your Jun 5 A1c. Opening: Jun 18.",
+          "avatar": "AN",
+          "avatarStyle": "navy"
+        },
+        {
+          "name": "Sam Ortiz, RN",
+          "role": "Care manager",
+          "note": "May call to check in before your visit.",
+          "avatar": "SO",
+          "avatarStyle": "navy"
+        }
+      ],
+      "appointmentOffer": {
+        "with": "Dr. Nguyen",
+        "at": "2026-06-18T10:30",
+        "label": "Schedule Jun 18, 10:30 AM"
+      },
+      "messages": [
+        {
+          "senderName": "Concept App",
+          "senderRole": "auto-coaching",
+          "sentLabel": "today 7:05 AM",
+          "senderType": "auto",
+          "avatar": "CA",
+          "avatarStyle": "navy",
+          "actionLabel": "Add tonight's walk to my plan"
+        },
+        {
+          "senderName": "Coach Dana W.",
+          "senderRole": "Diabetes coach",
+          "sentLabel": "Wed",
+          "senderType": "human",
+          "avatar": "DW",
+          "avatarStyle": "gold"
+        }
+      ],
+      "programs": [
+        {
+          "name": "Diabetes self-management education (DSMES)",
+          "detail": "covered benefit — referral on file",
+          "statusChip": "Eligible"
+        },
+        {
+          "name": "Medical nutrition therapy",
+          "detail": "covered with diabetes diagnosis",
+          "statusChip": "Suggested"
+        },
+        {
+          "name": "Maple St. Pharmacy med-sync",
+          "detail": "align refills to one monthly pickup",
+          "statusChip": "Available"
+        }
+      ],
+      "sex": "male",
+      "preferredLanguage": "en",
+      "raceEthnicity": "White, non-Hispanic",
+      "medicareContext": "traditional_65plus",
+      "dualEligible": false,
+      "rurality": "suburban",
+      "socialDrivers": [
+        {
+          "domain": "transportation",
+          "status": "at_risk",
+          "note": "Drives but finds specialist visits across town hard; telehealth offered as an option.",
+          "surfaces": [
+            "nearby",
+            "programs"
+          ],
+          "zCode": "Z59.82"
+        }
+      ],
+      "labs": [
+        {
+          "display": "Hemoglobin A1c",
+          "loinc": "4548-4",
+          "detail": "Jun 5, 2026 · Riverview Lab",
+          "valueText": "7.9% — above target",
+          "rangeFlag": "above_target"
+        },
+        {
+          "display": "Morning glucose (14-day avg)",
+          "loinc": "1558-6",
+          "detail": "to Jun 6, 2026 · 11 of 14 above 130",
+          "valueText": "140 mg/dL — elevated",
+          "rangeFlag": "elevated"
+        }
+      ]
+    }
+  },
+  "shared": {
+    "connectionStatus": "Connected via CMS Aligned Network · last sync today 7:02 AM",
+    "dataSources": [
+      {
+        "name": "Riverview Health (EHR)",
+        "description": "Labs, vitals, problems, medications",
+        "standards": [
+          "FHIR R4",
+          "US Core"
+        ],
+        "lastSyncAt": "2026-06-06T07:02",
+        "continuous": false
+      },
+      {
+        "name": "Medicare claims",
+        "description": "Pharmacy fills, visits, utilization",
+        "standards": [
+          "Claims"
+        ],
+        "lastSyncAt": "2026-06-06T06:45",
+        "continuous": false
+      },
+      {
+        "name": "Regional lab network",
+        "description": "Lab results as they post",
+        "standards": [
+          "FHIR R4"
+        ],
+        "lastSyncAt": "2026-06-05T16:10",
+        "continuous": false
+      },
+      {
+        "name": "My fitness band & smart scale",
+        "description": "Steps, activity minutes, weight",
+        "standards": [
+          "Device data"
+        ],
+        "lastSyncAt": null,
+        "continuous": true
+      }
+    ],
+    "consent": {
+      "grantedOn": "2026-03-03",
+      "method": "SMART on FHIR / OAuth 2.0, verified digital identity",
+      "accessReadsThisMonth": 14,
+      "shareWithCareTeam": true,
+      "adsBlocked": true
+    },
+    "disclaimer": "CONCEPT PROTOTYPE — All data is fictional and mocked. Not an official CMS product."
+  },
+  "additionalPersonas": {
+    "sarah": {
+      "category": "comorbid",
+      "featured": true,
+      "firstName": "Sarah",
+      "lastNameInitial": "W",
+      "age": 68,
+      "planType": "comorbid_management",
+      "conditionDetail": "Type 2 diabetes + obesity (BMI 36)",
+      "medicareContext": "traditional_65plus",
+      "providerOrg": "Riverview Health",
+      "avatarInitials": "SW",
+      "allergies": [
+        "sulfa"
+      ],
+      "dietaryPrefs": [],
+      "engagement": "moderate",
+      "conditions": [
+        {
+          "display": "Type 2 diabetes mellitus",
+          "snomed": "44054006",
+          "onsetDate": "2019-04-10"
+        },
+        {
+          "display": "Obesity",
+          "snomed": "414916001",
+          "onsetDate": "2016-09-01"
+        },
+        {
+          "display": "Chronic kidney disease, stage 2",
+          "snomed": "431855005",
+          "onsetDate": "2025-11-02"
+        }
+      ],
+      "banner": {
+        "severity": "gold",
+        "title": "A new visit summary arrived — your AI assistant has a plain-language read",
+        "ctaLabel": "Review my visit summary"
+      },
+      "tiles": [
+        {
+          "label": "A1c (latest)",
+          "value": "7.6%",
+          "deltaText": "▲ 0.2",
+          "deltaTone": "up-bad",
+          "detail": "May 28, 2026 · target <7.5%"
+        },
+        {
+          "label": "BMI",
+          "value": "36.0",
+          "deltaText": "▼ 0.8",
+          "deltaTone": "down-good",
+          "detail": "class II · trending down"
+        },
+        {
+          "label": "Weight",
+          "value": "214 lb",
+          "deltaText": "▼ 6 lb",
+          "deltaTone": "down-good",
+          "detail": "since March · goal 195"
+        },
+        {
+          "label": "Medications today",
+          "value": "2 / 3",
+          "detail": "evening dose due 7:00 PM"
+        },
+        {
+          "label": "Rewards",
+          "value": "Silver · 1,720 pts",
+          "detail": "6 of 12 badges"
+        }
+      ],
+      "a1cQuarterly": [
+        {
+          "collectedOn": "2025-08-28",
+          "value": 7.9
+        },
+        {
+          "collectedOn": "2025-11-28",
+          "value": 7.7
+        },
+        {
+          "collectedOn": "2026-02-28",
+          "value": 7.4
+        },
+        {
+          "collectedOn": "2026-05-28",
+          "value": 7.6,
+          "aboveTarget": true
+        }
+      ],
+      "a1cTarget": {
+        "max": 7.5,
+        "label": "In-target zone <7.5%"
+      },
+      "labs": [
+        {
+          "display": "Hemoglobin A1c",
+          "loinc": "4548-4",
+          "detail": "May 28, 2026 · Riverview Lab",
+          "valueText": "7.6% — above target",
+          "rangeFlag": "above_target"
+        },
+        {
+          "display": "Fasting glucose",
+          "loinc": "1558-6",
+          "detail": "May 28, 2026",
+          "valueText": "146 mg/dL — elevated",
+          "rangeFlag": "elevated"
+        },
+        {
+          "display": "Urine albumin/creatinine",
+          "loinc": "9318-7",
+          "detail": "May 28, 2026 · slowly rising x3",
+          "valueText": "42 mg/g — elevated",
+          "rangeFlag": "elevated"
+        },
+        {
+          "display": "eGFR",
+          "loinc": "62238-1",
+          "detail": "May 28, 2026",
+          "valueText": "76 mL/min — stage 2",
+          "rangeFlag": "elevated"
+        }
+      ],
+      "weightMonthly": [
+        {
+          "month": "2026-01",
+          "lb": 224
+        },
+        {
+          "month": "2026-02",
+          "lb": 222
+        },
+        {
+          "month": "2026-03",
+          "lb": 220
+        },
+        {
+          "month": "2026-04",
+          "lb": 218
+        },
+        {
+          "month": "2026-05",
+          "lb": 216
+        },
+        {
+          "month": "2026-06",
+          "lb": 214
+        }
+      ],
+      "weightGoal": {
+        "lb": 195,
+        "label": "Goal 195 lb"
+      },
+      "medications": [
+        {
+          "name": "Metformin",
+          "rxnorm": "6809",
+          "dose": "1000 mg",
+          "timing": "twice daily",
+          "todayStatus": "taken"
+        },
+        {
+          "name": "Empagliflozin",
+          "rxnorm": "1545653",
+          "dose": "10 mg",
+          "timing": "morning",
+          "todayStatus": "taken"
+        },
+        {
+          "name": "Semaglutide",
+          "rxnorm": "1991302",
+          "dose": "0.5 mg",
+          "timing": "weekly injection (Sun)",
+          "todayStatus": "n/a"
+        }
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. James Patel",
+          "role": "Primary care",
+          "note": "Reviewed your May 28 labs; referred you to nephrology.",
+          "avatar": "JP",
+          "avatarStyle": "navy"
+        },
+        {
+          "name": "Dr. Lena Cho",
+          "role": "Nephrology (new)",
+          "note": "Visit summary returned via Smart Health Link — see My Records.",
+          "avatar": "LC",
+          "avatarStyle": "gold"
+        },
+        {
+          "name": "Coach Dana W.",
+          "role": "Diabetes & weight coach",
+          "note": "Sees your weekly summary (you chose to share it).",
+          "avatar": "DW",
+          "avatarStyle": "navy"
+        }
+      ],
+      "connectedDevices": [
+        "withings_body",
+        "apple_watch",
+        "withings_bpm"
+      ],
+      "gamification": {
+        "points": 1720,
+        "level": "Silver",
+        "streak": {
+          "current": 16,
+          "best": 24,
+          "habit": "logging"
+        },
+        "earnedBadges": [
+          "first_connection",
+          "device_connector",
+          "logging_streak_7",
+          "move_maker",
+          "milestone_weight_5",
+          "coach_conversation"
+        ]
+      },
+      "programs": [
+        {
+          "name": "Diabetes self-management education (DSMES)",
+          "detail": "covered benefit — referral on file",
+          "statusChip": "Active"
+        },
+        {
+          "name": "Medical nutrition therapy",
+          "detail": "covered with diabetes + CKD",
+          "statusChip": "Eligible"
+        },
+        {
+          "name": "Nephrology follow-up",
+          "detail": "new referral from May 28 visit",
+          "statusChip": "Scheduled"
+        }
+      ],
+      "note": "Sarah is the featured journey persona and is seeded to exercise every v1.2 capability (identity, share/return, documents, insights, audit, devices, coaching). See journey, clinicalDocuments, aiInsights, shareSessions, accessLog, recordLocator keys below.",
+      "sex": "female",
+      "preferredLanguage": "en",
+      "raceEthnicity": "White, non-Hispanic",
+      "dualEligible": false,
+      "rurality": "suburban",
+      "socialDrivers": [
+        {
+          "domain": "caregiver",
+          "status": "at_risk",
+          "note": "Primary caregiver for her spouse; appreciates appointment reminders and respite resources.",
+          "surfaces": [
+            "programs",
+            "coaching"
+          ],
+          "zCode": "Z63.6"
+        }
+      ],
+      "messages": [
+        {
+          "senderName": "Concept App",
+          "senderRole": "auto-coaching",
+          "sentLabel": "today 7:05 AM",
+          "senderType": "auto",
+          "avatar": "CA",
+          "avatarStyle": "navy",
+          "actionLabel": "Review my visit summary"
+        },
+        {
+          "senderName": "Coach Dana W.",
+          "senderRole": "Diabetes & weight coach",
+          "sentLabel": "Wed",
+          "senderType": "human",
+          "avatar": "DW",
+          "avatarStyle": "navy"
+        }
+      ],
+      "nutrition": [
+        {
+          "label": "Average calories",
+          "valueText": "1,850 / 1,950 plan",
+          "pct": 95,
+          "tone": "navy"
+        },
+        {
+          "label": "Sodium",
+          "valueText": "2,100 mg avg — target <2,000 (CKD)",
+          "pct": 100,
+          "tone": "gold"
+        },
+        {
+          "label": "Carbohydrates per dinner",
+          "valueText": "avg 58 g — target <60 g",
+          "pct": 97,
+          "tone": "navy"
+        },
+        {
+          "label": "Days logged",
+          "valueText": "7 of 7",
+          "pct": 100,
+          "tone": "gold"
+        }
+      ],
+      "stepsWeek": {
+        "goalDaily": 6000,
+        "days": [
+          {
+            "d": "Sat",
+            "v": 5400
+          },
+          {
+            "d": "Sun",
+            "v": 4900
+          },
+          {
+            "d": "Mon",
+            "v": 5200
+          },
+          {
+            "d": "Tue",
+            "v": 5600
+          },
+          {
+            "d": "Wed",
+            "v": 5000
+          },
+          {
+            "d": "Thu",
+            "v": 5300
+          },
+          {
+            "d": "Fri",
+            "v": 5100,
+            "today": true
+          }
+        ],
+        "weekOverWeek": "steady"
+      }
+    },
+    "jim": {
+      "category": "diabetes",
+      "firstName": "James \"Jim\"",
+      "lastNameInitial": "O",
+      "age": 71,
+      "planType": "t2d_management",
+      "conditionDetail": "Type 2 (well-controlled)",
+      "providerOrg": "Lakeside Family Medicine",
+      "avatarInitials": "JO",
+      "allergies": [],
+      "dietaryPrefs": [],
+      "engagement": "high",
+      "banner": {
+        "severity": "sky",
+        "title": "You're in your target range — keep it going",
+        "ctaLabel": "See my trends"
+      },
+      "tiles": [
+        {
+          "label": "A1c (latest)",
+          "value": "6.6%",
+          "deltaText": "▼ 0.2",
+          "deltaTone": "down-good",
+          "detail": "May 2, 2026 · target <7%"
+        },
+        {
+          "label": "Weight",
+          "value": "198 lb",
+          "deltaText": "▼ 4 lb",
+          "deltaTone": "down-good",
+          "detail": "stable, in range"
+        },
+        {
+          "label": "Steps today",
+          "value": "8,900",
+          "detail": "goal 7,000 · met"
+        },
+        {
+          "label": "Med streak",
+          "value": "180 days",
+          "detail": "metformin, no missed doses"
+        },
+        {
+          "label": "Rewards",
+          "value": "Gold · 3,150 pts",
+          "detail": "9 of 12 badges"
+        }
+      ],
+      "a1cQuarterly": [
+        {
+          "collectedOn": "2025-08-02",
+          "value": 7.1
+        },
+        {
+          "collectedOn": "2025-11-02",
+          "value": 6.9
+        },
+        {
+          "collectedOn": "2026-02-02",
+          "value": 6.8
+        },
+        {
+          "collectedOn": "2026-05-02",
+          "value": 6.6
+        }
+      ],
+      "a1cTarget": {
+        "max": 7,
+        "label": "In-target zone <7.0%"
+      },
+      "medications": [
+        {
+          "name": "Metformin",
+          "dose": "1000 mg",
+          "timing": "twice daily",
+          "todayStatus": "taken"
+        }
+      ],
+      "connectedDevices": [
+        "fitbit_charge",
+        "withings_body"
+      ],
+      "gamification": {
+        "points": 3150,
+        "level": "Gold",
+        "streak": {
+          "current": 180,
+          "best": 180,
+          "habit": "meds"
+        },
+        "earnedBadges": [
+          "first_connection",
+          "logging_streak_7",
+          "step_champion",
+          "move_maker",
+          "a1c_improver",
+          "med_adherence_30",
+          "device_connector",
+          "recipe_explorer",
+          "coach_conversation"
+        ]
+      },
+      "sex": "male",
+      "preferredLanguage": "en",
+      "raceEthnicity": "Black or African American (Nigerian-born)",
+      "medicareContext": "advantage_65plus",
+      "dualEligible": false,
+      "rurality": "suburban",
+      "socialDrivers": [
+        {
+          "domain": "none",
+          "status": "none",
+          "note": "No health-related social needs identified at last screening.",
+          "surfaces": []
+        }
+      ],
+      "labs": [
+        {
+          "display": "Hemoglobin A1c",
+          "loinc": "4548-4",
+          "detail": "May 2, 2026 · Lakeside Lab",
+          "valueText": "6.6% — in target",
+          "rangeFlag": "in_range"
+        },
+        {
+          "display": "Fasting glucose",
+          "loinc": "1558-6",
+          "detail": "May 2, 2026",
+          "valueText": "108 mg/dL — in range",
+          "rangeFlag": "in_range"
+        },
+        {
+          "display": "Total cholesterol",
+          "loinc": "2093-3",
+          "detail": "May 2, 2026",
+          "valueText": "172 mg/dL — in range",
+          "rangeFlag": "in_range"
+        },
+        {
+          "display": "Blood pressure",
+          "loinc": "85354-9",
+          "detail": "May 2, 2026 · clinic visit",
+          "valueText": "124/78 — in range",
+          "rangeFlag": "in_range"
+        }
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Grace Lin",
+          "role": "Primary care",
+          "note": "Your numbers look great — keep your routine. Next A1c around November.",
+          "avatar": "GL",
+          "avatarStyle": "navy"
+        },
+        {
+          "name": "Coach Dana W.",
+          "role": "Diabetes coach",
+          "note": "Cheering on your 180-day streak.",
+          "avatar": "DW",
+          "avatarStyle": "gold"
+        }
+      ],
+      "messages": [
+        {
+          "senderName": "Concept App",
+          "senderRole": "auto-coaching",
+          "sentLabel": "today 7:10 AM",
+          "senderType": "auto",
+          "avatar": "CA",
+          "avatarStyle": "navy",
+          "actionLabel": "See my streak"
+        },
+        {
+          "senderName": "Coach Dana W.",
+          "senderRole": "Diabetes coach",
+          "sentLabel": "Mon",
+          "senderType": "human",
+          "avatar": "DW",
+          "avatarStyle": "gold"
+        }
+      ],
+      "programs": [
+        {
+          "name": "Diabetes self-management education (DSMES)",
+          "detail": "completed — refresher available",
+          "statusChip": "Active"
+        },
+        {
+          "name": "SilverSneakers fitness",
+          "detail": "included with your Medicare Advantage plan",
+          "statusChip": "Available"
+        },
+        {
+          "name": "Annual wellness visit",
+          "detail": "booked Nov 3, 9:00 AM",
+          "statusChip": "Scheduled"
+        }
+      ],
+      "nutrition": [
+        {
+          "label": "Average calories",
+          "valueText": "1,950 / 2,000 plan",
+          "pct": 98,
+          "tone": "navy"
+        },
+        {
+          "label": "Carbohydrates per dinner",
+          "valueText": "avg 52 g — target <60 g",
+          "pct": 100,
+          "tone": "navy"
+        },
+        {
+          "label": "Fiber",
+          "valueText": "30 g / 28 g goal",
+          "pct": 100,
+          "tone": "navy"
+        },
+        {
+          "label": "Days logged",
+          "valueText": "7 of 7",
+          "pct": 100,
+          "tone": "gold"
+        }
+      ],
+      "stepsWeek": {
+        "goalDaily": 7000,
+        "days": [
+          {
+            "d": "Sat",
+            "v": 8200
+          },
+          {
+            "d": "Sun",
+            "v": 7600
+          },
+          {
+            "d": "Mon",
+            "v": 9100
+          },
+          {
+            "d": "Tue",
+            "v": 8400
+          },
+          {
+            "d": "Wed",
+            "v": 7900
+          },
+          {
+            "d": "Thu",
+            "v": 8800
+          },
+          {
+            "d": "Fri",
+            "v": 8900,
+            "today": true
+          }
+        ],
+        "weekOverWeek": "+6% vs 4-week average"
+      }
+    },
+    "priya": {
+      "category": "diabetes",
+      "firstName": "Priya",
+      "lastNameInitial": "N",
+      "age": 34,
+      "planType": "t1d_management",
+      "conditionDetail": "Type 1 · CGM + insulin pump",
+      "providerOrg": "University Endocrine Center",
+      "avatarInitials": "PN",
+      "allergies": [],
+      "dietaryPrefs": [],
+      "engagement": "high",
+      "banner": {
+        "severity": "sky",
+        "title": "Your time in range is holding steady this week",
+        "ctaLabel": "View glucose detail"
+      },
+      "tiles": [
+        {
+          "label": "A1c (latest)",
+          "value": "7.1%",
+          "deltaText": "▼ 0.1",
+          "deltaTone": "down-good",
+          "detail": "Apr 20, 2026 · target <7%"
+        },
+        {
+          "label": "Time in range",
+          "value": "68%",
+          "deltaText": "▲ 3%",
+          "deltaTone": "up-good",
+          "detail": "target >70% · last 14 days"
+        },
+        {
+          "label": "Avg glucose",
+          "value": "152",
+          "detail": "mg/dL · from CGM"
+        },
+        {
+          "label": "Active minutes",
+          "value": "210",
+          "detail": "goal 150/week · met"
+        },
+        {
+          "label": "Rewards",
+          "value": "Silver · 1,980 pts",
+          "detail": "6 of 12 badges"
+        }
+      ],
+      "timeInRange": {
+        "inRangePct": 68,
+        "lowPct": 6,
+        "highPct": 26,
+        "target": 70,
+        "source": "Dexcom G7"
+      },
+      "a1cQuarterly": [
+        {
+          "collectedOn": "2025-10-20",
+          "value": 7.3
+        },
+        {
+          "collectedOn": "2026-01-20",
+          "value": 7.2
+        },
+        {
+          "collectedOn": "2026-04-20",
+          "value": 7.1
+        }
+      ],
+      "connectedDevices": [
+        "dexcom_g7",
+        "apple_watch"
+      ],
+      "gamification": {
+        "points": 1980,
+        "level": "Silver",
+        "streak": {
+          "current": 12,
+          "best": 30,
+          "habit": "logging"
+        },
+        "earnedBadges": [
+          "first_connection",
+          "device_connector",
+          "logging_streak_7",
+          "move_maker",
+          "step_champion",
+          "coach_conversation"
+        ]
+      },
+      "sex": "female",
+      "preferredLanguage": "en",
+      "raceEthnicity": "Asian (South Asian)",
+      "medicareContext": "marketplace",
+      "dualEligible": false,
+      "rurality": "urban",
+      "socialDrivers": [
+        {
+          "domain": "financial_strain",
+          "status": "at_risk",
+          "note": "Out-of-pocket insulin and CGM-supply costs strain her budget; cost-saving programs surfaced.",
+          "surfaces": [
+            "programs",
+            "nearby",
+            "assistant"
+          ],
+          "zCode": "Z59.6"
+        }
+      ],
+      "medications": [
+        {
+          "name": "Insulin aspart (pump)",
+          "rxnorm": "51428",
+          "dose": "basal + mealtime bolus",
+          "timing": "continuous via pump",
+          "todayStatus": "n/a"
+        }
+      ],
+      "labs": [
+        {
+          "display": "Hemoglobin A1c",
+          "loinc": "4548-4",
+          "detail": "Apr 20, 2026 · University Endocrine Lab",
+          "valueText": "7.1% — just above target",
+          "rangeFlag": "above_target"
+        },
+        {
+          "display": "Average glucose (CGM, 14-day)",
+          "loinc": "1558-6",
+          "detail": "from Dexcom G7",
+          "valueText": "152 mg/dL — elevated",
+          "rangeFlag": "elevated"
+        },
+        {
+          "display": "Total cholesterol",
+          "loinc": "2093-3",
+          "detail": "Apr 20, 2026",
+          "valueText": "168 mg/dL — in range",
+          "rangeFlag": "in_range"
+        },
+        {
+          "display": "Blood pressure",
+          "loinc": "85354-9",
+          "detail": "Apr 20, 2026",
+          "valueText": "118/74 — in range",
+          "rangeFlag": "in_range"
+        }
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Omar Haddad",
+          "role": "Endocrinology",
+          "note": "Let's review overnight lows and basal rates at your next visit.",
+          "avatar": "OH",
+          "avatarStyle": "navy"
+        },
+        {
+          "name": "Rachel P., CDCES",
+          "role": "Diabetes care & education specialist",
+          "note": "Sees your CGM share; happy to fine-tune pump settings.",
+          "avatar": "RP",
+          "avatarStyle": "gold"
+        }
+      ],
+      "messages": [
+        {
+          "senderName": "Concept App",
+          "senderRole": "auto-coaching",
+          "sentLabel": "today 6:50 AM",
+          "senderType": "auto",
+          "avatar": "CA",
+          "avatarStyle": "navy",
+          "actionLabel": "View overnight glucose"
+        },
+        {
+          "senderName": "Rachel P., CDCES",
+          "senderRole": "Diabetes educator",
+          "sentLabel": "Tue",
+          "senderType": "human",
+          "avatar": "RP",
+          "avatarStyle": "gold"
+        }
+      ],
+      "programs": [
+        {
+          "name": "Insulin pump & CGM training",
+          "detail": "University Endocrine Center",
+          "statusChip": "Active"
+        },
+        {
+          "name": "Manufacturer copay-savings program",
+          "detail": "may lower CGM-supply cost — ask your team",
+          "statusChip": "Suggested"
+        },
+        {
+          "name": "Type 1 peer support group",
+          "detail": "meets monthly, virtual",
+          "statusChip": "Available"
+        }
+      ],
+      "nutrition": [
+        {
+          "label": "Average calories",
+          "valueText": "1,900 / 2,000 plan",
+          "pct": 95,
+          "tone": "navy"
+        },
+        {
+          "label": "Carb counting accuracy",
+          "valueText": "logged 92% of meals",
+          "pct": 92,
+          "tone": "navy"
+        },
+        {
+          "label": "Fiber",
+          "valueText": "26 g / 28 g goal",
+          "pct": 93,
+          "tone": "navy"
+        },
+        {
+          "label": "Days logged",
+          "valueText": "7 of 7",
+          "pct": 100,
+          "tone": "gold"
+        }
+      ],
+      "activityWeek": {
+        "unit": "minutes",
+        "goalWeekly": 150,
+        "days": [
+          {
+            "d": "Sat",
+            "v": 40
+          },
+          {
+            "d": "Sun",
+            "v": 30
+          },
+          {
+            "d": "Mon",
+            "v": 25
+          },
+          {
+            "d": "Tue",
+            "v": 35
+          },
+          {
+            "d": "Wed",
+            "v": 20
+          },
+          {
+            "d": "Thu",
+            "v": 30
+          },
+          {
+            "d": "Fri",
+            "v": 30,
+            "today": true
+          }
+        ],
+        "total": 210
+      }
+    },
+    "hector": {
+      "category": "diabetes",
+      "firstName": "Hector",
+      "lastNameInitial": "M",
+      "age": 59,
+      "planType": "t2d_management",
+      "conditionDetail": "Type 2 · newly diagnosed (3 months)",
+      "providerOrg": "Eastside Community Clinic",
+      "avatarInitials": "HM",
+      "allergies": [],
+      "dietaryPrefs": [],
+      "engagement": "low",
+      "banner": {
+        "severity": "red",
+        "title": "Let's get started — your A1c is high",
+        "ctaLabel": "Start my plan"
+      },
+      "tiles": [
+        {
+          "label": "A1c (latest)",
+          "value": "9.2%",
+          "deltaText": "high",
+          "deltaTone": "up-bad",
+          "detail": "Apr 28, 2026 · target <7%"
+        },
+        {
+          "label": "Weight",
+          "value": "224 lb",
+          "detail": "baseline · goal in progress"
+        },
+        {
+          "label": "Steps today",
+          "value": "3,200",
+          "detail": "goal 5,000 (starter)"
+        },
+        {
+          "label": "Medications today",
+          "value": "0 / 1",
+          "detail": "metformin — just started"
+        },
+        {
+          "label": "Rewards",
+          "value": "Bronze · 80 pts",
+          "detail": "1 of 12 badges"
+        }
+      ],
+      "a1cQuarterly": [
+        {
+          "collectedOn": "2026-03-10",
+          "value": 9.4
+        },
+        {
+          "collectedOn": "2026-04-28",
+          "value": 9.2,
+          "aboveTarget": true
+        }
+      ],
+      "a1cTarget": {
+        "max": 7,
+        "label": "In-target zone <7.0%"
+      },
+      "medications": [
+        {
+          "name": "Metformin",
+          "dose": "500 mg",
+          "timing": "with breakfast",
+          "todayStatus": "due"
+        }
+      ],
+      "connectedDevices": [],
+      "gamification": {
+        "points": 80,
+        "level": "Bronze",
+        "streak": {
+          "current": 0,
+          "best": 0,
+          "habit": "logging"
+        },
+        "earnedBadges": [
+          "first_connection"
+        ]
+      },
+      "sex": "male",
+      "preferredLanguage": "es",
+      "raceEthnicity": "Hispanic or Latino (White)",
+      "medicareContext": "medicaid",
+      "dualEligible": false,
+      "rurality": "rural",
+      "socialDrivers": [
+        {
+          "domain": "food_insecurity",
+          "status": "at_risk",
+          "note": "Food-insecure; connected to a produce-prescription program.",
+          "surfaces": [
+            "nearby",
+            "programs",
+            "coaching"
+          ],
+          "zCode": "Z59.41"
+        },
+        {
+          "domain": "transportation",
+          "status": "at_risk",
+          "note": "Rural; long drive to clinic. Eligible for Medicaid non-emergency medical transportation (NEMT).",
+          "surfaces": [
+            "nearby",
+            "programs"
+          ],
+          "zCode": "Z59.82"
+        },
+        {
+          "domain": "language_access",
+          "status": "at_risk",
+          "note": "Prefers Spanish; bilingual care team and Spanish coaching content used.",
+          "surfaces": [
+            "coaching",
+            "assistant",
+            "connect"
+          ]
+        }
+      ],
+      "labs": [
+        {
+          "display": "Hemoglobin A1c",
+          "loinc": "4548-4",
+          "detail": "Apr 28, 2026 · Eastside Lab",
+          "valueText": "9.2% — high, above target",
+          "rangeFlag": "above_target"
+        },
+        {
+          "display": "Fasting glucose",
+          "loinc": "1558-6",
+          "detail": "Apr 28, 2026",
+          "valueText": "212 mg/dL — high",
+          "rangeFlag": "elevated"
+        },
+        {
+          "display": "Total cholesterol",
+          "loinc": "2093-3",
+          "detail": "Apr 28, 2026",
+          "valueText": "224 mg/dL — elevated",
+          "rangeFlag": "elevated"
+        },
+        {
+          "display": "Blood pressure",
+          "loinc": "85354-9",
+          "detail": "Apr 28, 2026 · clinic visit",
+          "valueText": "138/86 — elevated",
+          "rangeFlag": "elevated"
+        }
+      ],
+      "careTeam": [
+        {
+          "name": "Dra. Sofía Ramírez",
+          "role": "Primary care (bilingual)",
+          "note": "Empezamos metformina. Vamos paso a paso. / We started metformin — one step at a time.",
+          "avatar": "SR",
+          "avatarStyle": "navy"
+        },
+        {
+          "name": "Ana L.",
+          "role": "Community health worker (promotora)",
+          "note": "Helping with transportation and food resources.",
+          "avatar": "AL",
+          "avatarStyle": "gold"
+        }
+      ],
+      "messages": [
+        {
+          "senderName": "Concept App",
+          "senderRole": "auto-coaching",
+          "sentLabel": "hoy 8:00 AM",
+          "senderType": "auto",
+          "avatar": "CA",
+          "avatarStyle": "navy",
+          "actionLabel": "Tomar metformina / Log metformin"
+        },
+        {
+          "senderName": "Ana L.",
+          "senderRole": "Promotora de salud",
+          "sentLabel": "ayer",
+          "senderType": "human",
+          "avatar": "AL",
+          "avatarStyle": "gold"
+        }
+      ],
+      "programs": [
+        {
+          "name": "Diabetes self-management education (DSMES)",
+          "detail": "Spanish-language cohort — referral on file",
+          "statusChip": "Eligible"
+        },
+        {
+          "name": "Medicaid non-emergency medical transportation",
+          "detail": "rides to clinic appointments",
+          "statusChip": "Available"
+        },
+        {
+          "name": "Produce-prescription program",
+          "detail": "weekly fresh-produce benefit",
+          "statusChip": "Suggested"
+        }
+      ],
+      "nutrition": [
+        {
+          "label": "Average calories",
+          "valueText": "2,300 / 2,200 plan",
+          "pct": 100,
+          "tone": "navy"
+        },
+        {
+          "label": "Carbohydrates per dinner",
+          "valueText": "avg 105 g — target <60 g",
+          "pct": 100,
+          "tone": "gold"
+        },
+        {
+          "label": "Days logged",
+          "valueText": "2 of 7 — just getting started",
+          "pct": 29,
+          "tone": "gold"
+        }
+      ],
+      "stepsWeek": {
+        "goalDaily": 5000,
+        "days": [
+          {
+            "d": "Sat",
+            "v": 2600
+          },
+          {
+            "d": "Sun",
+            "v": 3100
+          },
+          {
+            "d": "Mon",
+            "v": 2900
+          },
+          {
+            "d": "Tue",
+            "v": 3400
+          },
+          {
+            "d": "Wed",
+            "v": 2800
+          },
+          {
+            "d": "Thu",
+            "v": 3000
+          },
+          {
+            "d": "Fri",
+            "v": 3200,
+            "today": true
+          }
+        ],
+        "weekOverWeek": "starter goal"
+      }
+    },
+    "linda": {
+      "category": "diabetes",
+      "firstName": "Linda",
+      "lastNameInitial": "T",
+      "age": 66,
+      "planType": "t2d_management",
+      "conditionDetail": "Type 2 + hypertension",
+      "providerOrg": "Riverview Health",
+      "avatarInitials": "LT",
+      "allergies": [],
+      "dietaryPrefs": [],
+      "engagement": "moderate",
+      "banner": {
+        "severity": "gold",
+        "title": "Your blood pressure is running high this week",
+        "ctaLabel": "Share with my care team"
+      },
+      "tiles": [
+        {
+          "label": "A1c (latest)",
+          "value": "7.8%",
+          "deltaText": "▲ 0.1",
+          "deltaTone": "up-bad",
+          "detail": "May 10, 2026 · target <7.5%"
+        },
+        {
+          "label": "Blood pressure",
+          "value": "146/90",
+          "deltaText": "▲ elevated",
+          "deltaTone": "up-bad",
+          "detail": "14-day avg · target <130/80"
+        },
+        {
+          "label": "Weight",
+          "value": "176 lb",
+          "deltaText": "▼ 2 lb",
+          "deltaTone": "down-good",
+          "detail": "since April"
+        },
+        {
+          "label": "Medications today",
+          "value": "2 / 4",
+          "detail": "two doses remaining"
+        },
+        {
+          "label": "Rewards",
+          "value": "Silver · 1,540 pts",
+          "detail": "5 of 12 badges"
+        }
+      ],
+      "a1cQuarterly": [
+        {
+          "collectedOn": "2025-08-10",
+          "value": 7.5
+        },
+        {
+          "collectedOn": "2025-11-10",
+          "value": 7.6
+        },
+        {
+          "collectedOn": "2026-02-10",
+          "value": 7.7
+        },
+        {
+          "collectedOn": "2026-05-10",
+          "value": 7.8,
+          "aboveTarget": true
+        }
+      ],
+      "a1cTarget": {
+        "max": 7.5,
+        "label": "In-target zone <7.5%"
+      },
+      "bpTrend": {
+        "unit": "mmHg",
+        "targetSys": 130,
+        "targetDia": 80,
+        "systolic14d": [
+          138,
+          140,
+          142,
+          139,
+          144,
+          141,
+          148,
+          145,
+          143,
+          147,
+          146,
+          149,
+          144,
+          150
+        ],
+        "source": "Omron Evolv"
+      },
+      "medications": [
+        {
+          "name": "Metformin",
+          "dose": "1000 mg",
+          "timing": "twice daily",
+          "todayStatus": "taken"
+        },
+        {
+          "name": "Glipizide",
+          "dose": "5 mg",
+          "timing": "with breakfast",
+          "todayStatus": "taken"
+        },
+        {
+          "name": "Lisinopril",
+          "dose": "20 mg",
+          "timing": "morning",
+          "todayStatus": "due"
+        },
+        {
+          "name": "Atorvastatin",
+          "dose": "20 mg",
+          "timing": "evening",
+          "todayStatus": "due"
+        }
+      ],
+      "connectedDevices": [
+        "omron_evolv"
+      ],
+      "gamification": {
+        "points": 1540,
+        "level": "Silver",
+        "streak": {
+          "current": 22,
+          "best": 40,
+          "habit": "meds"
+        },
+        "earnedBadges": [
+          "first_connection",
+          "device_connector",
+          "med_adherence_30",
+          "logging_streak_7",
+          "coach_conversation"
+        ]
+      },
+      "sex": "female",
+      "preferredLanguage": "vi",
+      "raceEthnicity": "Asian (Vietnamese)",
+      "medicareContext": "dual_eligible",
+      "dualEligible": true,
+      "rurality": "urban",
+      "socialDrivers": [
+        {
+          "domain": "social_isolation",
+          "status": "at_risk",
+          "note": "Lives alone since widowhood; benefits from a senior social/walking group.",
+          "surfaces": [
+            "nearby",
+            "programs"
+          ],
+          "zCode": "Z60.2"
+        },
+        {
+          "domain": "language_access",
+          "status": "at_risk",
+          "note": "Prefers Vietnamese; Vietnamese coaching content and interpreter offered.",
+          "surfaces": [
+            "coaching",
+            "assistant",
+            "connect"
+          ]
+        }
+      ],
+      "labs": [
+        {
+          "display": "Hemoglobin A1c",
+          "loinc": "4548-4",
+          "detail": "May 10, 2026 · Riverview Lab",
+          "valueText": "7.8% — above target",
+          "rangeFlag": "above_target"
+        },
+        {
+          "display": "Blood pressure",
+          "loinc": "85354-9",
+          "detail": "May 10, 2026 · 14-day home avg",
+          "valueText": "146/90 — elevated",
+          "rangeFlag": "elevated"
+        },
+        {
+          "display": "Fasting glucose",
+          "loinc": "1558-6",
+          "detail": "May 10, 2026",
+          "valueText": "150 mg/dL — elevated",
+          "rangeFlag": "elevated"
+        },
+        {
+          "display": "Total cholesterol",
+          "loinc": "2093-3",
+          "detail": "May 10, 2026 · on atorvastatin",
+          "valueText": "178 mg/dL — in range",
+          "rangeFlag": "in_range"
+        }
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. James Patel",
+          "role": "Primary care",
+          "note": "Let's review your blood pressure — please keep taking home readings.",
+          "avatar": "JP",
+          "avatarStyle": "navy"
+        },
+        {
+          "name": "Henry K., PharmD",
+          "role": "Pharmacist (med-sync)",
+          "note": "Aligned your four refills to one monthly pickup.",
+          "avatar": "HK",
+          "avatarStyle": "gold"
+        }
+      ],
+      "messages": [
+        {
+          "senderName": "Concept App",
+          "senderRole": "auto-coaching",
+          "sentLabel": "hôm nay 7:30 AM",
+          "senderType": "auto",
+          "avatar": "CA",
+          "avatarStyle": "navy",
+          "actionLabel": "Share BP with care team"
+        },
+        {
+          "senderName": "Henry K., PharmD",
+          "senderRole": "Pharmacist",
+          "sentLabel": "Mon",
+          "senderType": "human",
+          "avatar": "HK",
+          "avatarStyle": "gold"
+        }
+      ],
+      "programs": [
+        {
+          "name": "Diabetes self-management education (DSMES)",
+          "detail": "Vietnamese-language materials available",
+          "statusChip": "Eligible"
+        },
+        {
+          "name": "Pharmacy med-sync",
+          "detail": "one monthly pickup for all medications",
+          "statusChip": "Active"
+        },
+        {
+          "name": "Senior social & walking group",
+          "detail": "Riverview Community Center, Tue & Sat",
+          "statusChip": "Near you"
+        }
+      ],
+      "nutrition": [
+        {
+          "label": "Average calories",
+          "valueText": "1,800 / 1,900 plan",
+          "pct": 95,
+          "tone": "navy"
+        },
+        {
+          "label": "Sodium",
+          "valueText": "2,450 mg avg — target <2,000 (hypertension)",
+          "pct": 100,
+          "tone": "gold"
+        },
+        {
+          "label": "Added sugar",
+          "valueText": "34 g avg — target <36 g",
+          "pct": 94,
+          "tone": "navy"
+        },
+        {
+          "label": "Days logged",
+          "valueText": "6 of 7",
+          "pct": 86,
+          "tone": "gold"
+        }
+      ],
+      "stepsWeek": {
+        "goalDaily": 6000,
+        "days": [
+          {
+            "d": "Sat",
+            "v": 5200
+          },
+          {
+            "d": "Sun",
+            "v": 4800
+          },
+          {
+            "d": "Mon",
+            "v": 5600
+          },
+          {
+            "d": "Tue",
+            "v": 6100
+          },
+          {
+            "d": "Wed",
+            "v": 5400
+          },
+          {
+            "d": "Thu",
+            "v": 5000
+          },
+          {
+            "d": "Fri",
+            "v": 5300,
+            "today": true
+          }
+        ]
+      }
+    },
+    "deshawn": {
+      "category": "diabetes",
+      "firstName": "DeShawn",
+      "lastNameInitial": "W",
+      "age": 52,
+      "planType": "t2d_management",
+      "conditionDetail": "Type 2 · borderline control",
+      "providerOrg": "Midtown Health",
+      "avatarInitials": "DW",
+      "allergies": [],
+      "dietaryPrefs": [],
+      "engagement": "moderate",
+      "banner": {
+        "severity": "sky",
+        "title": "You're holding steady — small wins add up",
+        "ctaLabel": "See my plan"
+      },
+      "tiles": [
+        {
+          "label": "A1c (latest)",
+          "value": "7.0%",
+          "deltaText": "no change",
+          "deltaTone": "flag",
+          "detail": "Apr 15, 2026 · target <7%"
+        },
+        {
+          "label": "Weight",
+          "value": "205 lb",
+          "deltaText": "plateau",
+          "deltaTone": "flag",
+          "detail": "unchanged 6 weeks"
+        },
+        {
+          "label": "Steps today",
+          "value": "6,000",
+          "detail": "goal 7,000"
+        },
+        {
+          "label": "Medications today",
+          "value": "1 / 1",
+          "detail": "metformin taken"
+        },
+        {
+          "label": "Rewards",
+          "value": "Silver · 1,120 pts",
+          "detail": "4 of 12 badges"
+        }
+      ],
+      "a1cQuarterly": [
+        {
+          "collectedOn": "2025-07-15",
+          "value": 7.1
+        },
+        {
+          "collectedOn": "2025-10-15",
+          "value": 7
+        },
+        {
+          "collectedOn": "2026-01-15",
+          "value": 7
+        },
+        {
+          "collectedOn": "2026-04-15",
+          "value": 7
+        }
+      ],
+      "a1cTarget": {
+        "max": 7,
+        "label": "In-target zone <7.0%"
+      },
+      "medications": [
+        {
+          "name": "Metformin",
+          "dose": "1000 mg",
+          "timing": "twice daily",
+          "todayStatus": "taken"
+        }
+      ],
+      "connectedDevices": [
+        "withings_body"
+      ],
+      "gamification": {
+        "points": 1120,
+        "level": "Silver",
+        "streak": {
+          "current": 9,
+          "best": 15,
+          "habit": "activity"
+        },
+        "earnedBadges": [
+          "first_connection",
+          "device_connector",
+          "logging_streak_7",
+          "med_adherence_30"
+        ]
+      },
+      "sex": "male",
+      "preferredLanguage": "en",
+      "raceEthnicity": "Black or African American",
+      "medicareContext": "marketplace",
+      "dualEligible": false,
+      "rurality": "urban",
+      "socialDrivers": [
+        {
+          "domain": "work_schedule",
+          "status": "at_risk",
+          "note": "Long work hours limit time for activity and logging; flexible nudges and quick recipes surfaced.",
+          "surfaces": [
+            "coaching",
+            "recipes"
+          ],
+          "zCode": "Z56.6"
+        }
+      ],
+      "labs": [
+        {
+          "display": "Hemoglobin A1c",
+          "loinc": "4548-4",
+          "detail": "Apr 15, 2026 · Midtown Lab",
+          "valueText": "7.0% — at target ceiling",
+          "rangeFlag": "above_target"
+        },
+        {
+          "display": "Fasting glucose",
+          "loinc": "1558-6",
+          "detail": "Apr 15, 2026",
+          "valueText": "134 mg/dL — elevated",
+          "rangeFlag": "elevated"
+        },
+        {
+          "display": "Total cholesterol",
+          "loinc": "2093-3",
+          "detail": "Apr 15, 2026",
+          "valueText": "196 mg/dL — borderline",
+          "rangeFlag": "elevated"
+        },
+        {
+          "display": "Blood pressure",
+          "loinc": "85354-9",
+          "detail": "Apr 15, 2026",
+          "valueText": "128/82 — in range",
+          "rangeFlag": "in_range"
+        }
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Karen Brooks",
+          "role": "Primary care",
+          "note": "You're holding steady — let's try one new habit before your next visit.",
+          "avatar": "KB",
+          "avatarStyle": "navy"
+        },
+        {
+          "name": "Coach Dana W.",
+          "role": "Diabetes coach",
+          "note": "Quick check-ins that fit your work schedule.",
+          "avatar": "DW",
+          "avatarStyle": "gold"
+        }
+      ],
+      "messages": [
+        {
+          "senderName": "Concept App",
+          "senderRole": "auto-coaching",
+          "sentLabel": "today 6:30 AM",
+          "senderType": "auto",
+          "avatar": "CA",
+          "avatarStyle": "navy",
+          "actionLabel": "Add a 10-minute walk"
+        },
+        {
+          "senderName": "Coach Dana W.",
+          "senderRole": "Diabetes coach",
+          "sentLabel": "Thu",
+          "senderType": "human",
+          "avatar": "DW",
+          "avatarStyle": "gold"
+        }
+      ],
+      "programs": [
+        {
+          "name": "Diabetes self-management education (DSMES)",
+          "detail": "evening virtual cohort (fits shift work)",
+          "statusChip": "Eligible"
+        },
+        {
+          "name": "Weight-management program",
+          "detail": "to break the plateau",
+          "statusChip": "Suggested"
+        },
+        {
+          "name": "Gym discount",
+          "detail": "Iron & Cardio Gym, 24-hour access",
+          "statusChip": "Near you"
+        }
+      ],
+      "nutrition": [
+        {
+          "label": "Average calories",
+          "valueText": "2,100 / 2,100 plan",
+          "pct": 100,
+          "tone": "navy"
+        },
+        {
+          "label": "Carbohydrates per dinner",
+          "valueText": "avg 72 g — target <60 g",
+          "pct": 100,
+          "tone": "gold"
+        },
+        {
+          "label": "Days logged",
+          "valueText": "4 of 7",
+          "pct": 57,
+          "tone": "gold"
+        }
+      ],
+      "stepsWeek": {
+        "goalDaily": 7000,
+        "days": [
+          {
+            "d": "Sat",
+            "v": 6400
+          },
+          {
+            "d": "Sun",
+            "v": 7100
+          },
+          {
+            "d": "Mon",
+            "v": 5800
+          },
+          {
+            "d": "Tue",
+            "v": 6000
+          },
+          {
+            "d": "Wed",
+            "v": 5600
+          },
+          {
+            "d": "Thu",
+            "v": 6200
+          },
+          {
+            "d": "Fri",
+            "v": 6000,
+            "today": true
+          }
+        ],
+        "weekOverWeek": "flat vs 4-week average"
+      }
+    },
+    "samuel": {
+      "category": "obesity",
+      "firstName": "Samuel",
+      "lastNameInitial": "G",
+      "age": 45,
+      "planType": "obesity_management",
+      "conditionDetail": "Obesity (class II) · on GLP-1",
+      "providerOrg": "Wellspring Weight Health",
+      "avatarInitials": "SG",
+      "allergies": [],
+      "dietaryPrefs": [],
+      "engagement": "high",
+      "banner": {
+        "severity": "sky",
+        "title": "You're down 18 lb since starting — great momentum",
+        "ctaLabel": "See my progress"
+      },
+      "tiles": [
+        {
+          "label": "BMI",
+          "value": "38.0",
+          "deltaText": "▼ 2.1",
+          "deltaTone": "down-good",
+          "detail": "class II · trending down"
+        },
+        {
+          "label": "Weight",
+          "value": "248 lb",
+          "deltaText": "▼ 18 lb",
+          "deltaTone": "down-good",
+          "detail": "since Feb · goal 220"
+        },
+        {
+          "label": "Next GLP-1 dose",
+          "value": "Sun",
+          "detail": "semaglutide 1.0 mg weekly"
+        },
+        {
+          "label": "Steps today",
+          "value": "7,500",
+          "detail": "goal 7,000 · met"
+        },
+        {
+          "label": "Rewards",
+          "value": "Gold · 2,640 pts",
+          "detail": "7 of 12 badges"
+        }
+      ],
+      "weightMonthly": [
+        {
+          "month": "2026-01",
+          "lb": 266
+        },
+        {
+          "month": "2026-02",
+          "lb": 262
+        },
+        {
+          "month": "2026-03",
+          "lb": 258
+        },
+        {
+          "month": "2026-04",
+          "lb": 254
+        },
+        {
+          "month": "2026-05",
+          "lb": 251
+        },
+        {
+          "month": "2026-06",
+          "lb": 248
+        }
+      ],
+      "weightGoal": {
+        "lb": 220,
+        "label": "Goal 220 lb"
+      },
+      "medications": [
+        {
+          "name": "Semaglutide",
+          "dose": "1.0 mg",
+          "timing": "weekly injection (Sun)",
+          "todayStatus": "n/a"
+        }
+      ],
+      "connectedDevices": [
+        "withings_body",
+        "fitbit_charge"
+      ],
+      "gamification": {
+        "points": 2640,
+        "level": "Gold",
+        "streak": {
+          "current": 35,
+          "best": 35,
+          "habit": "logging"
+        },
+        "earnedBadges": [
+          "first_connection",
+          "device_connector",
+          "milestone_weight_5",
+          "logging_streak_7",
+          "step_champion",
+          "move_maker",
+          "recipe_explorer"
+        ]
+      },
+      "sex": "male",
+      "preferredLanguage": "en",
+      "raceEthnicity": "White, non-Hispanic",
+      "medicareContext": "marketplace",
+      "dualEligible": false,
+      "rurality": "suburban",
+      "socialDrivers": [
+        {
+          "domain": "none",
+          "status": "none",
+          "note": "No health-related social needs identified at last screening.",
+          "surfaces": []
+        }
+      ],
+      "labs": [
+        {
+          "display": "Hemoglobin A1c",
+          "loinc": "4548-4",
+          "detail": "May 5, 2026 · Wellspring Lab",
+          "valueText": "5.6% — normal (no diabetes)",
+          "rangeFlag": "in_range"
+        },
+        {
+          "display": "Fasting glucose",
+          "loinc": "1558-6",
+          "detail": "May 5, 2026",
+          "valueText": "94 mg/dL — in range",
+          "rangeFlag": "in_range"
+        },
+        {
+          "display": "Total cholesterol",
+          "loinc": "2093-3",
+          "detail": "May 5, 2026",
+          "valueText": "204 mg/dL — borderline",
+          "rangeFlag": "elevated"
+        },
+        {
+          "display": "Blood pressure",
+          "loinc": "85354-9",
+          "detail": "May 5, 2026",
+          "valueText": "126/80 — in range",
+          "rangeFlag": "in_range"
+        }
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Nadia Fields",
+          "role": "Obesity medicine",
+          "note": "Great progress on semaglutide — next step-up planned if tolerated.",
+          "avatar": "NF",
+          "avatarStyle": "navy"
+        },
+        {
+          "name": "Jordan J., RDN",
+          "role": "Registered dietitian",
+          "note": "Sees your logs; focusing on protein and satiety.",
+          "avatar": "JJ",
+          "avatarStyle": "gold"
+        }
+      ],
+      "messages": [
+        {
+          "senderName": "Concept App",
+          "senderRole": "auto-coaching",
+          "sentLabel": "today 7:15 AM",
+          "senderType": "auto",
+          "avatar": "CA",
+          "avatarStyle": "navy",
+          "actionLabel": "See my weight trend"
+        },
+        {
+          "senderName": "Jordan J., RDN",
+          "senderRole": "Dietitian",
+          "sentLabel": "Wed",
+          "senderType": "human",
+          "avatar": "JJ",
+          "avatarStyle": "gold"
+        }
+      ],
+      "programs": [
+        {
+          "name": "Medical weight-management program",
+          "detail": "Wellspring Weight Health",
+          "statusChip": "Active"
+        },
+        {
+          "name": "Medical nutrition therapy",
+          "detail": "covered with obesity diagnosis",
+          "statusChip": "Eligible"
+        },
+        {
+          "name": "Strength-training starter plan",
+          "detail": "to preserve muscle during weight loss",
+          "statusChip": "Suggested"
+        }
+      ],
+      "nutrition": [
+        {
+          "label": "Average calories",
+          "valueText": "1,850 / 1,900 plan",
+          "pct": 97,
+          "tone": "navy"
+        },
+        {
+          "label": "Protein",
+          "valueText": "112 g / 110 g goal",
+          "pct": 100,
+          "tone": "navy"
+        },
+        {
+          "label": "Fiber",
+          "valueText": "29 g / 28 g goal",
+          "pct": 100,
+          "tone": "navy"
+        },
+        {
+          "label": "Days logged",
+          "valueText": "7 of 7",
+          "pct": 100,
+          "tone": "gold"
+        }
+      ],
+      "stepsWeek": {
+        "goalDaily": 7000,
+        "days": [
+          {
+            "d": "Sat",
+            "v": 7800
+          },
+          {
+            "d": "Sun",
+            "v": 7200
+          },
+          {
+            "d": "Mon",
+            "v": 7400
+          },
+          {
+            "d": "Tue",
+            "v": 7600
+          },
+          {
+            "d": "Wed",
+            "v": 7100
+          },
+          {
+            "d": "Thu",
+            "v": 7900
+          },
+          {
+            "d": "Fri",
+            "v": 7500,
+            "today": true
+          }
+        ],
+        "weekOverWeek": "+8% vs 4-week average"
+      }
+    },
+    "aisha": {
+      "category": "obesity",
+      "firstName": "Aisha",
+      "lastNameInitial": "K",
+      "age": 29,
+      "planType": "obesity_management",
+      "conditionDetail": "Obesity (class I) · highly active",
+      "providerOrg": "City Health Collective",
+      "avatarInitials": "AK",
+      "allergies": [],
+      "dietaryPrefs": [
+        "halal"
+      ],
+      "engagement": "very_high",
+      "banner": {
+        "severity": "sky",
+        "title": "You're on a 21-day streak — top of your challenge group",
+        "ctaLabel": "View my rewards"
+      },
+      "tiles": [
+        {
+          "label": "BMI",
+          "value": "32.0",
+          "deltaText": "▼ 1.4",
+          "deltaTone": "down-good",
+          "detail": "class I · trending down"
+        },
+        {
+          "label": "Steps today",
+          "value": "12,400",
+          "deltaText": "▲ goal+77%",
+          "deltaTone": "up-good",
+          "detail": "goal 7,000"
+        },
+        {
+          "label": "Active minutes",
+          "value": "280",
+          "detail": "goal 150/week · exceeded"
+        },
+        {
+          "label": "Current streak",
+          "value": "21 days",
+          "detail": "best streak · logging"
+        },
+        {
+          "label": "Rewards",
+          "value": "Platinum · 4,200 pts",
+          "detail": "11 of 12 badges"
+        }
+      ],
+      "weightMonthly": [
+        {
+          "month": "2026-01",
+          "lb": 205
+        },
+        {
+          "month": "2026-02",
+          "lb": 202
+        },
+        {
+          "month": "2026-03",
+          "lb": 199
+        },
+        {
+          "month": "2026-04",
+          "lb": 196
+        },
+        {
+          "month": "2026-05",
+          "lb": 193
+        },
+        {
+          "month": "2026-06",
+          "lb": 190
+        }
+      ],
+      "weightGoal": {
+        "lb": 175,
+        "label": "Goal 175 lb"
+      },
+      "connectedDevices": [
+        "apple_watch",
+        "withings_body"
+      ],
+      "gamification": {
+        "points": 4200,
+        "level": "Platinum",
+        "streak": {
+          "current": 21,
+          "best": 21,
+          "habit": "logging"
+        },
+        "earnedBadges": [
+          "first_connection",
+          "device_connector",
+          "logging_streak_7",
+          "step_champion",
+          "move_maker",
+          "milestone_weight_5",
+          "hydration_hero",
+          "recipe_explorer",
+          "coach_conversation",
+          "a1c_improver",
+          "prevention_graduate"
+        ]
+      },
+      "sex": "female",
+      "preferredLanguage": "en",
+      "secondaryLanguage": "ur",
+      "raceEthnicity": "Asian (Pakistani)",
+      "medicareContext": "marketplace",
+      "dualEligible": false,
+      "rurality": "urban",
+      "socialDrivers": [
+        {
+          "domain": "none",
+          "status": "none",
+          "note": "No health-related social needs identified at last screening.",
+          "surfaces": []
+        }
+      ],
+      "earnedBadges": [
+        "first_connection",
+        "device_connector",
+        "logging_streak_7",
+        "step_champion",
+        "move_maker",
+        "milestone_weight_5",
+        "hydration_hero",
+        "recipe_explorer",
+        "coach_conversation",
+        "a1c_improver",
+        "prevention_graduate"
+      ],
+      "lockedBadgeNote": "30-Day Med Adherence is locked — Aisha takes no medications, so it has no way to be earned (shown dimmed with its criterion).",
+      "a1cQuarterly": [
+        {
+          "collectedOn": "2025-09-15",
+          "value": 6
+        },
+        {
+          "collectedOn": "2025-12-15",
+          "value": 5.8
+        },
+        {
+          "collectedOn": "2026-03-15",
+          "value": 5.6
+        }
+      ],
+      "a1cTarget": {
+        "max": 5.7,
+        "label": "Out of pre-diabetes range <5.7%"
+      },
+      "labs": [
+        {
+          "display": "Hemoglobin A1c",
+          "loinc": "4548-4",
+          "detail": "Mar 15, 2026 · City Health Lab",
+          "valueText": "5.6% — out of pre-diabetes range",
+          "rangeFlag": "in_range"
+        },
+        {
+          "display": "Fasting glucose",
+          "loinc": "1558-6",
+          "detail": "Mar 15, 2026",
+          "valueText": "92 mg/dL — in range",
+          "rangeFlag": "in_range"
+        },
+        {
+          "display": "Total cholesterol",
+          "loinc": "2093-3",
+          "detail": "Mar 15, 2026",
+          "valueText": "176 mg/dL — in range",
+          "rangeFlag": "in_range"
+        },
+        {
+          "display": "Blood pressure",
+          "loinc": "85354-9",
+          "detail": "Mar 15, 2026",
+          "valueText": "116/72 — in range",
+          "rangeFlag": "in_range"
+        }
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Yusuf Ali",
+          "role": "Primary care",
+          "note": "Your A1c moved out of the pre-diabetes range — excellent work.",
+          "avatar": "YA",
+          "avatarStyle": "navy"
+        },
+        {
+          "name": "Coach Dana W.",
+          "role": "Wellness coach",
+          "note": "You're topping the challenge leaderboard!",
+          "avatar": "DW",
+          "avatarStyle": "gold"
+        }
+      ],
+      "messages": [
+        {
+          "senderName": "Concept App",
+          "senderRole": "auto-coaching",
+          "sentLabel": "today 6:05 AM",
+          "senderType": "auto",
+          "avatar": "CA",
+          "avatarStyle": "navy",
+          "actionLabel": "Join this week's challenge"
+        },
+        {
+          "senderName": "Coach Dana W.",
+          "senderRole": "Wellness coach",
+          "sentLabel": "today 8:20 AM",
+          "senderType": "human",
+          "avatar": "DW",
+          "avatarStyle": "gold"
+        }
+      ],
+      "programs": [
+        {
+          "name": "National Diabetes Prevention Program (DPP)",
+          "detail": "completed — graduated",
+          "statusChip": "Active"
+        },
+        {
+          "name": "Group fitness challenge",
+          "detail": "leaderboard leader this month",
+          "statusChip": "Active"
+        },
+        {
+          "name": "Healthy cooking workshop",
+          "detail": "halal-friendly recipes",
+          "statusChip": "Available"
+        }
+      ],
+      "nutrition": [
+        {
+          "label": "Average calories",
+          "valueText": "1,750 / 1,900 plan",
+          "pct": 92,
+          "tone": "navy"
+        },
+        {
+          "label": "Protein",
+          "valueText": "98 g / 95 g goal",
+          "pct": 100,
+          "tone": "navy"
+        },
+        {
+          "label": "Hydration",
+          "valueText": "8 of 8 cups/day",
+          "pct": 100,
+          "tone": "navy"
+        },
+        {
+          "label": "Days logged",
+          "valueText": "7 of 7",
+          "pct": 100,
+          "tone": "gold"
+        }
+      ],
+      "stepsWeek": {
+        "goalDaily": 7000,
+        "days": [
+          {
+            "d": "Sat",
+            "v": 13100
+          },
+          {
+            "d": "Sun",
+            "v": 11800
+          },
+          {
+            "d": "Mon",
+            "v": 12600
+          },
+          {
+            "d": "Tue",
+            "v": 12000
+          },
+          {
+            "d": "Wed",
+            "v": 13400
+          },
+          {
+            "d": "Thu",
+            "v": 11900
+          },
+          {
+            "d": "Fri",
+            "v": 12400,
+            "today": true
+          }
+        ],
+        "weekOverWeek": "+78% vs goal"
+      }
+    },
+    "carol": {
+      "category": "obesity",
+      "firstName": "Carol",
+      "lastNameInitial": "J",
+      "age": 61,
+      "planType": "obesity_management",
+      "conditionDetail": "Obesity (class III) · osteoarthritis",
+      "providerOrg": "Riverview Health",
+      "avatarInitials": "CJ",
+      "allergies": [],
+      "dietaryPrefs": [],
+      "engagement": "moderate",
+      "adaptedGoals": true,
+      "banner": {
+        "severity": "gold",
+        "title": "Low-impact goals this week to protect your joints",
+        "ctaLabel": "Find low-impact options"
+      },
+      "tiles": [
+        {
+          "label": "BMI",
+          "value": "41.0",
+          "deltaText": "▼ 0.6",
+          "deltaTone": "down-good",
+          "detail": "class III"
+        },
+        {
+          "label": "Weight",
+          "value": "252 lb",
+          "deltaText": "▼ 3 lb",
+          "deltaTone": "down-good",
+          "detail": "since April"
+        },
+        {
+          "label": "Steps today",
+          "value": "2,800",
+          "detail": "adapted goal 4,000 (low-impact)"
+        },
+        {
+          "label": "Active minutes",
+          "value": "70",
+          "detail": "goal 90/week (low-impact)"
+        },
+        {
+          "label": "Rewards",
+          "value": "Bronze · 640 pts",
+          "detail": "3 of 12 badges"
+        }
+      ],
+      "weightMonthly": [
+        {
+          "month": "2026-02",
+          "lb": 259
+        },
+        {
+          "month": "2026-03",
+          "lb": 257
+        },
+        {
+          "month": "2026-04",
+          "lb": 255
+        },
+        {
+          "month": "2026-05",
+          "lb": 254
+        },
+        {
+          "month": "2026-06",
+          "lb": 252
+        }
+      ],
+      "weightGoal": {
+        "lb": 235,
+        "label": "Goal 235 lb"
+      },
+      "connectedDevices": [
+        "ihealth_scale"
+      ],
+      "gamification": {
+        "points": 640,
+        "level": "Bronze",
+        "streak": {
+          "current": 6,
+          "best": 12,
+          "habit": "activity"
+        },
+        "earnedBadges": [
+          "first_connection",
+          "device_connector",
+          "logging_streak_7"
+        ]
+      },
+      "sex": "female",
+      "preferredLanguage": "en",
+      "raceEthnicity": "White, non-Hispanic",
+      "medicareContext": "disability_under65",
+      "dualEligible": false,
+      "rurality": "rural",
+      "socialDrivers": [
+        {
+          "domain": "transportation",
+          "status": "at_risk",
+          "note": "Rural with limited mobility from osteoarthritis; benefits from telehealth and accessible, low-impact options.",
+          "surfaces": [
+            "nearby",
+            "programs",
+            "coaching"
+          ],
+          "zCode": "Z59.82"
+        }
+      ],
+      "labs": [
+        {
+          "display": "Hemoglobin A1c",
+          "loinc": "4548-4",
+          "detail": "Apr 22, 2026 · Riverview Lab",
+          "valueText": "5.9% — pre-diabetes range",
+          "rangeFlag": "prediabetes"
+        },
+        {
+          "display": "Fasting glucose",
+          "loinc": "1558-6",
+          "detail": "Apr 22, 2026",
+          "valueText": "104 mg/dL — slightly elevated",
+          "rangeFlag": "elevated"
+        },
+        {
+          "display": "Total cholesterol",
+          "loinc": "2093-3",
+          "detail": "Apr 22, 2026",
+          "valueText": "214 mg/dL — elevated",
+          "rangeFlag": "elevated"
+        },
+        {
+          "display": "Blood pressure",
+          "loinc": "85354-9",
+          "detail": "Apr 22, 2026",
+          "valueText": "134/84 — elevated",
+          "rangeFlag": "elevated"
+        }
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. James Patel",
+          "role": "Primary care",
+          "note": "Low-impact movement protects your joints — let's keep it gentle and steady.",
+          "avatar": "JP",
+          "avatarStyle": "navy"
+        },
+        {
+          "name": "Tomás R., PT",
+          "role": "Physical therapist",
+          "note": "Built you a water-aerobics and seated-strength plan.",
+          "avatar": "TR",
+          "avatarStyle": "gold"
+        }
+      ],
+      "messages": [
+        {
+          "senderName": "Concept App",
+          "senderRole": "auto-coaching",
+          "sentLabel": "today 9:00 AM",
+          "senderType": "auto",
+          "avatar": "CA",
+          "avatarStyle": "navy",
+          "actionLabel": "Find a low-impact class"
+        },
+        {
+          "senderName": "Tomás R., PT",
+          "senderRole": "Physical therapist",
+          "sentLabel": "Tue",
+          "senderType": "human",
+          "avatar": "TR",
+          "avatarStyle": "gold"
+        }
+      ],
+      "programs": [
+        {
+          "name": "Low-impact exercise program",
+          "detail": "AquaFit water aerobics — joint-friendly",
+          "statusChip": "Active"
+        },
+        {
+          "name": "Chronic Disease Self-Management (CDSME)",
+          "detail": "arthritis + weight, covered",
+          "statusChip": "Eligible"
+        },
+        {
+          "name": "Transportation assistance",
+          "detail": "rides to appointments (rural)",
+          "statusChip": "Available"
+        }
+      ],
+      "nutrition": [
+        {
+          "label": "Average calories",
+          "valueText": "1,900 / 2,000 plan",
+          "pct": 95,
+          "tone": "navy"
+        },
+        {
+          "label": "Sodium",
+          "valueText": "2,300 mg avg — target <2,300",
+          "pct": 100,
+          "tone": "navy"
+        },
+        {
+          "label": "Fiber",
+          "valueText": "22 g / 28 g goal",
+          "pct": 79,
+          "tone": "navy"
+        },
+        {
+          "label": "Days logged",
+          "valueText": "5 of 7",
+          "pct": 71,
+          "tone": "gold"
+        }
+      ],
+      "activityWeek": {
+        "unit": "minutes",
+        "goalWeekly": 90,
+        "days": [
+          {
+            "d": "Sat",
+            "v": 15
+          },
+          {
+            "d": "Sun",
+            "v": 0
+          },
+          {
+            "d": "Mon",
+            "v": 15
+          },
+          {
+            "d": "Tue",
+            "v": 20
+          },
+          {
+            "d": "Wed",
+            "v": 0
+          },
+          {
+            "d": "Thu",
+            "v": 10
+          },
+          {
+            "d": "Fri",
+            "v": 10,
+            "today": true
+          }
+        ],
+        "total": 70
+      }
+    },
+    "miguel": {
+      "category": "obesity",
+      "firstName": "Miguel",
+      "lastNameInitial": "S",
+      "age": 38,
+      "planType": "obesity_management",
+      "conditionDetail": "Obesity (class I) · sleep apnea",
+      "providerOrg": "Northgate Medical",
+      "avatarInitials": "MS",
+      "allergies": [],
+      "dietaryPrefs": [],
+      "engagement": "low",
+      "banner": {
+        "severity": "gold",
+        "title": "Welcome back — let's restart your logging streak",
+        "ctaLabel": "Log today"
+      },
+      "tiles": [
+        {
+          "label": "BMI",
+          "value": "34.0",
+          "deltaText": "plateau",
+          "deltaTone": "flag",
+          "detail": "class I · unchanged 8 weeks"
+        },
+        {
+          "label": "Weight",
+          "value": "236 lb",
+          "deltaText": "no change",
+          "deltaTone": "flag",
+          "detail": "goal 215"
+        },
+        {
+          "label": "Steps today",
+          "value": "4,500",
+          "detail": "goal 7,000"
+        },
+        {
+          "label": "Days logged",
+          "value": "2 / 7",
+          "detail": "this week"
+        },
+        {
+          "label": "Current streak",
+          "value": "0 days",
+          "detail": "best was 14 — restart it"
+        }
+      ],
+      "weightMonthly": [
+        {
+          "month": "2026-02",
+          "lb": 238
+        },
+        {
+          "month": "2026-03",
+          "lb": 237
+        },
+        {
+          "month": "2026-04",
+          "lb": 236
+        },
+        {
+          "month": "2026-05",
+          "lb": 236
+        },
+        {
+          "month": "2026-06",
+          "lb": 236
+        }
+      ],
+      "weightGoal": {
+        "lb": 215,
+        "label": "Goal 215 lb"
+      },
+      "connectedDevices": [
+        "fitbit_charge"
+      ],
+      "gamification": {
+        "points": 520,
+        "level": "Bronze",
+        "streak": {
+          "current": 0,
+          "best": 14,
+          "habit": "logging",
+          "broken": true
+        },
+        "earnedBadges": [
+          "first_connection",
+          "device_connector"
+        ]
+      },
+      "sex": "male",
+      "preferredLanguage": "en",
+      "raceEthnicity": "Hispanic or Latino (White)",
+      "medicareContext": "medicaid",
+      "dualEligible": false,
+      "rurality": "suburban",
+      "socialDrivers": [
+        {
+          "domain": "work_schedule",
+          "status": "at_risk",
+          "note": "Works night shifts; irregular sleep and meals contribute to logging gaps. Nudges timed to his schedule.",
+          "surfaces": [
+            "coaching",
+            "programs"
+          ],
+          "zCode": "Z56.6"
+        }
+      ],
+      "labs": [
+        {
+          "display": "Hemoglobin A1c",
+          "loinc": "4548-4",
+          "detail": "Mar 30, 2026 · Northgate Lab",
+          "valueText": "5.8% — normal",
+          "rangeFlag": "in_range"
+        },
+        {
+          "display": "Fasting glucose",
+          "loinc": "1558-6",
+          "detail": "Mar 30, 2026",
+          "valueText": "99 mg/dL — in range",
+          "rangeFlag": "in_range"
+        },
+        {
+          "display": "Total cholesterol",
+          "loinc": "2093-3",
+          "detail": "Mar 30, 2026",
+          "valueText": "208 mg/dL — borderline",
+          "rangeFlag": "elevated"
+        },
+        {
+          "display": "Blood pressure",
+          "loinc": "85354-9",
+          "detail": "Mar 30, 2026",
+          "valueText": "130/84 — elevated",
+          "rangeFlag": "elevated"
+        }
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Alan Pierce",
+          "role": "Primary care",
+          "note": "Welcome back. Small, steady steps beat all-or-nothing.",
+          "avatar": "AP",
+          "avatarStyle": "navy"
+        },
+        {
+          "name": "Dr. Wendy Soto",
+          "role": "Sleep medicine",
+          "note": "Let's check your CPAP use — better sleep helps weight.",
+          "avatar": "WS",
+          "avatarStyle": "gold"
+        }
+      ],
+      "messages": [
+        {
+          "senderName": "Concept App",
+          "senderRole": "auto-coaching",
+          "sentLabel": "today 5:30 PM",
+          "senderType": "auto",
+          "avatar": "CA",
+          "avatarStyle": "navy",
+          "actionLabel": "Restart my logging streak"
+        },
+        {
+          "senderName": "Dr. Wendy Soto",
+          "senderRole": "Sleep medicine",
+          "sentLabel": "Mon",
+          "senderType": "human",
+          "avatar": "WS",
+          "avatarStyle": "gold"
+        }
+      ],
+      "programs": [
+        {
+          "name": "Weight-management program",
+          "detail": "to restart progress",
+          "statusChip": "Suggested"
+        },
+        {
+          "name": "Sleep-apnea / CPAP follow-up",
+          "detail": "Northgate Medical",
+          "statusChip": "Active"
+        },
+        {
+          "name": "Night-shift wellness tips",
+          "detail": "meal timing and sleep for shift workers",
+          "statusChip": "Available"
+        }
+      ],
+      "nutrition": [
+        {
+          "label": "Average calories",
+          "valueText": "2,250 / 2,100 plan",
+          "pct": 100,
+          "tone": "navy"
+        },
+        {
+          "label": "Days logged",
+          "valueText": "2 of 7 — let's rebuild the habit",
+          "pct": 29,
+          "tone": "gold"
+        },
+        {
+          "label": "Days logged",
+          "valueText": "2 of 7",
+          "pct": 29,
+          "tone": "gold"
+        }
+      ],
+      "stepsWeek": {
+        "goalDaily": 7000,
+        "days": [
+          {
+            "d": "Sat",
+            "v": 5200
+          },
+          {
+            "d": "Sun",
+            "v": 0
+          },
+          {
+            "d": "Mon",
+            "v": 4800
+          },
+          {
+            "d": "Tue",
+            "v": 0
+          },
+          {
+            "d": "Wed",
+            "v": 5100
+          },
+          {
+            "d": "Thu",
+            "v": 3900
+          },
+          {
+            "d": "Fri",
+            "v": 4500,
+            "today": true
+          }
+        ],
+        "weekOverWeek": "gaps from night shifts"
+      }
+    },
+    "emily": {
+      "category": "obesity",
+      "firstName": "Emily",
+      "lastNameInitial": "C",
+      "age": 23,
+      "planType": "obesity_management",
+      "conditionDetail": "Obesity (class I)",
+      "providerOrg": "Campus Health Services",
+      "avatarInitials": "EC",
+      "allergies": [
+        "peanut",
+        "shellfish"
+      ],
+      "dietaryPrefs": [
+        "vegetarian"
+      ],
+      "engagement": "moderate",
+      "banner": {
+        "severity": "sky",
+        "title": "Recipes picked for you — vegetarian, peanut- and shellfish-free",
+        "ctaLabel": "Browse recipes"
+      },
+      "tiles": [
+        {
+          "label": "BMI",
+          "value": "31.0",
+          "deltaText": "▼ 0.9",
+          "deltaTone": "down-good",
+          "detail": "class I"
+        },
+        {
+          "label": "Weight",
+          "value": "182 lb",
+          "deltaText": "▼ 5 lb",
+          "deltaTone": "down-good",
+          "detail": "since March · goal 165"
+        },
+        {
+          "label": "Steps today",
+          "value": "6,800",
+          "detail": "goal 7,000"
+        },
+        {
+          "label": "Recipes saved",
+          "value": "8",
+          "detail": "vegetarian, allergy-safe"
+        },
+        {
+          "label": "Rewards",
+          "value": "Silver · 1,260 pts",
+          "detail": "5 of 12 badges"
+        }
+      ],
+      "weightMonthly": [
+        {
+          "month": "2026-03",
+          "lb": 187
+        },
+        {
+          "month": "2026-04",
+          "lb": 185
+        },
+        {
+          "month": "2026-05",
+          "lb": 184
+        },
+        {
+          "month": "2026-06",
+          "lb": 182
+        }
+      ],
+      "weightGoal": {
+        "lb": 165,
+        "label": "Goal 165 lb"
+      },
+      "connectedDevices": [
+        "fitbit_charge"
+      ],
+      "gamification": {
+        "points": 1260,
+        "level": "Silver",
+        "streak": {
+          "current": 14,
+          "best": 14,
+          "habit": "logging"
+        },
+        "earnedBadges": [
+          "first_connection",
+          "device_connector",
+          "logging_streak_7",
+          "recipe_explorer",
+          "move_maker"
+        ]
+      },
+      "sex": "female",
+      "preferredLanguage": "en",
+      "raceEthnicity": "White, non-Hispanic",
+      "medicareContext": "medicaid",
+      "dualEligible": false,
+      "rurality": "urban",
+      "socialDrivers": [
+        {
+          "domain": "food_insecurity",
+          "status": "at_risk",
+          "note": "Student on a tight budget; low-cost, allergy-safe vegetarian recipes and campus food resources surfaced.",
+          "surfaces": [
+            "recipes",
+            "nearby",
+            "programs"
+          ],
+          "zCode": "Z59.41"
+        }
+      ],
+      "labs": [
+        {
+          "display": "Hemoglobin A1c",
+          "loinc": "4548-4",
+          "detail": "Mar 18, 2026 · Campus Health Lab",
+          "valueText": "5.5% — normal",
+          "rangeFlag": "in_range"
+        },
+        {
+          "display": "Fasting glucose",
+          "loinc": "1558-6",
+          "detail": "Mar 18, 2026",
+          "valueText": "90 mg/dL — in range",
+          "rangeFlag": "in_range"
+        },
+        {
+          "display": "Total cholesterol",
+          "loinc": "2093-3",
+          "detail": "Mar 18, 2026",
+          "valueText": "182 mg/dL — in range",
+          "rangeFlag": "in_range"
+        },
+        {
+          "display": "Blood pressure",
+          "loinc": "85354-9",
+          "detail": "Mar 18, 2026",
+          "valueText": "116/72 — in range",
+          "rangeFlag": "in_range"
+        }
+      ],
+      "careTeam": [
+        {
+          "name": "Dr. Priya Shah",
+          "role": "Primary care (campus)",
+          "note": "Steady, healthy weight loss — your vegetarian plan looks balanced.",
+          "avatar": "PS",
+          "avatarStyle": "navy"
+        },
+        {
+          "name": "Morgan T., RDN",
+          "role": "Registered dietitian",
+          "note": "Helping you hit protein and iron on a vegetarian, budget-friendly plan.",
+          "avatar": "MT",
+          "avatarStyle": "gold"
+        }
+      ],
+      "messages": [
+        {
+          "senderName": "Concept App",
+          "senderRole": "auto-coaching",
+          "sentLabel": "today 8:45 AM",
+          "senderType": "auto",
+          "avatar": "CA",
+          "avatarStyle": "navy",
+          "actionLabel": "Browse peanut-free dinners"
+        },
+        {
+          "senderName": "Morgan T., RDN",
+          "senderRole": "Dietitian",
+          "sentLabel": "Thu",
+          "senderType": "human",
+          "avatar": "MT",
+          "avatarStyle": "gold"
+        }
+      ],
+      "programs": [
+        {
+          "name": "Campus nutrition coaching",
+          "detail": "Campus Health Services",
+          "statusChip": "Active"
+        },
+        {
+          "name": "SNAP / food-resource enrollment",
+          "detail": "help with grocery costs",
+          "statusChip": "Suggested"
+        },
+        {
+          "name": "Intramural fitness",
+          "detail": "low-cost campus classes",
+          "statusChip": "Near you"
+        }
+      ],
+      "nutrition": [
+        {
+          "label": "Average calories",
+          "valueText": "1,700 / 1,800 plan",
+          "pct": 94,
+          "tone": "navy"
+        },
+        {
+          "label": "Protein",
+          "valueText": "72 g / 75 g goal (vegetarian)",
+          "pct": 96,
+          "tone": "navy"
+        },
+        {
+          "label": "Fiber",
+          "valueText": "31 g / 28 g goal",
+          "pct": 100,
+          "tone": "navy"
+        },
+        {
+          "label": "Days logged",
+          "valueText": "6 of 7",
+          "pct": 86,
+          "tone": "gold"
+        }
+      ],
+      "stepsWeek": {
+        "goalDaily": 7000,
+        "days": [
+          {
+            "d": "Sat",
+            "v": 7200
+          },
+          {
+            "d": "Sun",
+            "v": 6400
+          },
+          {
+            "d": "Mon",
+            "v": 6900
+          },
+          {
+            "d": "Tue",
+            "v": 7100
+          },
+          {
+            "d": "Wed",
+            "v": 6600
+          },
+          {
+            "d": "Thu",
+            "v": 7000
+          },
+          {
+            "d": "Fri",
+            "v": 6800,
+            "today": true
+          }
+        ]
+      }
+    }
+  },
+  "gamification": {
+    "levels": [
+      {
+        "name": "Bronze",
+        "min": 0,
+        "max": 999
+      },
+      {
+        "name": "Silver",
+        "min": 1000,
+        "max": 2499
+      },
+      {
+        "name": "Gold",
+        "min": 2500,
+        "max": 3999
+      },
+      {
+        "name": "Platinum",
+        "min": 4000,
+        "max": 6000
+      }
+    ],
+    "pointRules": [
+      {
+        "action": "log_meal",
+        "points": 10
+      },
+      {
+        "action": "hit_daily_activity_goal",
+        "points": 25
+      },
+      {
+        "action": "take_all_meds_for_day",
+        "points": 20
+      },
+      {
+        "action": "sync_device",
+        "points": 15
+      },
+      {
+        "action": "complete_program_session",
+        "points": 50
+      },
+      {
+        "action": "read_coaching_tip",
+        "points": 5
+      },
+      {
+        "action": "view_recipe",
+        "points": 5
+      },
+      {
+        "action": "complete_challenge",
+        "points": 100
+      }
+    ],
+    "badgeCatalog": [
+      {
+        "id": "first_connection",
+        "name": "First Connection",
+        "description": "Connected your record via a CMS Aligned Network",
+        "criterion": "Grant consent and complete first sync",
+        "icon": "link"
+      },
+      {
+        "id": "logging_streak_7",
+        "name": "7-Day Logging Streak",
+        "description": "Logged something 7 days in a row",
+        "criterion": "7 consecutive days of logging",
+        "icon": "flame"
+      },
+      {
+        "id": "step_champion",
+        "name": "Step Champion",
+        "description": "Hit your step goal 7 days running",
+        "criterion": "7,000+ steps × 7 days",
+        "icon": "shoe"
+      },
+      {
+        "id": "move_maker",
+        "name": "Move Maker",
+        "description": "Reached your weekly active-minutes goal",
+        "criterion": "150 active minutes in a week",
+        "icon": "run"
+      },
+      {
+        "id": "a1c_improver",
+        "name": "A1c Improver",
+        "description": "Lowered your A1c from the prior result",
+        "criterion": "A1c decreased vs. previous lab",
+        "icon": "trend-down"
+      },
+      {
+        "id": "milestone_weight_5",
+        "name": "Milestone — 5% Weight",
+        "description": "Reached a 5% weight-loss milestone",
+        "criterion": "Lose 5% of starting weight",
+        "icon": "scale"
+      },
+      {
+        "id": "med_adherence_30",
+        "name": "30-Day Med Adherence",
+        "description": "Took all medications for 30 days",
+        "criterion": "30 consecutive adherent days",
+        "icon": "pill"
+      },
+      {
+        "id": "hydration_hero",
+        "name": "Hydration Hero",
+        "description": "Met your water goal for a week",
+        "criterion": "Hydration goal × 7 days",
+        "icon": "drop"
+      },
+      {
+        "id": "recipe_explorer",
+        "name": "Recipe Explorer",
+        "description": "Saved 5 healthy recipes",
+        "criterion": "Save 5 recipes",
+        "icon": "book"
+      },
+      {
+        "id": "device_connector",
+        "name": "Device Connector",
+        "description": "Connected a smart health device",
+        "criterion": "Connect any device",
+        "icon": "watch"
+      },
+      {
+        "id": "coach_conversation",
+        "name": "Coach Conversation",
+        "description": "Messaged your care team or coach",
+        "criterion": "Send a provider/coach message",
+        "icon": "chat"
+      },
+      {
+        "id": "prevention_graduate",
+        "name": "Prevention Graduate",
+        "description": "Completed a prevention program",
+        "criterion": "Finish MDPP/DSMES",
+        "icon": "cap"
+      }
+    ],
+    "sampleChallenges": [
+      {
+        "title": "Walk 30 minutes, 4 days this week",
+        "rewardPoints": 100
+      },
+      {
+        "title": "Log every dinner for 5 days",
+        "rewardPoints": 75
+      },
+      {
+        "title": "Take all medications, 7 days straight",
+        "rewardPoints": 120
+      }
+    ],
+    "earningAnimation": {
+      "badge": "scale 0.6->1 + gold glow, 500ms",
+      "ariaLive": "polite",
+      "reducedMotion": "render final state"
+    }
+  },
+  "deviceCatalog": [
+    {
+      "id": "apple_watch",
+      "brand": "Apple",
+      "model": "Watch",
+      "category": "watch",
+      "metrics": [
+        "steps",
+        "active_minutes",
+        "heart_rate"
+      ]
+    },
+    {
+      "id": "fitbit_charge",
+      "brand": "Fitbit",
+      "model": "Charge",
+      "category": "watch",
+      "metrics": [
+        "steps",
+        "active_minutes",
+        "sleep"
+      ]
+    },
+    {
+      "id": "garmin_vivosmart",
+      "brand": "Garmin",
+      "model": "vívosmart",
+      "category": "watch",
+      "metrics": [
+        "steps",
+        "active_minutes"
+      ]
+    },
+    {
+      "id": "samsung_galaxy_watch",
+      "brand": "Samsung",
+      "model": "Galaxy Watch",
+      "category": "watch",
+      "metrics": [
+        "steps",
+        "heart_rate"
+      ]
+    },
+    {
+      "id": "oura_ring",
+      "brand": "Oura",
+      "model": "Ring",
+      "category": "watch",
+      "metrics": [
+        "sleep",
+        "active_minutes"
+      ]
+    },
+    {
+      "id": "withings_body",
+      "brand": "Withings",
+      "model": "Body smart scale",
+      "category": "scale",
+      "metrics": [
+        "weight",
+        "bmi",
+        "body_fat"
+      ]
+    },
+    {
+      "id": "fitbit_aria",
+      "brand": "Fitbit",
+      "model": "Aria scale",
+      "category": "scale",
+      "metrics": [
+        "weight",
+        "bmi"
+      ]
+    },
+    {
+      "id": "eufy_scale",
+      "brand": "Eufy",
+      "model": "Smart Scale",
+      "category": "scale",
+      "metrics": [
+        "weight",
+        "bmi"
+      ]
+    },
+    {
+      "id": "ihealth_scale",
+      "brand": "iHealth",
+      "model": "Smart Scale",
+      "category": "scale",
+      "metrics": [
+        "weight",
+        "bmi"
+      ]
+    },
+    {
+      "id": "omron_evolv",
+      "brand": "Omron",
+      "model": "Evolv",
+      "category": "bp_cuff",
+      "metrics": [
+        "systolic",
+        "diastolic"
+      ]
+    },
+    {
+      "id": "withings_bpm",
+      "brand": "Withings",
+      "model": "BPM Connect",
+      "category": "bp_cuff",
+      "metrics": [
+        "systolic",
+        "diastolic"
+      ]
+    },
+    {
+      "id": "ihealth_track",
+      "brand": "iHealth",
+      "model": "Track BP",
+      "category": "bp_cuff",
+      "metrics": [
+        "systolic",
+        "diastolic"
+      ]
+    },
+    {
+      "id": "dexcom_g7",
+      "brand": "Dexcom",
+      "model": "G7",
+      "category": "cgm",
+      "metrics": [
+        "glucose_continuous",
+        "time_in_range"
+      ]
+    },
+    {
+      "id": "freestyle_libre3",
+      "brand": "Abbott",
+      "model": "FreeStyle Libre 3",
+      "category": "cgm",
+      "metrics": [
+        "glucose_continuous",
+        "time_in_range"
+      ]
+    },
+    {
+      "id": "contour_next",
+      "brand": "Contour",
+      "model": "Next meter",
+      "category": "glucose_meter",
+      "metrics": [
+        "glucose_fasting"
+      ]
+    },
+    {
+      "id": "accuchek_guide",
+      "brand": "Accu-Chek",
+      "model": "Guide meter",
+      "category": "glucose_meter",
+      "metrics": [
+        "glucose_fasting"
+      ]
+    }
+  ],
+  "providerReplies": [
+    {
+      "topic": "a1c",
+      "body": "Thanks for sharing this. A small rise can happen — let's review your routine at your visit. In the meantime, keep logging your glucose. If you have symptoms like blurred vision, unusual thirst, or confusion, please contact us or urgent care right away."
+    },
+    {
+      "topic": "medication",
+      "body": "Good question about your medication. Don't change your dose on your own — let's discuss it together. If you've missed doses, just resume your normal schedule. Call the office if you have side effects that concern you."
+    },
+    {
+      "topic": "bp",
+      "body": "I see your blood pressure readings. Please keep taking your readings at the same time each day. If you get a reading above 180/120 or feel chest pain or shortness of breath, seek emergency care immediately."
+    },
+    {
+      "topic": "plan",
+      "body": "Happy to look at your plan. Your trends are helpful — let's set one or two realistic goals for the next few weeks and check progress at your appointment."
+    },
+    {
+      "topic": "general",
+      "body": "Thanks for your message. A member of the care team will follow up. For anything urgent, please call the office or go to urgent care."
+    }
+  ],
+  "assistantIntents": [
+    {
+      "id": "latest_a1c",
+      "sampleQuestions": [
+        "what's my a1c?",
+        "latest a1c"
+      ],
+      "keywords": [
+        "a1c",
+        "hba1c"
+      ],
+      "handler": "labs.latest('a1c')",
+      "responseTemplate": "Your most recent A1c was {value}% on {date}. Your target is {target}. {sourceCitation} {disclaimer}"
+    },
+    {
+      "id": "a1c_trend",
+      "sampleQuestions": [
+        "why did my a1c go up?",
+        "is my a1c improving?"
+      ],
+      "keywords": [
+        "a1c",
+        "trend",
+        "up",
+        "down",
+        "change"
+      ],
+      "handler": "labs.trend('a1c')+observations.glucose",
+      "responseTemplate": "Your A1c went from {prev}% to {value}%. Over the same period your glucose averaged {glucoseAvg} mg/dL. A1c reflects ~3 months. {disclaimer}"
+    },
+    {
+      "id": "glucose_tir",
+      "sampleQuestions": [
+        "what's my time in range?",
+        "how's my glucose?"
+      ],
+      "keywords": [
+        "glucose",
+        "time in range",
+        "tir",
+        "sugar"
+      ],
+      "handler": "observations.glucoseSummary",
+      "responseTemplate": "Your time in range is {inRangePct}% (target >{target}%) over the last 14 days, averaging {avg} mg/dL. {disclaimer}"
+    },
+    {
+      "id": "weight_progress",
+      "sampleQuestions": [
+        "how's my weight?",
+        "am i losing weight?"
+      ],
+      "keywords": [
+        "weight",
+        "bmi",
+        "lose",
+        "pounds"
+      ],
+      "handler": "observations.weightProgress",
+      "responseTemplate": "You're at {current} lb, {direction} {delta} since {since}. Your goal is {goal} lb. {disclaimer}"
+    },
+    {
+      "id": "meds_today",
+      "sampleQuestions": [
+        "did i take my meds?",
+        "what meds today?"
+      ],
+      "keywords": [
+        "medication",
+        "meds",
+        "pill",
+        "dose"
+      ],
+      "handler": "medications.today",
+      "responseTemplate": "Today: {medSummary}. {refillNote} {disclaimer}"
+    },
+    {
+      "id": "next_appointment",
+      "sampleQuestions": [
+        "when is my next appointment?"
+      ],
+      "keywords": [
+        "appointment",
+        "visit",
+        "schedule"
+      ],
+      "handler": "appointments.next",
+      "responseTemplate": "Your next appointment option is {slot} with {provider}. Want me to help you book it?"
+    },
+    {
+      "id": "explain_term",
+      "sampleQuestions": [
+        "what is pre-diabetes?",
+        "what does a1c mean?",
+        "what is bmi?"
+      ],
+      "keywords": [
+        "what is",
+        "what does",
+        "explain",
+        "mean"
+      ],
+      "handler": "glossary.lookup",
+      "responseTemplate": "{plainDefinition} {disclaimer}"
+    },
+    {
+      "id": "recipe_suggestion",
+      "sampleQuestions": [
+        "show me dinner ideas",
+        "healthy recipes for me"
+      ],
+      "keywords": [
+        "recipe",
+        "meal",
+        "dinner",
+        "eat",
+        "food"
+      ],
+      "handler": "recipes.forPatient",
+      "responseTemplate": "Here are recipes that fit your plan ({filterExplanation}). Opening Recipes…",
+      "deepLink": "/recipes"
+    },
+    {
+      "id": "provider_questions",
+      "sampleQuestions": [
+        "what should i ask my doctor?"
+      ],
+      "keywords": [
+        "ask",
+        "doctor",
+        "provider",
+        "question"
+      ],
+      "handler": "assistant.providerQuestions",
+      "responseTemplate": "Here are questions tailored to your data: {questions}. Want me to send these to your care team?"
+    },
+    {
+      "id": "fallback",
+      "sampleQuestions": [],
+      "keywords": [],
+      "handler": "none",
+      "responseTemplate": "I can answer questions about your labs, medications, activity, weight, appointments, and recipes. Try one of these: {suggestedChips}"
+    }
+  ],
+  "assistantDisclaimer": "This is a demo assistant, not medical advice. Your care team can help you decide what to do next.",
+  "localServices": [
+    {
+      "category": "urgent_care",
+      "name": "Riverview Urgent Care",
+      "distanceMi": 0.8,
+      "address": "210 Main St",
+      "hours": "8am–8pm",
+      "tags": [
+        "open now",
+        "accepts your plan"
+      ],
+      "map": {
+        "x": 38,
+        "y": 42
+      }
+    },
+    {
+      "category": "urgent_care",
+      "name": "Eastside Walk-In Clinic",
+      "distanceMi": 2.1,
+      "address": "55 Oak Ave",
+      "hours": "9am–9pm",
+      "tags": [
+        "open now",
+        "X-ray on site"
+      ],
+      "map": {
+        "x": 64,
+        "y": 30
+      }
+    },
+    {
+      "category": "urgent_care",
+      "name": "Northgate Express Care",
+      "distanceMi": 3.4,
+      "address": "1200 North Blvd",
+      "hours": "24 hours",
+      "tags": [
+        "open now",
+        "pediatric"
+      ],
+      "map": {
+        "x": 50,
+        "y": 14
+      }
+    },
+    {
+      "category": "pharmacy",
+      "name": "Maple St. Pharmacy",
+      "distanceMi": 0.5,
+      "address": "12 Maple St",
+      "hours": "8am–10pm",
+      "tags": [
+        "open now",
+        "accepts your plan",
+        "med-sync available",
+        "your refill here"
+      ],
+      "map": {
+        "x": 44,
+        "y": 50
+      }
+    },
+    {
+      "category": "pharmacy",
+      "name": "City Drug & Wellness",
+      "distanceMi": 1.3,
+      "address": "300 Center St",
+      "hours": "9am–9pm",
+      "tags": [
+        "open now",
+        "diabetic supplies"
+      ],
+      "map": {
+        "x": 58,
+        "y": 46
+      }
+    },
+    {
+      "category": "pharmacy",
+      "name": "Lakeside Compounding Pharmacy",
+      "distanceMi": 2.7,
+      "address": "88 Lake Rd",
+      "hours": "9am–6pm",
+      "tags": [
+        "closed now"
+      ],
+      "map": {
+        "x": 28,
+        "y": 60
+      }
+    },
+    {
+      "category": "healthy_shopping",
+      "name": "Green Market Co-op",
+      "distanceMi": 1,
+      "address": "140 Grove St",
+      "hours": "7am–9pm",
+      "tags": [
+        "open now",
+        "fresh produce",
+        "diabetic-friendly aisle"
+      ],
+      "map": {
+        "x": 52,
+        "y": 58
+      }
+    },
+    {
+      "category": "healthy_shopping",
+      "name": "FreshLine Grocers",
+      "distanceMi": 1.8,
+      "address": "75 Commerce Way",
+      "hours": "7am–11pm",
+      "tags": [
+        "open now",
+        "low-sodium options"
+      ],
+      "map": {
+        "x": 70,
+        "y": 52
+      }
+    },
+    {
+      "category": "healthy_shopping",
+      "name": "Sunrise Farmers Market",
+      "distanceMi": 2.2,
+      "address": "Town Green",
+      "hours": "Sat 8am–1pm",
+      "tags": [
+        "seasonal",
+        "produce"
+      ],
+      "map": {
+        "x": 40,
+        "y": 68
+      }
+    },
+    {
+      "category": "fitness",
+      "name": "Riverview Community Fitness",
+      "distanceMi": 0.9,
+      "address": "210 Park Ln",
+      "hours": "5am–11pm",
+      "tags": [
+        "open now",
+        "indoor track",
+        "low-impact classes",
+        "accessible"
+      ],
+      "map": {
+        "x": 46,
+        "y": 38
+      }
+    },
+    {
+      "category": "fitness",
+      "name": "AquaFit Pool & Wellness",
+      "distanceMi": 1.6,
+      "address": "9 Harbor Dr",
+      "hours": "6am–9pm",
+      "tags": [
+        "open now",
+        "water aerobics",
+        "low-impact",
+        "joint-friendly"
+      ],
+      "map": {
+        "x": 62,
+        "y": 64
+      }
+    },
+    {
+      "category": "fitness",
+      "name": "Iron & Cardio Gym",
+      "distanceMi": 2.4,
+      "address": "501 Industrial Pkwy",
+      "hours": "24 hours",
+      "tags": [
+        "open now",
+        "strength equipment"
+      ],
+      "map": {
+        "x": 74,
+        "y": 36
+      }
+    },
+    {
+      "category": "trail_park",
+      "name": "Riverwalk Loop",
+      "distanceMi": 0.4,
+      "address": "Riverfront",
+      "hours": "dawn–dusk",
+      "tags": [
+        "open now",
+        "flat / paved",
+        "2.1 mi loop",
+        "accessible"
+      ],
+      "map": {
+        "x": 36,
+        "y": 52
+      }
+    },
+    {
+      "category": "trail_park",
+      "name": "Cedar Hills Park Trail",
+      "distanceMi": 1.5,
+      "address": "Cedar Hills",
+      "hours": "dawn–dusk",
+      "tags": [
+        "open now",
+        "shaded",
+        "1.3 mi",
+        "gentle hills"
+      ],
+      "map": {
+        "x": 66,
+        "y": 22
+      }
+    },
+    {
+      "category": "trail_park",
+      "name": "Lakeside Greenway",
+      "distanceMi": 2,
+      "address": "Lake Rd",
+      "hours": "dawn–dusk",
+      "tags": [
+        "open now",
+        "flat / paved",
+        "scenic",
+        "benches"
+      ],
+      "map": {
+        "x": 26,
+        "y": 66
+      }
+    }
+  ],
+  "recipes": [
+    {
+      "id": "r1",
+      "title": "Sheet-Pan Lemon Salmon & Greens",
+      "prepMinutes": 25,
+      "calories": 420,
+      "carbsG": 14,
+      "proteinG": 34,
+      "fiberG": 6,
+      "sodiumMg": 410,
+      "conditionTags": [
+        "diabetes_friendly",
+        "heart_healthy",
+        "low_sodium"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "diet": []
+    },
+    {
+      "id": "r2",
+      "title": "Chickpea & Spinach Curry",
+      "prepMinutes": 30,
+      "calories": 380,
+      "carbsG": 45,
+      "proteinG": 16,
+      "fiberG": 12,
+      "sodiumMg": 380,
+      "conditionTags": [
+        "diabetes_friendly",
+        "high_fiber",
+        "weight_management",
+        "low_sodium"
+      ],
+      "allergens": [],
+      "diet": [
+        "vegetarian",
+        "vegan"
+      ]
+    },
+    {
+      "id": "r3",
+      "title": "Grilled Shrimp & Quinoa Bowl",
+      "prepMinutes": 20,
+      "calories": 410,
+      "carbsG": 38,
+      "proteinG": 30,
+      "fiberG": 7,
+      "sodiumMg": 520,
+      "conditionTags": [
+        "diabetes_friendly",
+        "high_protein"
+      ],
+      "allergens": [
+        "shellfish"
+      ],
+      "diet": []
+    },
+    {
+      "id": "r4",
+      "title": "Peanut-Crusted Tofu Stir-Fry",
+      "prepMinutes": 25,
+      "calories": 390,
+      "carbsG": 28,
+      "proteinG": 22,
+      "fiberG": 8,
+      "sodiumMg": 540,
+      "conditionTags": [
+        "weight_management",
+        "high_protein"
+      ],
+      "allergens": [
+        "peanut",
+        "soy"
+      ],
+      "diet": [
+        "vegetarian"
+      ]
+    },
+    {
+      "id": "r5",
+      "title": "Lentil & Vegetable Soup",
+      "prepMinutes": 35,
+      "calories": 300,
+      "carbsG": 42,
+      "proteinG": 18,
+      "fiberG": 14,
+      "sodiumMg": 320,
+      "conditionTags": [
+        "diabetes_friendly",
+        "high_fiber",
+        "low_sodium",
+        "weight_management"
+      ],
+      "allergens": [],
+      "diet": [
+        "vegetarian",
+        "vegan"
+      ]
+    },
+    {
+      "id": "r6",
+      "title": "Greek Yogurt Berry Parfait",
+      "prepMinutes": 5,
+      "calories": 220,
+      "carbsG": 26,
+      "proteinG": 18,
+      "fiberG": 5,
+      "sodiumMg": 70,
+      "conditionTags": [
+        "diabetes_friendly",
+        "low_sodium",
+        "high_protein"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "diet": [
+        "vegetarian"
+      ]
+    },
+    {
+      "id": "r7",
+      "title": "Black Bean & Sweet Potato Tacos",
+      "prepMinutes": 25,
+      "calories": 360,
+      "carbsG": 52,
+      "proteinG": 14,
+      "fiberG": 13,
+      "sodiumMg": 340,
+      "conditionTags": [
+        "high_fiber",
+        "weight_management",
+        "low_sodium"
+      ],
+      "allergens": [],
+      "diet": [
+        "vegetarian",
+        "vegan"
+      ]
+    },
+    {
+      "id": "r8",
+      "title": "Herb-Roasted Chicken & Veg",
+      "prepMinutes": 40,
+      "calories": 430,
+      "carbsG": 22,
+      "proteinG": 38,
+      "fiberG": 6,
+      "sodiumMg": 360,
+      "conditionTags": [
+        "diabetes_friendly",
+        "high_protein",
+        "low_sodium"
+      ],
+      "allergens": [],
+      "diet": []
+    },
+    {
+      "id": "r9",
+      "title": "Cauliflower Fried Rice",
+      "prepMinutes": 20,
+      "calories": 280,
+      "carbsG": 24,
+      "proteinG": 12,
+      "fiberG": 7,
+      "sodiumMg": 410,
+      "conditionTags": [
+        "diabetes_friendly",
+        "weight_management",
+        "low_carb"
+      ],
+      "allergens": [
+        "egg",
+        "soy"
+      ],
+      "diet": [
+        "vegetarian"
+      ]
+    },
+    {
+      "id": "r10",
+      "title": "Tuna & White Bean Salad",
+      "prepMinutes": 15,
+      "calories": 340,
+      "carbsG": 26,
+      "proteinG": 30,
+      "fiberG": 9,
+      "sodiumMg": 430,
+      "conditionTags": [
+        "diabetes_friendly",
+        "heart_healthy",
+        "high_protein"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "diet": []
+    },
+    {
+      "id": "r11",
+      "title": "Overnight Oats with Chia & Apple",
+      "prepMinutes": 5,
+      "calories": 310,
+      "carbsG": 48,
+      "proteinG": 12,
+      "fiberG": 11,
+      "sodiumMg": 90,
+      "conditionTags": [
+        "diabetes_friendly",
+        "high_fiber",
+        "low_sodium"
+      ],
+      "allergens": [
+        "milk"
+      ],
+      "diet": [
+        "vegetarian"
+      ]
+    },
+    {
+      "id": "r12",
+      "title": "Stuffed Bell Peppers with Brown Rice & Beans",
+      "prepMinutes": 45,
+      "calories": 350,
+      "carbsG": 50,
+      "proteinG": 15,
+      "fiberG": 12,
+      "sodiumMg": 300,
+      "conditionTags": [
+        "high_fiber",
+        "weight_management",
+        "low_sodium",
+        "heart_healthy"
+      ],
+      "allergens": [],
+      "diet": [
+        "vegetarian",
+        "vegan"
+      ]
+    },
+    {
+      "id": "r13",
+      "title": "Edamame & Veggie Buddha Bowl",
+      "prepMinutes": 20,
+      "calories": 370,
+      "carbsG": 40,
+      "proteinG": 20,
+      "fiberG": 11,
+      "sodiumMg": 350,
+      "conditionTags": [
+        "weight_management",
+        "high_fiber",
+        "high_protein"
+      ],
+      "allergens": [
+        "soy"
+      ],
+      "diet": [
+        "vegetarian",
+        "vegan"
+      ]
+    },
+    {
+      "id": "r14",
+      "title": "Baked Cod with Roasted Asparagus",
+      "prepMinutes": 30,
+      "calories": 330,
+      "carbsG": 12,
+      "proteinG": 36,
+      "fiberG": 5,
+      "sodiumMg": 300,
+      "conditionTags": [
+        "diabetes_friendly",
+        "heart_healthy",
+        "low_sodium",
+        "low_carb"
+      ],
+      "allergens": [
+        "fish"
+      ],
+      "diet": []
+    }
+  ],
+  "recipeFilterExamples": {
+    "emily": {
+      "requires": {
+        "diet": [
+          "vegetarian"
+        ],
+        "excludeAllergens": [
+          "peanut",
+          "shellfish"
+        ]
+      },
+      "expectedMatches": [
+        "r2",
+        "r5",
+        "r6",
+        "r7",
+        "r9",
+        "r11",
+        "r12",
+        "r13"
+      ],
+      "expectedExcluded": [
+        "r3 (shellfish)",
+        "r4 (peanut)",
+        "r1/r10/r14 (fish, not vegetarian)"
+      ]
+    },
+    "linda": {
+      "requires": {
+        "conditionTags": [
+          "low_sodium",
+          "diabetes_friendly"
+        ]
+      },
+      "note": "hypertension comorbidity prioritizes low_sodium"
+    },
+    "robert": {
+      "requires": {
+        "conditionTags": [
+          "diabetes_friendly",
+          "low_carb"
+        ]
+      }
+    }
+  },
+  "//": "===== v1.2 directive-alignment seed (cross-cutting; applies to all personas, detailed for sarah) =====",
+  "identityDefaults": {
+    "ial": "IAL2",
+    "aal": "AAL2",
+    "credentialOptions": [
+      "passkey",
+      "mdl"
+    ],
+    "method": "SMART on FHIR / OAuth 2.0",
+    "note": "Gate is scripted; no real IdP. Sarah uses 'passkey' by default."
+  },
+  "terminologyExamples": {
+    "disclaimer": "ILLUSTRATIVE codes — implementer MUST validate against current LOINC, RxNorm, and SNOMED CT US Edition releases before any real use.",
+    "loinc": {
+      "hba1c": "4548-4",
+      "fasting_glucose": "1558-6",
+      "urine_albumin_creatinine": "9318-7",
+      "egfr": "62238-1",
+      "total_cholesterol": "2093-3",
+      "blood_pressure_panel": "85354-9"
+    },
+    "rxnorm": {
+      "metformin": "6809",
+      "empagliflozin": "1545653",
+      "semaglutide": "1991302",
+      "glipizide": "4821",
+      "lisinopril": "29046",
+      "atorvastatin": "83367"
+    },
+    "snomed": {
+      "type_2_diabetes": "44054006",
+      "type_1_diabetes": "46635009",
+      "obesity": "414916001",
+      "prediabetes": "714628002",
+      "hypertension": "38341003",
+      "ckd_stage_2": "431855005"
+    }
+  },
+  "recordLocator": {
+    "sarah": [
+      {
+        "orgName": "Riverview Health",
+        "recordCount": 38,
+        "lastUpdated": "2026-06-06"
+      },
+      {
+        "orgName": "Lakeside Cardiology",
+        "recordCount": 6,
+        "lastUpdated": "2026-05-12"
+      },
+      {
+        "orgName": "Metro Imaging Center",
+        "recordCount": 3,
+        "lastUpdated": "2026-04-30"
+      },
+      {
+        "orgName": "Nephrology Associates",
+        "recordCount": 2,
+        "lastUpdated": "2026-06-02"
+      }
+    ],
+    "default": [
+      {
+        "orgName": "Riverview Health",
+        "recordCount": 24,
+        "lastUpdated": "2026-06-06"
+      },
+      {
+        "orgName": "Regional Lab Network",
+        "recordCount": 9,
+        "lastUpdated": "2026-06-05"
+      }
+    ],
+    "maria": [
+      {
+        "orgName": "Riverview Health",
+        "recordCount": 21,
+        "lastUpdated": "2026-06-06"
+      },
+      {
+        "orgName": "Riverview Community Center (MDPP)",
+        "recordCount": 9,
+        "lastUpdated": "2026-06-02"
+      }
+    ],
+    "robert": [
+      {
+        "orgName": "Riverview Health",
+        "recordCount": 27,
+        "lastUpdated": "2026-06-06"
+      },
+      {
+        "orgName": "Maple St. Pharmacy",
+        "recordCount": 12,
+        "lastUpdated": "2026-06-05"
+      }
+    ],
+    "jim": [
+      {
+        "orgName": "Lakeside Family Medicine",
+        "recordCount": 19,
+        "lastUpdated": "2026-06-04"
+      },
+      {
+        "orgName": "Regional Lab Network",
+        "recordCount": 7,
+        "lastUpdated": "2026-05-02"
+      }
+    ],
+    "priya": [
+      {
+        "orgName": "University Endocrine Center",
+        "recordCount": 24,
+        "lastUpdated": "2026-06-05"
+      },
+      {
+        "orgName": "Dexcom Clarity",
+        "recordCount": 14,
+        "lastUpdated": "2026-06-06"
+      }
+    ],
+    "hector": [
+      {
+        "orgName": "Eastside Community Clinic",
+        "recordCount": 8,
+        "lastUpdated": "2026-06-01"
+      }
+    ],
+    "linda": [
+      {
+        "orgName": "Riverview Health",
+        "recordCount": 22,
+        "lastUpdated": "2026-06-05"
+      },
+      {
+        "orgName": "Maple St. Pharmacy",
+        "recordCount": 16,
+        "lastUpdated": "2026-06-05"
+      }
+    ],
+    "deshawn": [
+      {
+        "orgName": "Midtown Health",
+        "recordCount": 14,
+        "lastUpdated": "2026-05-30"
+      }
+    ],
+    "samuel": [
+      {
+        "orgName": "Wellspring Weight Health",
+        "recordCount": 17,
+        "lastUpdated": "2026-06-03"
+      },
+      {
+        "orgName": "Regional Lab Network",
+        "recordCount": 6,
+        "lastUpdated": "2026-05-05"
+      }
+    ],
+    "aisha": [
+      {
+        "orgName": "City Health Collective",
+        "recordCount": 15,
+        "lastUpdated": "2026-05-28"
+      }
+    ],
+    "carol": [
+      {
+        "orgName": "Riverview Health",
+        "recordCount": 20,
+        "lastUpdated": "2026-06-04"
+      },
+      {
+        "orgName": "Metro Imaging Center",
+        "recordCount": 2,
+        "lastUpdated": "2026-03-10"
+      }
+    ],
+    "miguel": [
+      {
+        "orgName": "Northgate Medical",
+        "recordCount": 12,
+        "lastUpdated": "2026-05-26"
+      }
+    ],
+    "emily": [
+      {
+        "orgName": "Campus Health Services",
+        "recordCount": 9,
+        "lastUpdated": "2026-05-18"
+      }
+    ]
+  },
+  "clinicalDocuments": {
+    "sarah": [
+      {
+        "id": "doc-sarah-1",
+        "kind": "visit_summary",
+        "title": "Nephrology consult — visit summary",
+        "docDate": "2026-06-05",
+        "sourceOrg": "Nephrology Associates",
+        "mime": "application/pdf",
+        "fhirType": "DocumentReference",
+        "returnedVia": "smart_health_link",
+        "bodyText": "Assessment: Stage 2 CKD likely secondary to type 2 diabetes. Plan: continue empagliflozin (renal-protective). Titrate metformin to 1000 mg BID. Recheck urine albumin/creatinine in 3 months. Reinforce weight loss and BP control.",
+        "aiRead": "Your kidney specialist kept you on empagliflozin because it protects the kidneys, and increased your metformin to 1000 mg twice a day. They want to recheck a urine test in 3 months. Ask your care team if you have questions about the change."
+      },
+      {
+        "id": "doc-sarah-2",
+        "kind": "radiology",
+        "title": "Renal ultrasound report",
+        "docDate": "2026-04-30",
+        "sourceOrg": "Metro Imaging Center",
+        "mime": "image/tiff",
+        "fhirType": "DocumentReference",
+        "bodyText": "Findings: Kidneys normal in size with mildly increased echogenicity. No hydronephrosis or stones. Impression: findings compatible with early medical renal disease.",
+        "aiRead": "Your kidney ultrasound was essentially normal — no stones or blockage, just mild changes that fit early kidney disease. No action needed from this image alone."
+      },
+      {
+        "id": "doc-sarah-3",
+        "kind": "outside_lab",
+        "title": "Scanned outside lab — lipid panel",
+        "docDate": "2026-03-15",
+        "sourceOrg": "Community Lab (faxed)",
+        "mime": "image/jpeg",
+        "fhirType": "DocumentReference",
+        "bodyText": "Total cholesterol 188 mg/dL; LDL 102; HDL 48; triglycerides 160.",
+        "aiRead": "Your cholesterol from an outside lab was close to goal; triglycerides were slightly high. Diet and activity help here."
+      },
+      {
+        "id": "doc-sarah-4",
+        "kind": "specialist_note",
+        "title": "Endocrinology note",
+        "docDate": "2026-02-20",
+        "sourceOrg": "Riverview Health",
+        "mime": "application/pdf",
+        "fhirType": "DocumentReference",
+        "bodyText": "Type 2 diabetes with obesity. Started semaglutide 0.5 mg weekly. Counseled on diet; goal A1c <7.5%.",
+        "aiRead": "Your endocrinologist started semaglutide to help with both blood sugar and weight, with an A1c goal under 7.5%."
+      }
+    ],
+    "robert": [
+      {
+        "id": "doc-robert-1",
+        "kind": "visit_summary",
+        "title": "Primary care — visit summary",
+        "docDate": "2026-03-15",
+        "sourceOrg": "Riverview Health",
+        "mime": "application/pdf",
+        "fhirType": "DocumentReference",
+        "bodyText": "A1c 7.4%. Continue metformin and empagliflozin. Encourage activity. Recheck A1c in 3 months.",
+        "aiRead": "At your March visit your A1c was 7.4%. The plan was to keep your medications the same and stay active."
+      }
+    ],
+    "maria": [
+      {
+        "id": "doc-maria-1",
+        "kind": "visit_summary",
+        "title": "Primary care — wellness visit summary",
+        "docDate": "2026-05-20",
+        "sourceOrg": "Riverview Health",
+        "mime": "application/pdf",
+        "fhirType": "DocumentReference",
+        "bodyText": "A1c 6.1% (pre-diabetes). Weight down 7 lb. Continue MDPP. Recheck A1c in July.",
+        "aiRead": "At your May visit your A1c was 6.1% — still pre-diabetes but improving with your weight loss. The plan is to keep going with MDPP and recheck in July."
+      }
+    ],
+    "jim": [
+      {
+        "id": "doc-jim-1",
+        "kind": "visit_summary",
+        "title": "Primary care — visit summary",
+        "docDate": "2026-05-02",
+        "sourceOrg": "Lakeside Family Medicine",
+        "mime": "application/pdf",
+        "fhirType": "DocumentReference",
+        "bodyText": "A1c 6.6%, in target. Continue metformin 1000 mg BID. Encourage current activity. Recheck in 6 months.",
+        "aiRead": "Your A1c is 6.6% and in your target range. The plan is to keep your metformin the same and stay active — recheck in about 6 months."
+      }
+    ],
+    "priya": [
+      {
+        "id": "doc-priya-1",
+        "kind": "specialist_note",
+        "title": "Endocrinology — pump visit note",
+        "docDate": "2026-04-20",
+        "sourceOrg": "University Endocrine Center",
+        "mime": "application/pdf",
+        "fhirType": "DocumentReference",
+        "bodyText": "Type 1 diabetes on insulin pump + CGM. A1c 7.1%, TIR 68%. Adjust overnight basal to reduce lows. Continue carb counting.",
+        "aiRead": "Your endocrinologist lowered your overnight insulin a little to reduce nighttime low glucose, and wants you to keep counting carbs. Your time-in-range is close to goal."
+      }
+    ],
+    "hector": [
+      {
+        "id": "doc-hector-1",
+        "kind": "visit_summary",
+        "title": "New-diagnosis visit summary",
+        "docDate": "2026-04-28",
+        "sourceOrg": "Eastside Community Clinic",
+        "mime": "application/pdf",
+        "fhirType": "DocumentReference",
+        "bodyText": "New type 2 diabetes, A1c 9.2%. Start metformin 500 mg with breakfast, titrate. DSMES referral. Follow up 6 weeks.",
+        "aiRead": "You were just diagnosed with type 2 diabetes and started metformin. The plan is to take it with breakfast, join a diabetes education class, and follow up in 6 weeks. / Le diagnosticaron diabetes tipo 2 y comenzó metformina."
+      }
+    ],
+    "linda": [
+      {
+        "id": "doc-linda-1",
+        "kind": "visit_summary",
+        "title": "Primary care — blood pressure visit",
+        "docDate": "2026-05-10",
+        "sourceOrg": "Riverview Health",
+        "mime": "application/pdf",
+        "fhirType": "DocumentReference",
+        "bodyText": "Type 2 diabetes + hypertension. A1c 7.8%, home BP avg 146/90. Continue four medications; reinforce low-sodium diet. Consider lisinopril increase if BP stays high.",
+        "aiRead": "Your blood pressure has been running high, so your doctor may raise one medication if it stays up. Keep taking home readings and watch sodium."
+      }
+    ],
+    "deshawn": [
+      {
+        "id": "doc-deshawn-1",
+        "kind": "visit_summary",
+        "title": "Primary care — visit summary",
+        "docDate": "2026-04-15",
+        "sourceOrg": "Midtown Health",
+        "mime": "application/pdf",
+        "fhirType": "DocumentReference",
+        "bodyText": "Type 2 diabetes, A1c 7.0%, weight plateau. Continue metformin. Add one activity goal. Recheck 3 months.",
+        "aiRead": "Your A1c is holding at 7.0% and your weight has plateaued. The plan is to keep metformin and add one new activity habit, then recheck in 3 months."
+      }
+    ],
+    "samuel": [
+      {
+        "id": "doc-samuel-1",
+        "kind": "specialist_note",
+        "title": "Obesity medicine — visit note",
+        "docDate": "2026-05-05",
+        "sourceOrg": "Wellspring Weight Health",
+        "mime": "application/pdf",
+        "fhirType": "DocumentReference",
+        "bodyText": "Obesity, class II. On semaglutide 1.0 mg weekly, down 18 lb. Tolerating well. Plan step-up to next dose if side effects remain mild.",
+        "aiRead": "You've lost 18 lb on semaglutide and are tolerating it well. Your doctor may step up to the next dose if side effects stay mild."
+      }
+    ],
+    "aisha": [
+      {
+        "id": "doc-aisha-1",
+        "kind": "visit_summary",
+        "title": "Primary care — wellness visit",
+        "docDate": "2026-03-15",
+        "sourceOrg": "City Health Collective",
+        "mime": "application/pdf",
+        "fhirType": "DocumentReference",
+        "bodyText": "Obesity, class I; prior pre-diabetes resolved (A1c 5.6%). Completed National DPP. Highly active. Continue current plan.",
+        "aiRead": "Great news — your A1c moved out of the pre-diabetes range and you completed your prevention program. Keep up your current routine."
+      }
+    ],
+    "carol": [
+      {
+        "id": "doc-carol-1",
+        "kind": "specialist_note",
+        "title": "Physical therapy — plan of care",
+        "docDate": "2026-04-22",
+        "sourceOrg": "Riverview Health",
+        "mime": "application/pdf",
+        "fhirType": "DocumentReference",
+        "bodyText": "Class III obesity with knee osteoarthritis. Low-impact program: water aerobics 2x/week, seated strength. Adapted step goal 4,000. Reassess in 6 weeks.",
+        "aiRead": "Your physical therapist set up a joint-friendly plan — water aerobics and seated strength — with a gentler step goal to protect your knees."
+      }
+    ],
+    "miguel": [
+      {
+        "id": "doc-miguel-1",
+        "kind": "specialist_note",
+        "title": "Sleep medicine — follow-up note",
+        "docDate": "2026-03-30",
+        "sourceOrg": "Northgate Medical",
+        "mime": "application/pdf",
+        "fhirType": "DocumentReference",
+        "bodyText": "Obstructive sleep apnea with obesity. CPAP use inconsistent (3.2 hrs/night). Weight plateau. Reinforce CPAP adherence; better sleep supports weight loss.",
+        "aiRead": "Using your CPAP more consistently can improve your sleep and help with weight. Your team wants to support getting back on track."
+      }
+    ],
+    "emily": [
+      {
+        "id": "doc-emily-1",
+        "kind": "visit_summary",
+        "title": "Campus health — visit summary",
+        "docDate": "2026-03-18",
+        "sourceOrg": "Campus Health Services",
+        "mime": "application/pdf",
+        "fhirType": "DocumentReference",
+        "bodyText": "Obesity, class I. Vegetarian; peanut and shellfish allergy. Down 5 lb. Balanced plan; monitor iron and B12. Continue.",
+        "aiRead": "You're down 5 lb on a balanced vegetarian plan. Your dietitian is keeping an eye on iron and B12, which matters on a vegetarian diet."
+      }
+    ]
+  },
+  "aiInsights": {
+    "sarah": [
+      {
+        "id": "ins-sarah-1",
+        "kind": "referral_suggestion",
+        "title": "A pattern worth a question for your doctor",
+        "body": "Your urine albumin has risen over your last three labs (28 → 35 → 42 mg/g) while your A1c stayed near 7.5%. Together these can be early signs of diabetes affecting the kidneys — a good thing to ask your care team about.",
+        "basis": [
+          "lab:urine_albumin_creatinine x3",
+          "lab:a1c",
+          "condition:ckd_stage_2"
+        ],
+        "surfacedOn": "trends",
+        "severity": "attention"
+      },
+      {
+        "id": "ins-sarah-2",
+        "kind": "titration",
+        "title": "Your medication plan changed — here's the plain version",
+        "body": "Your new nephrology visit summary increases metformin to 1000 mg twice daily and keeps empagliflozin for kidney protection. Take the higher metformin dose with food to reduce stomach upset.",
+        "basis": [
+          "document:doc-sarah-1"
+        ],
+        "surfacedOn": "overview",
+        "severity": "info"
+      }
+    ],
+    "robert": [
+      {
+        "id": "ins-robert-1",
+        "kind": "trend",
+        "title": "Why your A1c moved",
+        "body": "Your A1c rose from 7.4% to 7.9% as your morning glucose averaged 140 and activity dropped ~22% this week. These move together.",
+        "basis": [
+          "lab:a1c",
+          "observation:glucose_fasting",
+          "observation:steps"
+        ],
+        "surfacedOn": "trends",
+        "severity": "attention"
+      }
+    ],
+    "maria": [
+      {
+        "id": "ins-maria-1",
+        "kind": "trend",
+        "title": "Your prevention plan is working",
+        "body": "Your A1c held at 6.1% while you lost 7 lb and kept up MDPP sessions. Staying on this track lowers your chance of developing type 2 diabetes.",
+        "basis": [
+          "lab:a1c",
+          "observation:weight",
+          "program:mdpp"
+        ],
+        "surfacedOn": "overview",
+        "severity": "info"
+      }
+    ],
+    "jim": [
+      {
+        "id": "ins-jim-1",
+        "kind": "trend",
+        "title": "A full year in target",
+        "body": "Your A1c has stayed under 7% for four straight labs while you average 8,000+ steps a day. Whatever you're doing, it's working.",
+        "basis": [
+          "lab:a1c x4",
+          "observation:steps"
+        ],
+        "surfacedOn": "trends",
+        "severity": "info"
+      }
+    ],
+    "priya": [
+      {
+        "id": "ins-priya-1",
+        "kind": "trend",
+        "title": "A pattern worth a question for your team",
+        "body": "Your glucose dips low overnight on several days while your time-in-range sits just under goal. Ask your care team whether your overnight basal rate needs a small change.",
+        "basis": [
+          "observation:glucose_continuous",
+          "metric:time_in_range"
+        ],
+        "surfacedOn": "trends",
+        "severity": "attention"
+      }
+    ],
+    "hector": [
+      {
+        "id": "ins-hector-1",
+        "kind": "summary",
+        "title": "Getting started, step by step",
+        "body": "Your A1c is high right now, which is common at diagnosis. Taking metformin daily and adding short walks are the two changes that help most in the first months.",
+        "basis": [
+          "lab:a1c",
+          "medication:metformin"
+        ],
+        "surfacedOn": "overview",
+        "severity": "attention"
+      }
+    ],
+    "linda": [
+      {
+        "id": "ins-linda-1",
+        "kind": "trend",
+        "title": "Blood pressure trending up",
+        "body": "Your home blood pressure has risen across the last two weeks while your sodium runs above target. These often move together — a good thing to share with your care team.",
+        "basis": [
+          "observation:blood_pressure",
+          "nutrition:sodium"
+        ],
+        "surfacedOn": "trends",
+        "severity": "attention"
+      }
+    ],
+    "deshawn": [
+      {
+        "id": "ins-deshawn-1",
+        "kind": "trend",
+        "title": "Holding steady — and how to nudge it",
+        "body": "Your A1c and weight have been flat for six weeks. One added habit — a 10-minute post-dinner walk — is often enough to restart progress.",
+        "basis": [
+          "lab:a1c",
+          "observation:weight"
+        ],
+        "surfacedOn": "overview",
+        "severity": "info"
+      }
+    ],
+    "samuel": [
+      {
+        "id": "ins-samuel-1",
+        "kind": "titration",
+        "title": "Your medication may step up — the plain version",
+        "body": "You're down 18 lb and tolerating semaglutide well, so your doctor may increase the dose. Higher doses can increase nausea at first; taking it on a lighter-meal day can help.",
+        "basis": [
+          "medication:semaglutide",
+          "observation:weight"
+        ],
+        "surfacedOn": "overview",
+        "severity": "info"
+      }
+    ],
+    "aisha": [
+      {
+        "id": "ins-aisha-1",
+        "kind": "trend",
+        "title": "Pre-diabetes reversed",
+        "body": "Your A1c dropped from 6.0% to 5.6% — out of the pre-diabetes range — alongside your activity streak and weight loss. That's a meaningful reduction in future risk.",
+        "basis": [
+          "lab:a1c x3",
+          "observation:weight"
+        ],
+        "surfacedOn": "trends",
+        "severity": "info"
+      }
+    ],
+    "carol": [
+      {
+        "id": "ins-carol-1",
+        "kind": "summary",
+        "title": "Gentle movement counts",
+        "body": "Low-impact activity like water aerobics protects your joints while still helping your weight and blood sugar. Your adapted goals are set with that in mind.",
+        "basis": [
+          "program:low_impact",
+          "condition:osteoarthritis"
+        ],
+        "surfacedOn": "overview",
+        "severity": "info"
+      }
+    ],
+    "miguel": [
+      {
+        "id": "ins-miguel-1",
+        "kind": "summary",
+        "title": "Sleep and weight move together",
+        "body": "Your weight has plateaued while your CPAP use has been light. More consistent sleep often makes weight loss easier — a good first focus to restart progress.",
+        "basis": [
+          "device:cpap",
+          "observation:weight"
+        ],
+        "surfacedOn": "overview",
+        "severity": "attention"
+      }
+    ],
+    "emily": [
+      {
+        "id": "ins-emily-1",
+        "kind": "trend",
+        "title": "Steady progress on your plan",
+        "body": "You're down 5 lb on a vegetarian, allergy-safe plan. Keeping protein and iron up supports energy — your saved recipes already do this well.",
+        "basis": [
+          "observation:weight",
+          "nutrition:protein"
+        ],
+        "surfacedOn": "overview",
+        "severity": "info"
+      }
+    ]
+  },
+  "shareSessions": {
+    "sarah": {
+      "shareToken": "MOCK-7F3A-QR",
+      "bundleContents": [
+        "Condition",
+        "MedicationStatement",
+        "AllergyIntolerance",
+        "Observation(labs)",
+        "Observation(vitals)"
+      ],
+      "purposeOfUse": "treatment",
+      "sharedWithOrg": "Lakeside Cardiology",
+      "returnSummaryDocId": "doc-sarah-1",
+      "note": "QR encodes the mock token only — never real PHI."
+    }
+  },
+  "accessLog": {
+    "sarah": [
+      {
+        "occurredAt": "2026-06-06T07:02",
+        "actor": "Concept App",
+        "actorRole": "app",
+        "scope": "full_chart",
+        "purposeOfUse": "individual_access"
+      },
+      {
+        "occurredAt": "2026-06-05T14:20",
+        "actor": "Nephrology Associates",
+        "actorRole": "clinician",
+        "scope": "labs,conditions,medications",
+        "purposeOfUse": "treatment"
+      },
+      {
+        "occurredAt": "2026-06-05T09:10",
+        "actor": "Sarah W. (patient)",
+        "actorRole": "patient",
+        "scope": "full_chart",
+        "purposeOfUse": "patient_share"
+      },
+      {
+        "occurredAt": "2026-06-01T16:45",
+        "actor": "Riverview Health",
+        "actorRole": "clinician",
+        "scope": "labs",
+        "purposeOfUse": "treatment"
+      }
+    ],
+    "summaryCountThisMonth": {
+      "sarah": 19,
+      "robert": 14,
+      "default": 11,
+      "maria": 12,
+      "jim": 8,
+      "priya": 15,
+      "hector": 5,
+      "linda": 13,
+      "deshawn": 9,
+      "samuel": 10,
+      "aisha": 7,
+      "carol": 11,
+      "miguel": 6,
+      "emily": 6
+    },
+    "default": [
+      {
+        "occurredAt": "2026-06-06T07:02",
+        "actor": "Concept App",
+        "actorRole": "app",
+        "scope": "full_chart",
+        "purposeOfUse": "individual_access"
+      },
+      {
+        "occurredAt": "2026-06-05T15:30",
+        "actor": "Your clinic",
+        "actorRole": "clinician",
+        "scope": "labs,medications",
+        "purposeOfUse": "treatment"
+      },
+      {
+        "occurredAt": "2026-06-01T10:15",
+        "actor": "You (patient)",
+        "actorRole": "patient",
+        "scope": "full_chart",
+        "purposeOfUse": "individual_access"
+      }
+    ]
+  },
+  "symptomCheckins": {
+    "redFlagKeywords": [
+      "chest pain",
+      "can't breathe",
+      "shortness of breath",
+      "passing out",
+      "fainted",
+      "severe",
+      "vision loss",
+      "slurred speech",
+      "numbness one side",
+      "very low blood sugar",
+      "confusion"
+    ],
+    "redFlagResponse": "This may need urgent attention. Please contact your care team now, or call 911 / go to urgent care if it's severe. I can't diagnose — but I don't want you to wait on this.",
+    "exampleNormal": {
+      "input": "a little tired today and my knees ache",
+      "response": "Thanks for logging that — I'll note it for your next visit. Gentle, low-impact activity sometimes helps achy joints."
+    }
+  },
+  "journey": {
+    "persona": "sarah",
+    "steps": [
+      {
+        "stepNo": 1,
+        "title": "One-tap sign-in",
+        "route": "/",
+        "narration": "Sarah signs in with a passkey on her phone — IAL2/AAL2, no password. One trusted identity unlocks the whole network."
+      },
+      {
+        "stepNo": 2,
+        "title": "Kill the Clipboard at the specialist",
+        "route": "/share",
+        "narration": "At nephrology check-in she scans a QR code to share her verified FHIR history — no paper forms, no fax."
+      },
+      {
+        "stepNo": 3,
+        "title": "The visit summary returns",
+        "route": "/records",
+        "narration": "After the visit, the summary returns via a Smart Health Link and lands in her records automatically."
+      },
+      {
+        "stepNo": 4,
+        "title": "The AI reads the new record",
+        "route": "/assistant",
+        "narration": "Her assistant explains the medication titration in plain language and flags the rising kidney marker as a question for her care team."
+      },
+      {
+        "stepNo": 5,
+        "title": "Continuous coaching",
+        "route": "/",
+        "narration": "Proactive glucose and weight nudges replace waiting for the next 15-minute visit."
+      },
+      {
+        "stepNo": 6,
+        "title": "She owns her data",
+        "route": "/records",
+        "narration": "Sarah reviews exactly who accessed her record, when, and why — treatment vs her own access vs her shares."
+      }
+    ]
+  },
+  "note": "The two reference personas (maria, robert) and all copy shown on the PROTOTYPE screens MUST be taken verbatim from the embedded prototype sources (#src-prototype-mobile, #src-prototype-desktop). The eleven additionalPersonas (ten varied + featured sarah) and all v1.1/v1.2 feature data above are authoritative for the new screens; render them with the same components, tokens, and chart geometry as the prototypes. Terminology codes are illustrative — validate per terminologyExamples.disclaimer. All v1.2 capabilities are simulated behind the Section 9 swap seams; the runtime makes zero external calls.",
+  "socialDriversReference": {
+    "disclaimer": "ILLUSTRATIVE ICD-10-CM Z-codes for health-related social needs (SDOH). The implementer MUST validate against the current ICD-10-CM release (Z55–Z65 family) before any real use. Language access (limited English proficiency) is modeled via preferredLanguage rather than a Z-code.",
+    "zCodes": {
+      "food_insecurity": "Z59.41",
+      "transportation": "Z59.82",
+      "social_isolation": "Z60.2",
+      "low_income": "Z59.6",
+      "work_schedule_strain": "Z56.6",
+      "caregiver": "Z63.6"
+    },
+    "screeningNote": "Personas with no need carry an explicit negative screening result (status 'none'), reflecting that HRSN screening was completed."
+  }
+}

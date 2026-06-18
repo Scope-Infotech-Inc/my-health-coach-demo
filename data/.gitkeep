@@ -1,0 +1,2 @@
+# Keeps the data/ directory in version control.
+# The SQLite DB (hteap-demo.db) is generated here by `npm run seed` and is gitignored.

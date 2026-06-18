@@ -1,0 +1,24 @@
+<!-- @dsCard group="Spacing" viewport="700x180" name="Elevation & shadows" subtitle="Restrained, navy-tinted — flat by default" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; padding: 26px 24px; background: var(--surface); }
+  .row { display: flex; gap: 22px; }
+  .box { width: 130px; height: 78px; background: var(--white); border: 1px solid var(--border-hairline); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-family: var(--font-label); font-size: 12px; font-weight: 600; color: var(--text-muted); }
+  .lbl { font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); margin-top: 8px; text-align: center; }
+  .item { text-align: center; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="item"><div class="box" style="box-shadow:var(--shadow-none)">Flat</div><div class="lbl">none (default)</div></div>
+    <div class="item"><div class="box" style="box-shadow:var(--shadow-card)">Card</div><div class="lbl">card</div></div>
+    <div class="item"><div class="box" style="box-shadow:var(--shadow-raised)">Hover lift</div><div class="lbl">raised</div></div>
+    <div class="item"><div class="box" style="box-shadow:var(--shadow-atmospheric)">Dropdown</div><div class="lbl">atmospheric</div></div>
+    <div class="item"><div class="box" style="box-shadow:var(--shadow-overlay)">Modal</div><div class="lbl">overlay</div></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Status colors" subtitle="Color + icon together — never color alone" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; padding: 20px; background: var(--white); }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: var(--radius-pill); font-family: var(--font-label); font-size: 13px; font-weight: 600; }
+  .material-symbols-outlined { font-size: 16px; }
+  .ok { background: var(--sky-tint); color: var(--navy-deep); }
+  .warn { background: rgba(253,184,30,0.2); color: var(--warning); }
+  .err { background: var(--error-container); color: var(--on-error-container); }
+  .succ { background: var(--success-container); color: var(--on-success-container); }
+  .lbl { font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); margin-top: 10px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <span class="badge ok"><span class="material-symbols-outlined is-filled">check_circle</span> Complete</span>
+    <span class="badge succ"><span class="material-symbols-outlined is-filled">verified</span> Active</span>
+    <span class="badge warn"><span class="material-symbols-outlined is-filled">pending</span> Review Required</span>
+    <span class="badge err"><span class="material-symbols-outlined is-filled">warning</span> Action Required</span>
+  </div>
+  <div class="lbl">success #2E8540 &nbsp;·&nbsp; caution #FDB81E / #C38B00 &nbsp;·&nbsp; error #BA1A1A / #D22630 &nbsp;·&nbsp; info sky #E1F3F8</div>
+</body>
+</html>

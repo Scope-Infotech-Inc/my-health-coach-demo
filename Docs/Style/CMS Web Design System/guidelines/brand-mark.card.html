@@ -1,0 +1,28 @@
+<!-- @dsCard group="Brand" viewport="700x150" name="Brand mark / lockup" subtitle="Navy square + filled account_balance glyph" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; padding: 24px; background: var(--white); display: flex; gap: 40px; align-items: center; }
+  .lockup { display: flex; align-items: center; gap: 12px; }
+  .mark { width: 44px; height: 44px; background: var(--navy-deep); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; }
+  .mark .material-symbols-outlined { color: #fff; font-size: 26px; }
+  .ttl { font-family: var(--font-sans); font-size: 20px; font-weight: 700; color: var(--navy-deep); line-height: 1.1; }
+  .sub { font-family: var(--font-label); font-size: 11px; font-weight: 600; color: var(--text-subtle); text-transform: uppercase; letter-spacing: 0.06em; }
+  .mark-gold { background: var(--caution-gold); }
+  .mark-gold .material-symbols-outlined { color: var(--navy-deep); }
+</style>
+</head>
+<body>
+  <div class="lockup">
+    <div class="mark"><span class="material-symbols-outlined is-filled">account_balance</span></div>
+    <div><div class="ttl">Admin Console</div><div class="sub">Healthcare Management</div></div>
+  </div>
+  <div class="lockup">
+    <div class="mark mark-gold"><span class="material-symbols-outlined is-filled">health_and_safety</span></div>
+    <div><div class="ttl">CMS.gov</div><div class="sub">Centers for Medicare &amp; Medicaid</div></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!-- @dsCard group="Components" viewport="700x430" name="Navigation" subtitle="Top nav (gold underline) + sidebar rail (gold left-rule)" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  body { margin: 0; background: var(--surface); }
+  /* scale the 1280-wide nav down to fit the card */
+  .scaler { transform: scale(0.62); transform-origin: top left; width: 1130px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+  const NS = window.CMSWebDesignSystem_cd3e62;
+  const { TopNav, SideNav, Button, Avatar } = NS;
+  const items = [
+    { label: 'Overview', icon: 'dashboard' },
+    { label: 'Program Registry', icon: 'folder_managed' },
+    { label: 'Data Reporting', icon: 'analytics' },
+    { label: 'Policy Library', icon: 'policy' },
+    { label: 'User Management', icon: 'group' },
+  ];
+  function Demo() {
+    return (
+      <div className="scaler">
+        <TopNav active="Analytics" user={<Avatar name="Jane Doe" ring />} style={{ position: 'static' }} />
+        <div style={{ display: 'flex', height: 320, background: 'var(--surface)' }}>
+          <SideNav
+            items={items}
+            active="Data Reporting"
+            cta={<Button variant="accent" icon="add_circle" fullWidth>New Report</Button>}
+            footerItems={[{ label: 'Settings', icon: 'settings' }, { label: 'Sign Out', icon: 'logout' }]}
+          />
+        </div>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Standards chip row in the header area */
+.standards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: calc(var(--space-2) * -1);
+}
+
+/* ---- Timeline ---- */
+.timelineHeading {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--text-heading);
+  margin: 0;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.entry {
+  position: relative;
+}
+
+/* The kind icon chip rendered in each card. Sky tint, neutral. */
+.kindChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-lg);
+  background: var(--sky-tint);
+  color: var(--navy-deep);
+  flex-shrink: 0;
+}
+
+.kindChip .material-symbols-outlined,
+.kindChip span {
+  font-size: 22px;
+}
+
+.cardRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  width: 100%;
+  text-align: left;
+}
+
+.cardMain {
+  min-width: 0;
+  flex: 1;
+}
+
+.kindLabel {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: var(--label-sm-weight);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  margin-bottom: var(--space-1);
+}
+
+.docTitle {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--text-heading);
+  margin: 0;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  color: var(--text-subtle);
+}
+
+.metaItem .material-symbols-outlined,
+.metaItem > span:first-child {
+  font-size: 15px;
+}
+
+/* "AI read available" dot — color + icon, never color alone */
+.aiDot {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: var(--label-sm-weight);
+  color: var(--gold-ink);
+}
+
+.aiDot .material-symbols-outlined,
+.aiDot > span:first-child {
+  font-size: 15px;
+}
+
+.cardArrow {
+  align-self: center;
+  color: var(--slate-gray);
+  flex-shrink: 0;
+}
+
+.cardArrow .material-symbols-outlined,
+.cardArrow > span {
+  font-size: 20px;
+}
+
+/* Expand control for the structured code chips */
+.expandRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.expandBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: var(--label-sm-weight);
+  color: var(--navy-deep);
+}
+
+.expandBtn .material-symbols-outlined,
+.expandBtn > span:first-child {
+  font-size: 16px;
+}
+
+.codeChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border-hairline);
+}
+
+.viewerLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  border-radius: var(--radius-lg);
+}
+
+.viewerLink:focus-visible {
+  outline: 3px solid var(--navy-deep);
+  outline-offset: 2px;
+}

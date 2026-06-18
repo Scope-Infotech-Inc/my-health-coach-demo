@@ -1,0 +1,24 @@
+<!-- @dsCard group="Colors" viewport="700x190" name="Brand colors" subtitle="Navy Deep anchors; Gold is the singular accent; Sky Tint softens" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; padding: 20px; background: var(--white); }
+  .row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .sw { width: 150px; }
+  .chip { height: 76px; border-radius: var(--radius-lg); border: 1px solid var(--border-hairline); }
+  .name { font-family: var(--font-label); font-size: 13px; font-weight: 600; color: var(--text-body); margin-top: 8px; }
+  .hex { font-family: var(--font-mono); font-size: 12px; color: var(--text-subtle); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="sw"><div class="chip" style="background:var(--navy-deep)"></div><div class="name">Navy Deep</div><div class="hex">#112E51</div></div>
+    <div class="sw"><div class="chip" style="background:var(--navy-900)"></div><div class="name">Navy 900</div><div class="hex">#001936</div></div>
+    <div class="sw"><div class="chip" style="background:var(--caution-gold)"></div><div class="name">Caution Gold</div><div class="hex">#FDB81E</div></div>
+    <div class="sw"><div class="chip" style="background:var(--sky-tint)"></div><div class="name">Sky Tint</div><div class="hex">#E1F3F8</div></div>
+  </div>
+</body>
+</html>

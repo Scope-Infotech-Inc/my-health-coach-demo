@@ -1,0 +1,284 @@
+.page {
+  display: grid;
+  gap: var(--space-16);
+}
+
+@media (max-width: 879px) {
+  .page {
+    gap: var(--space-10);
+  }
+}
+
+/* A section block: lightweight h2 + its content on the section rhythm. */
+.block {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.blockHead {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.blockTitle {
+  font-family: var(--font-sans);
+  font-size: var(--headline-md-size);
+  line-height: var(--headline-md-line);
+  font-weight: var(--weight-semibold);
+  color: var(--text-heading);
+}
+
+.blockLede {
+  font-size: var(--body-lg-size);
+  line-height: var(--body-lg-line);
+  color: var(--text-body);
+  max-width: 68ch;
+}
+
+/* Takeaway strip — three short plain sentences. */
+.takeaways {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.takeaway {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--surface-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+}
+
+.takeawayIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--sky-tint);
+  color: var(--navy-deep);
+}
+
+.takeawayIcon .material-symbols-outlined {
+  font-size: 20px;
+}
+
+.takeawayText {
+  font-size: var(--body-md-size);
+  line-height: var(--body-md-line);
+  color: var(--text-body);
+}
+
+.takeawayText strong {
+  color: var(--text-heading);
+  font-weight: var(--weight-semibold);
+}
+
+@media (max-width: 879px) {
+  .takeaways {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Five framework-category cards. */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.category {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--surface-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+}
+
+.categoryIcon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--sky-tint);
+  color: var(--navy-deep);
+}
+
+.categoryIcon .material-symbols-outlined {
+  font-size: 22px;
+}
+
+.categoryBody {
+  display: grid;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.categoryTitle {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: var(--weight-semibold);
+  color: var(--text-heading);
+}
+
+.categoryDetail {
+  font-size: var(--body-md-size);
+  line-height: var(--body-md-line);
+  color: var(--text-body);
+}
+
+@media (max-width: 879px) {
+  .categories {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Security note list. */
+.security {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.securityItem {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.securityIcon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  background: var(--success-container);
+  color: var(--on-success-container);
+}
+
+.securityIcon .material-symbols-outlined {
+  font-size: 20px;
+}
+
+.securityBody {
+  display: grid;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.securityTitle {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: var(--weight-semibold);
+  color: var(--text-heading);
+}
+
+.securityDetail {
+  font-size: var(--body-md-size);
+  line-height: var(--body-md-line);
+  color: var(--text-body);
+}
+
+.chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+
+/* Demo-vs-production seam table. */
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--body-md-size);
+  line-height: var(--body-md-line);
+}
+
+.table caption {
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: var(--label-md-weight);
+  color: var(--slate-gray);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.table th,
+.table td {
+  text-align: left;
+  vertical-align: top;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.table tbody tr:last-child th,
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table thead th {
+  background: var(--surface-info);
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  color: var(--text-heading);
+  white-space: nowrap;
+}
+
+.table tbody th {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  color: var(--text-heading);
+}
+
+.table td {
+  color: var(--text-body);
+}
+
+.cellNow,
+.cellLater {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.cellNow .material-symbols-outlined,
+.cellLater .material-symbols-outlined {
+  flex: 0 0 auto;
+  font-size: 18px;
+  line-height: var(--body-md-line);
+}
+
+.cellNow .material-symbols-outlined {
+  color: var(--gold-ink);
+}
+
+.cellLater .material-symbols-outlined {
+  color: var(--slate-gray);
+}

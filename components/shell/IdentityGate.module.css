@@ -1,0 +1,213 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background: var(--navy-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  overflow-y: auto;
+}
+
+.panel {
+  width: 100%;
+  max-width: 460px;
+  background: var(--surface-card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-overlay);
+  padding: var(--space-8);
+  display: grid;
+  gap: var(--space-4);
+}
+
+.brand {
+  /* BrandMark inverts for navy; on white we re-tint via a dark wrap */
+  display: inline-flex;
+  background: var(--navy-deep);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2) var(--space-3);
+  justify-self: start;
+}
+
+.title {
+  font-family: var(--font-sans);
+  font-size: var(--headline-lg-size);
+  line-height: var(--headline-lg-line);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.01em;
+  color: var(--text-heading);
+}
+
+.lede {
+  font-size: var(--body-md-size);
+  line-height: var(--body-md-line);
+  color: var(--text-muted);
+}
+
+.methods {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.method {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: left;
+  background: var(--surface-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  cursor: pointer;
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    background var(--duration-fast) var(--ease-standard);
+}
+
+.method:hover {
+  border-color: var(--navy-deep);
+  background: var(--sky-tint);
+}
+
+.method :global(.material-symbols-outlined) {
+  font-size: 28px;
+  color: var(--navy-deep);
+  flex-shrink: 0;
+}
+
+.methodTitle {
+  display: block;
+  font-family: var(--font-label);
+  font-weight: var(--weight-bold);
+  color: var(--text-heading);
+}
+
+.methodDetail {
+  display: block;
+  font-size: var(--label-md-size);
+  color: var(--text-subtle);
+}
+
+.skip {
+  justify-self: center;
+  background: transparent;
+  border: none;
+  color: var(--text-link);
+  font-family: var(--font-label);
+  font-size: var(--label-md-size);
+  font-weight: var(--weight-semibold);
+  cursor: pointer;
+  padding: var(--space-2);
+  text-decoration: underline;
+}
+
+/* Verifying */
+.spinner {
+  justify-self: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 4px solid var(--surface-sunken);
+  border-top-color: var(--caution-gold);
+  animation: gate-spin 0.9s linear infinite;
+}
+
+@keyframes gate-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    border-top-color: var(--caution-gold);
+    animation: none;
+  }
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-label);
+  font-size: var(--body-md-size);
+  color: var(--text-subtle);
+}
+
+.step :global(.material-symbols-outlined) {
+  font-size: 20px;
+  color: var(--outline-variant);
+}
+
+.stepDone {
+  color: var(--text-body);
+}
+
+.stepDone :global(.material-symbols-outlined) {
+  color: var(--success);
+}
+
+/* Consent scopes */
+.scopes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.scope {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--surface-raised);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--body-md-size);
+  color: var(--text-body);
+}
+
+.scope :global(.material-symbols-outlined) {
+  font-size: 20px;
+  color: var(--success);
+  flex-shrink: 0;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-1);
+}
+
+.allow {
+  background: var(--action-primary);
+  color: var(--on-primary);
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-5);
+  font-family: var(--font-label);
+  font-size: var(--label-md-size);
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+}
+
+.allow:hover {
+  background: var(--action-primary-hover);
+}
+
+.allow:disabled {
+  opacity: 0.5;
+  cursor: progress;
+}

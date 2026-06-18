@@ -1,0 +1,120 @@
+.dock {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: var(--space-5);
+  z-index: 80;
+  width: min(520px, calc(100vw - 2 * var(--space-4)));
+}
+
+@media (max-width: 879px) {
+  .dock {
+    bottom: calc(var(--tabbar-height) + var(--space-3) + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+.card {
+  background: var(--navy-deep);
+  color: var(--text-on-navy);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-overlay);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stepNo {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--on-navy-eyebrow);
+}
+
+.skip {
+  background: transparent;
+  border: none;
+  color: var(--on-navy-muted);
+  cursor: pointer;
+  display: inline-flex;
+  padding: 2px;
+}
+
+.skip :global(.material-symbols-outlined) {
+  font-size: 18px;
+}
+
+.title {
+  font-family: var(--font-sans);
+  font-size: var(--headline-md-size);
+  line-height: var(--headline-md-line);
+  font-weight: var(--weight-semibold);
+  color: var(--white);
+}
+
+.narration {
+  font-size: var(--body-md-size);
+  line-height: var(--body-md-line);
+  color: var(--on-navy-muted);
+}
+
+.dots {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.dotActive {
+  background: var(--caution-gold);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-1);
+}
+
+.ghost {
+  background: transparent;
+  border: none;
+  color: var(--on-navy-muted);
+  font-family: var(--font-label);
+  font-size: var(--label-md-size);
+  font-weight: var(--weight-semibold);
+  cursor: pointer;
+  padding: var(--space-2);
+}
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--caution-gold);
+  color: var(--navy-deep);
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-label);
+  font-size: var(--label-md-size);
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+}
+
+.primary :global(.material-symbols-outlined) {
+  font-size: 18px;
+}

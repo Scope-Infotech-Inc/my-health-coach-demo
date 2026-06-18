@@ -1,0 +1,28 @@
+<!-- @dsCard group="Colors" viewport="700x210" name="Neutrals & surfaces" subtitle="Tonal layering — hierarchy without elevation" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; padding: 20px; background: var(--white); }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .sw { width: 124px; }
+  .chip { height: 64px; border-radius: var(--radius-md); border: 1px solid var(--border-hairline); }
+  .name { font-family: var(--font-label); font-size: 12px; font-weight: 600; color: var(--text-body); margin-top: 7px; }
+  .hex { font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="sw"><div class="chip" style="background:var(--surface-container-lowest)"></div><div class="name">Card / Lowest</div><div class="hex">#FFFFFF</div></div>
+    <div class="sw"><div class="chip" style="background:var(--surface)"></div><div class="name">Page</div><div class="hex">#F9F9F9</div></div>
+    <div class="sw"><div class="chip" style="background:var(--surface-container-low)"></div><div class="name">Raised</div><div class="hex">#F3F3F3</div></div>
+    <div class="sw"><div class="chip" style="background:var(--surface-container)"></div><div class="name">Sunken</div><div class="hex">#EEEEEE</div></div>
+    <div class="sw"><div class="chip" style="background:var(--surface-container-highest)"></div><div class="name">Footer</div><div class="hex">#E2E2E2</div></div>
+    <div class="sw"><div class="chip" style="background:var(--slate-gray)"></div><div class="name">Slate Gray</div><div class="hex">#5B616B</div></div>
+    <div class="sw"><div class="chip" style="background:var(--outline-variant)"></div><div class="name">Hairline</div><div class="hex">#C4C6CF</div></div>
+    <div class="sw"><div class="chip" style="background:var(--on-surface)"></div><div class="name">Body text</div><div class="hex">#1A1C1C</div></div>
+  </div>
+</body>
+</html>

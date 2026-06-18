@@ -1,0 +1,31 @@
+/* ===========================================================================
+   CMS Web Design System — Webfonts
+   Public Sans: institutional workhorse (editorial + UI). USWDS standard face.
+   Lexend: functional labels / data / small UI controls.
+   Material Symbols Outlined: the icon system used across CMS web apps.
+   Served from Google Fonts. If you need self-hosted binaries, drop them in
+   assets/fonts/ and replace these @import lines with local @font-face rules.
+   =========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Lexend:wght@300;400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+
+/* Icon base class — apply to <span class="material-symbols-outlined">name</span> */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  -webkit-font-smoothing: antialiased;
+}
+.material-symbols-outlined.is-filled {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}

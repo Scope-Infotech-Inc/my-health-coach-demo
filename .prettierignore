@@ -1,0 +1,11 @@
+.next/
+Output/
+data/
+node_modules/
+Docs/
+.claude/
+.agents/
+spec-extracted/
+package-lock.json
+next-env.d.ts
+*.min.*

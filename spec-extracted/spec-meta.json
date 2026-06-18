@@ -1,0 +1,147 @@
+{
+  "title": "HTEAP Diabetes & Obesity Demo Application",
+  "version": "1.3",
+  "date": "2026-06-11",
+  "stack": {
+    "framework": "next.js >=15 (app router)",
+    "language": "typescript",
+    "db": "sqlite (better-sqlite3) at Output/db/hteap-demo.db",
+    "styling": "css custom properties + css modules",
+    "charts": "custom svg",
+    "fonts": [
+      "Public Sans",
+      "Lexend"
+    ],
+    "fontDelivery": "next/font/google (self-hosted at build)",
+    "voice": "browser-native Web Speech API (optional, graceful fallback)",
+    "assistant": "deterministic on-device intent engine (NO LLM), behind interpret() swap seam"
+  },
+  "fileStorage": {
+    "baseDir": "Output",
+    "resolution": "path.resolve(process.cwd(), 'Output')",
+    "envOverride": "HTEAP_OUTPUT_DIR",
+    "resolvedIn": "lib/paths.ts",
+    "subdirs": {
+      "db": "Output/db",
+      "documents": "Output/documents",
+      "exports": "Output/exports",
+      "uploads": "Output/uploads",
+      "logs": "Output/logs"
+    },
+    "createdOnDemand": true,
+    "gitignored": true,
+    "noWritesOutsideBaseDir": true
+  },
+  "demoToday": "2026-06-06",
+  "breakpointPx": 880,
+  "innerDesktopCollapsePx": [
+    1100,
+    700
+  ],
+  "routes": [
+    "/",
+    "/how-it-works",
+    "/rewards",
+    "/devices",
+    "/connect",
+    "/assistant",
+    "/nearby",
+    "/recipes",
+    "/share",
+    "/records",
+    "/api/*"
+  ],
+  "personas": [
+    "sarah",
+    "maria",
+    "robert",
+    "jim",
+    "priya",
+    "hector",
+    "linda",
+    "deshawn",
+    "samuel",
+    "aisha",
+    "carol",
+    "miguel",
+    "emily"
+  ],
+  "personaGroups": {
+    "featured": [
+      "sarah"
+    ],
+    "diabetes": [
+      "maria",
+      "robert",
+      "jim",
+      "priya",
+      "hector",
+      "linda",
+      "deshawn"
+    ],
+    "obesity": [
+      "samuel",
+      "aisha",
+      "carol",
+      "miguel",
+      "emily"
+    ]
+  },
+  "personaCount": 13,
+  "features_v1_1": [
+    "gamification_rewards",
+    "smart_device_connections",
+    "provider_connect",
+    "ai_assistant_chat_voice",
+    "local_services_finder",
+    "healthy_recipes"
+  ],
+  "features_v1_2": [
+    "ial2_aal2_identity_passkey_mdl",
+    "kill_the_clipboard_qr_fhir_share",
+    "smart_health_link_visit_summary",
+    "full_chart_unstructured_documents",
+    "ai_interpretive_insights",
+    "medication_titration_explainer",
+    "semantic_terminology_loinc_rxnorm_snomed",
+    "record_locator",
+    "granular_audit_purpose_of_use",
+    "symptom_checkin",
+    "comorbid_persona_sarah_guided_journey"
+  ],
+  "externalRuntimeCalls": "none",
+  "simulationSeams": [
+    "AlignedNetworkClient",
+    "IdentityProvider",
+    "DocumentStore",
+    "TerminologyService",
+    "interpret()",
+    "AuditLog"
+  ],
+  "constraints": [
+    "no real LLM",
+    "no real identity provider",
+    "no real FHIR/Aligned Network/TEFCA",
+    "no real Smart Health Link service",
+    "no real document store/OCR",
+    "no real terminology service",
+    "no real device/Bluetooth/vendor APIs",
+    "no real map tiles/place/geolocation APIs",
+    "no real provider messaging",
+    "terminology codes illustrative — validate against official value sets",
+    "brand names for realism only — no integration or endorsement"
+  ],
+  "productionTargets": [
+    "CMS Aligned Network",
+    "USCDI v3 / US Core IG FHIR R4",
+    "IAL2/AAL2 passkey/mDL",
+    "LOINC/RxNorm/SNOMED value sets",
+    "Record Locator by 2026-07-04",
+    "HITRUST or equivalent"
+  ],
+  "prototypeSourceBlockIds": [
+    "src-prototype-mobile",
+    "src-prototype-desktop"
+  ],
+  "sqlDdlBlockId": "sql-ddl"
+}

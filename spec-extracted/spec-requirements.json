@@ -1,0 +1,212 @@
+[
+  {
+    "id": "FR-1",
+    "priority": "P0",
+    "title": "Visual parity with embedded prototypes",
+    "acceptance": "Side-by-side comparison at 1280px (desktop) and 390px (mobile home) shows same structure, tokens, copy, chart geometry for both personas"
+  },
+  {
+    "id": "FR-2",
+    "priority": "P0",
+    "title": "Patient/persona toggle (full roster)",
+    "acceptance": "Switch any of the 13 patients from a grouped control; updates all sections + header identity via API refetch, no reload; persists per session"
+  },
+  {
+    "id": "FR-3",
+    "priority": "P0",
+    "title": "Responsive view switching at 880px",
+    "acceptance": "Live swap on resize, persona preserved, no reload; <880 mobile experience, >=880 desktop dashboard"
+  },
+  {
+    "id": "FR-4",
+    "priority": "P0",
+    "title": "Overview: greeting, persona banner, five stat tiles with deltas",
+    "acceptance": "Values match spec-seed-data; Robert banner gold w/ schedule CTA; Maria banner red-container"
+  },
+  {
+    "id": "FR-5",
+    "priority": "P0",
+    "title": "Trends & Labs charts",
+    "acceptance": "Robert: A1c quarterly line w/ <7.5 shaded zone + red latest; glucose 14-day w/ 80-130 band. Maria: risk scale marker at 6.1; weight 6-month line w/ gold dashed goal 178; lab history list w/ status icons"
+  },
+  {
+    "id": "FR-6",
+    "priority": "P0",
+    "title": "Care & Medications (robert)",
+    "acceptance": "Med list taken/due, refill-ready from claims, 4-week adherence grid 26/28 (1 partial, 1 missed, today pending), care team cards"
+  },
+  {
+    "id": "FR-7",
+    "priority": "P0",
+    "title": "Care & Prevention (maria)",
+    "acceptance": "MDPP 9/16 sessions bar, 3.6%-of-5% milestone bar, next session Tue Jun 9 6:00 PM, care team cards, 6.5% escalation rule copy"
+  },
+  {
+    "id": "FR-8",
+    "priority": "P0",
+    "title": "Activity & Nutrition",
+    "acceptance": "Weekly bars per seed (today bar gold), goal lines (7000 steps / 150 min), nutrition progress bars per seed"
+  },
+  {
+    "id": "FR-9",
+    "priority": "P0",
+    "title": "Coaching feed & matched programs",
+    "acceptance": "Human + auto messages w/ timestamps and action buttons; program chips Active/Eligible/Suggested/Available/Near you"
+  },
+  {
+    "id": "FR-10",
+    "priority": "P0",
+    "title": "Data & Consent center + granular audit trail",
+    "acceptance": "Sources w/ last-sync + standards chips; consent granted 2026-03-03 w/ IAL2/AAL2 identity (FR-14); sharing rows; revoke action; VIEWABLE audit trail (replaces bare count) w/ actor, timestamp, scope, purpose-of-use (treatment|individual_access|patient_share|operations)"
+  },
+  {
+    "id": "FR-11",
+    "priority": "P0",
+    "title": "Animated charts on scroll-into-view",
+    "acceptance": "Per animation spec; once per session; prefers-reduced-motion renders final state with no animation"
+  },
+  {
+    "id": "FR-12",
+    "priority": "P0",
+    "title": "All data from SQLite via internal API",
+    "acceptance": "No hardcoded display data in components; API responses observable in network tab"
+  },
+  {
+    "id": "FR-13",
+    "priority": "P1",
+    "title": "Simulated Aligned Network sync + Record Locator",
+    "acceptance": "Sync now runs a simulated Record Locator (returns discovered orgs + record counts) then 400-1200ms latency, last_sync_at=demo-now, success toast; locator results visible in Data & Consent"
+  },
+  {
+    "id": "FR-14",
+    "priority": "P1",
+    "title": "IAL2/AAL2 identity + consent gate",
+    "acceptance": "One-tap passkey or mDL sign-in at IAL2/AAL2 then scoped OAuth 2.0 authorization before dashboard; revoke -> disconnected empty states w/ reconnect; consent record stores credential type, IAL, AAL; theatrical, no real IdP"
+  },
+  {
+    "id": "FR-15",
+    "priority": "P1",
+    "title": "Replay care-team alert (robert)",
+    "acceptance": "Demo control re-fires alert: aria-live toast, banner highlight, feed entry"
+  },
+  {
+    "id": "FR-16",
+    "priority": "P1",
+    "title": "Demo reset",
+    "acceptance": "POST /api/demo/reset restores exact seed state"
+  },
+  {
+    "id": "FR-17",
+    "priority": "P1",
+    "title": "/how-it-works briefing page",
+    "acceptance": "Takeaway strip, data-flow columns, 5 framework cards, security note from prototype 1; responsive"
+  },
+  {
+    "id": "FR-18",
+    "priority": "P1",
+    "title": "Accessibility per section 12",
+    "acceptance": "Lighthouse a11y >=95 both views; keyboard-only demo walkthrough passes; axe clean on critical"
+  },
+  {
+    "id": "FR-19",
+    "priority": "P2",
+    "title": "Count-up stat tiles",
+    "acceptance": "700ms count-up on first view; reduced-motion safe"
+  },
+  {
+    "id": "FR-20",
+    "priority": "P2",
+    "title": "Presenter notes overlay on '?'",
+    "acceptance": "Overlay lists demo script; dismissible; hidden from tab order until opened"
+  },
+  {
+    "id": "FR-21",
+    "priority": "P0",
+    "title": "Expanded 13-patient roster",
+    "acceptance": "All 13 personas (featured:1 sarah, diabetes:7, obesity:5) selectable from grouped control; every screen renders from SQLite for each; varied states visible (well-controlled vs high-risk, device-rich vs none, high vs low engagement)"
+  },
+  {
+    "id": "FR-22",
+    "priority": "P0",
+    "title": "Gamification & rewards",
+    "acceptance": "/rewards shows points, level ring, current/best streak, earned+locked badges, challenges; award control fires toast + badge pop-in (500ms, scale+gold glow) with aria-live; reduced-motion renders final state"
+  },
+  {
+    "id": "FR-23",
+    "priority": "P0",
+    "title": "Smart-device connections",
+    "acceptance": "Device catalog with connected/available states; simulated pairing modal (1-2s) flips connected, sets last_sync_at, adds source + data series; CGM reveals time-in-range card, BP cuff reveals BP trend; disconnect hides device-only cards"
+  },
+  {
+    "id": "FR-24",
+    "priority": "P1",
+    "title": "Connect with provider",
+    "acceptance": "Threads per care-team member; send guidance request -> seeded simulated reply after delay; share-snapshot posts snapshot card + logs access; appointment booking confirms seeded slot; persistent 'simulated responses' label"
+  },
+  {
+    "id": "FR-25",
+    "priority": "P0",
+    "title": "AI assistant chat & record interpretation (deterministic, no LLM)",
+    "acceptance": "Intent engine over patient SQLite data (structured + unstructured docs) returns {answer, sourceCitation, disclaimer, suggestedChips}; labels AI vs clinical judgment; gives plain-language incl. med titration; documented intents work for every persona; unmatched -> safe fallback; behind interpret() swap seam; no inference request leaves app"
+  },
+  {
+    "id": "FR-26",
+    "priority": "P1",
+    "title": "AI assistant voice (Web Speech API)",
+    "acceptance": "Mic uses browser SpeechRecognition/speechSynthesis; listening indicator + stop control; hidden with clear message where unsupported; no audio leaves browser"
+  },
+  {
+    "id": "FR-27",
+    "priority": "P1",
+    "title": "Questions-for-your-provider builder",
+    "acceptance": "Generates 3-5 tailored questions from patient data; save + 'send to provider' posts into a thread (FR-24); may award Coach Conversation badge"
+  },
+  {
+    "id": "FR-28",
+    "priority": "P0",
+    "title": "Local services finder",
+    "acceptance": "Five categories filter over seeded dataset; schematic SVG map pins align with list; open-now from demo clock; persona-aware ordering/tags; no external map/tile/geo request"
+  },
+  {
+    "id": "FR-29",
+    "priority": "P0",
+    "title": "Healthy recipes",
+    "acceptance": "Auto-filter by active patient condition+allergies+diet (emily: vegetarian, peanut+shellfish-free only); active-filter banner explains + removable chips; detail view w/ ingredients, steps, nutrition, allergen callout"
+  },
+  {
+    "id": "FR-30",
+    "priority": "P0",
+    "title": "Point-of-care sharing — Kill the Clipboard / Ax the Fax",
+    "acceptance": "From /share: shareable QR (mock token), 'simulate check-in' records share_sessions + access_log(treatment); visit summary returns via mock Smart Health Link as a clinical_documents(visit_summary) and fires AI read; demonstrable end-to-end for sarah"
+  },
+  {
+    "id": "FR-31",
+    "priority": "P0",
+    "title": "Full-chart clinical records + unstructured documents",
+    "acceptance": "/records lists structured (coded) items + >=3 unstructured doc types (radiology, outside_lab, specialist_note) + returned visit_summaries as DocumentReference mocks; viewer exposes real DOM text; each has 'Explain this' AI read"
+  },
+  {
+    "id": "FR-32",
+    "priority": "P0",
+    "title": "AI interpretive insight cards + titration explainer",
+    "acceptance": "Proactive seeded insights (trend/titration/referral_suggestion) on overview/trends; each badged 'AI-generated, not clinical judgment', names its basis, has escalation action; sarah shows a referral_suggestion; titration explainer after a returned visit summary"
+  },
+  {
+    "id": "FR-33",
+    "priority": "P1",
+    "title": "Semantic interoperability (LOINC/RxNorm/SNOMED, USCDI v3)",
+    "acceptance": "labs.loinc, medications.rxnorm, conditions.snomed present and shown in record/detail views; standards stated as USCDI v3 / US Core IG; codes illustrative, flagged for validation (11.1)"
+  },
+  {
+    "id": "FR-34",
+    "priority": "P2",
+    "title": "Conversational symptom & care-plan check-in",
+    "acceptance": "Assistant logs a symptom/check-in (symptom_checkins); red-flag keywords return direct-to-care safety response, never a diagnosis"
+  },
+  {
+    "id": "FR-35",
+    "priority": "P1",
+    "title": "Featured comorbid persona Sarah + guided journey",
+    "acceptance": "sarah (T2D + obesity, Medicare) selectable + pinned Featured; skippable journey steps (identity -> QR share -> returned visit summary -> AI interpretation -> coaching -> audit) launchable from Overview and presenter overlay"
+  }
+]

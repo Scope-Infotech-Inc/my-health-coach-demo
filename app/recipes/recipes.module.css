@@ -1,0 +1,188 @@
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* Active-filter banner — sky info card explaining the auto-filter */
+.filterBanner {
+  background: var(--sky-tint);
+  border: 1px solid var(--border-hairline);
+  border-left: 4px solid var(--navy-deep);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.filterIcon {
+  color: var(--navy-deep);
+  font-size: 22px;
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.filterBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.filterExplanation {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--body-lg-size);
+  line-height: var(--body-lg-line);
+  color: var(--text-body);
+}
+
+.chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.chipGroupLabel {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: var(--label-sm-weight);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-subtle);
+  margin-right: var(--space-1);
+}
+
+/* Card grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(248px, 1fr));
+  gap: var(--space-6);
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  border-radius: var(--radius-lg);
+}
+
+.cardLink:focus-visible {
+  outline: 3px solid var(--navy-deep);
+  outline-offset: 2px;
+}
+
+.glyphFrame {
+  height: 132px;
+  width: 100%;
+  border-radius: var(--radius) var(--radius) 0 0;
+  overflow: hidden;
+  margin: calc(-1 * var(--card-padding)) calc(-1 * var(--card-padding)) 0;
+  width: calc(100% + var(--card-padding) * 2);
+}
+
+.cardInner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.cardTitle {
+  margin: var(--space-4) 0 0;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--text-heading);
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  align-items: center;
+  font-family: var(--font-label);
+  font-size: var(--label-md-size);
+  line-height: var(--label-md-line);
+  color: var(--slate-gray);
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.metaItem .material-symbols-outlined,
+.metaIcon {
+  font-size: 16px;
+  color: var(--slate-gray);
+}
+
+.macroRow,
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.macroChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-container-low);
+  color: var(--on-surface-variant);
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: var(--label-sm-weight);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.tagChip {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--sky-tint);
+  color: var(--navy-deep);
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: var(--label-sm-weight);
+  white-space: nowrap;
+}
+
+.resultCount {
+  font-family: var(--font-label);
+  font-size: var(--label-md-size);
+  line-height: var(--label-md-line);
+  color: var(--slate-gray);
+  margin: 0;
+}
+
+/* Loading skeleton */
+.skelGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(248px, 1fr));
+  gap: var(--space-6);
+}
+
+.skelCard {
+  height: 280px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-raised);
+  border: 1px solid var(--border-hairline);
+}
+
+.skelBanner {
+  height: 96px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-raised);
+}

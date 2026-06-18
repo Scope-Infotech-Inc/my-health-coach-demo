@@ -1,0 +1,139 @@
+<!-- @startingPoint section="Overview" subtitle="Full specimen: tokens, type, color, and every component" viewport="1200x2400" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CMS Web Design System — Design Sheet</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+  body { margin: 0; background: var(--surface); color: var(--text-body); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 40px 80px; }
+  .masthead { background: var(--navy-deep); color: #fff; }
+  .masthead .wrap { padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .mark { display: flex; align-items: center; gap: 14px; }
+  .mark .sq { width: 52px; height: 52px; background: var(--caution-gold); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; }
+  .mark .sq .material-symbols-outlined { color: var(--navy-deep); font-size: 30px; }
+  h1.t { font: 800 32px/1.1 var(--font-sans); margin: 0; }
+  .sub { font-family: var(--font-label); font-size: 13px; opacity: 0.75; margin-top: 4px; }
+  section { margin-top: 56px; }
+  .seclabel { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+  .seclabel .num { font-family: var(--font-label); font-size: 12px; font-weight: 700; color: var(--caution-gold); background: var(--navy-deep); width: 28px; height: 28px; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; }
+  .seclabel h2 { font: 700 24px/1 var(--font-sans); color: var(--navy-deep); margin: 0; }
+  .grid { display: grid; gap: 16px; }
+  .panel { background: var(--white); border: 1px solid var(--border-hairline); border-radius: var(--radius-lg); padding: 24px; }
+  .ph { font-family: var(--font-label); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-subtle); margin: 0 0 14px; }
+  .row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .swatch { border-radius: var(--radius-md); border: 1px solid var(--border-hairline); height: 64px; }
+  .sw-name { font-family: var(--font-label); font-size: 12px; font-weight: 600; margin-top: 7px; }
+  .sw-hex { font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); }
+  .mono { font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); }
+</style>
+</head>
+<body>
+<div class="masthead">
+  <div class="wrap">
+    <div class="mark">
+      <div class="sq"><span class="material-symbols-outlined is-filled">health_and_safety</span></div>
+      <div>
+        <h1 class="t">CMS Web Design System</h1>
+        <div class="sub">Tokens · Typography · Color · Components — single-page specimen</div>
+      </div>
+    </div>
+    <div class="sub" style="text-align:right">Public Sans · Lexend · Material Symbols<br/>Navy #112E51 · Gold #FDB81E · Sky #E1F3F8</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <!-- COLOR -->
+  <section>
+    <div class="seclabel"><span class="num">01</span><h2>Color</h2></div>
+    <div class="panel" style="margin-bottom:16px">
+      <p class="ph">Brand</p>
+      <div class="grid" style="grid-template-columns:repeat(4,1fr)">
+        <div><div class="swatch" style="background:var(--navy-deep)"></div><div class="sw-name">Navy Deep</div><div class="sw-hex">#112E51</div></div>
+        <div><div class="swatch" style="background:var(--navy-900)"></div><div class="sw-name">Navy 900</div><div class="sw-hex">#001936</div></div>
+        <div><div class="swatch" style="background:var(--caution-gold)"></div><div class="sw-name">Caution Gold</div><div class="sw-hex">#FDB81E</div></div>
+        <div><div class="swatch" style="background:var(--sky-tint)"></div><div class="sw-name">Sky Tint</div><div class="sw-hex">#E1F3F8</div></div>
+      </div>
+    </div>
+    <div class="panel" style="margin-bottom:16px">
+      <p class="ph">Neutrals &amp; surfaces</p>
+      <div class="grid" style="grid-template-columns:repeat(6,1fr)">
+        <div><div class="swatch" style="background:var(--surface-container-lowest)"></div><div class="sw-name">White</div></div>
+        <div><div class="swatch" style="background:var(--surface)"></div><div class="sw-name">Page</div></div>
+        <div><div class="swatch" style="background:var(--surface-container-low)"></div><div class="sw-name">Raised</div></div>
+        <div><div class="swatch" style="background:var(--surface-container)"></div><div class="sw-name">Sunken</div></div>
+        <div><div class="swatch" style="background:var(--slate-gray)"></div><div class="sw-name">Slate</div></div>
+        <div><div class="swatch" style="background:var(--on-surface)"></div><div class="sw-name">Body</div></div>
+      </div>
+    </div>
+    <div class="panel">
+      <p class="ph">Status</p>
+      <div class="grid" style="grid-template-columns:repeat(4,1fr)">
+        <div><div class="swatch" style="background:var(--success)"></div><div class="sw-name">Success</div><div class="sw-hex">#2E8540</div></div>
+        <div><div class="swatch" style="background:var(--caution-gold)"></div><div class="sw-name">Caution</div><div class="sw-hex">#FDB81E</div></div>
+        <div><div class="swatch" style="background:var(--error-red)"></div><div class="sw-name">Error</div><div class="sw-hex">#D22630</div></div>
+        <div><div class="swatch" style="background:var(--sky-tint)"></div><div class="sw-name">Info</div><div class="sw-hex">#E1F3F8</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPE -->
+  <section>
+    <div class="seclabel"><span class="num">02</span><h2>Typography</h2></div>
+    <div class="panel">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div><div class="cms-display-lg">Display LG — 48/56 · 700</div><div class="mono">Public Sans · -0.02em tracking</div></div>
+        <div><div class="cms-headline-lg">Headline LG — 32/40 · 700</div></div>
+        <div><div class="cms-headline-md">Headline MD — 24/32 · 600</div></div>
+        <div><p class="cms-body-lg" style="margin:0;max-width:640px">Body LG — 18/28. We're modernizing the nation's digital health ecosystem to empower patients and deliver better outcomes.</p></div>
+        <div><p class="cms-body-md" style="margin:0;max-width:640px">Body MD — 16/24. Access current manuals, regulatory transmittals, and operational guidance for all healthcare programs.</p></div>
+        <div style="display:flex;gap:28px;flex-wrap:wrap;align-items:baseline">
+          <span class="cms-eyebrow">Eyebrow · Lexend 700</span>
+          <span class="cms-label-md">Label MD · Lexend 14/20</span>
+          <span class="cms-label-sm">Label SM · Lexend 12/16</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPACING / RADII / SHADOW -->
+  <section>
+    <div class="seclabel"><span class="num">03</span><h2>Spacing, radii &amp; elevation</h2></div>
+    <div class="grid" style="grid-template-columns:1fr 1fr 1fr">
+      <div class="panel"><p class="ph">8px spacing</p><div style="display:flex;align-items:flex-end;gap:10px">
+        <span style="width:8px;height:8px;background:var(--navy-deep)"></span>
+        <span style="width:16px;height:16px;background:var(--navy-deep)"></span>
+        <span style="width:24px;height:24px;background:var(--navy-deep)"></span>
+        <span style="width:32px;height:32px;background:var(--navy-deep)"></span>
+        <span style="width:40px;height:40px;background:var(--navy-deep)"></span>
+      </div></div>
+      <div class="panel"><p class="ph">Radii</p><div style="display:flex;gap:12px;align-items:flex-start">
+        <span style="width:48px;height:44px;background:var(--sky-tint);border:1px solid var(--navy-deep);border-radius:var(--radius)"></span>
+        <span style="width:48px;height:44px;background:var(--sky-tint);border:1px solid var(--navy-deep);border-radius:var(--radius-lg)"></span>
+        <span style="width:48px;height:44px;background:var(--sky-tint);border:1px solid var(--navy-deep);border-radius:var(--radius-xl)"></span>
+        <span style="width:48px;height:44px;background:var(--sky-tint);border:1px solid var(--navy-deep);border-radius:var(--radius-pill)"></span>
+      </div></div>
+      <div class="panel"><p class="ph">Elevation</p><div style="display:flex;gap:16px">
+        <span style="width:64px;height:44px;background:#fff;border:1px solid var(--border-hairline);border-radius:var(--radius-lg);box-shadow:var(--shadow-card)"></span>
+        <span style="width:64px;height:44px;background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-raised)"></span>
+        <span style="width:64px;height:44px;background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-overlay)"></span>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS (React) -->
+  <section>
+    <div class="seclabel"><span class="num">04</span><h2>Components</h2></div>
+    <div id="root"></div>
+  </section>
+</div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="ui_kits/_primitives.jsx"></script>
+<script type="text/babel" src="design-sheet.app.jsx"></script>
+</body>
+</html>

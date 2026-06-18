@@ -1,0 +1,7 @@
+# Revisions to ignore in `git blame` (bulk reformatting, no logic changes).
+# Enable locally once with:
+#   git config blame.ignoreRevsFile .git-blame-ignore-revs
+# GitHub applies this file automatically.
+
+# (Add formatting-only commit SHAs here — one per line — after you create them
+#  in this repository's own history.)

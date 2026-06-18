@@ -1,0 +1,205 @@
+{
+  "conventions": {
+    "format": "json",
+    "errors": {
+      "shape": {
+        "error": "string"
+      },
+      "unknownPatient": 404
+    }
+  },
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/api/patients/{id}/overview",
+      "returns": "patient, demoToday, banner{severity,title,body,ctaLabel,careTeamNotified}, tiles[5]{label,value,delta?{text,tone},detail}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/patients/{id}/labs",
+      "returns": "labs[]{code,display,value,value2?,unit,rangeFlag,collectedOn,source}, a1cSeries[]{collectedOn,value}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/patients/{id}/observations",
+      "query": "type=glucose_fasting|weight|steps|active_minutes, days?",
+      "returns": "series[]{observedOn,value,unit}, target?{min?,max?,label}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/patients/{id}/medications",
+      "returns": "medications[]{name,dose,timing,todayStatus,takenAt?}, refills[]{description,location}, adherence{days[]{date,status},summary{taken,total}}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/patients/{id}/nutrition",
+      "returns": "rows[]{label,valueText,pct,fillTone} per nutrition_summary"
+    },
+    {
+      "method": "GET",
+      "path": "/api/patients/{id}/messages",
+      "returns": "messages[]{senderName,senderRole,senderType,avatar,avatarStyle,body,sentLabel,actionLabel?}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/patients/{id}/programs",
+      "returns": "programs[]{name,detail,statusChip,progressCurrent?,progressTotal?,milestonePct?,milestoneGoalPct?,nextSession?}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/patients/{id}/sources",
+      "returns": "sources[]{name,description,standards[],lastSyncAt?,continuous}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/patients/{id}/consent",
+      "returns": "grantedOn,method,identityCredential,ial,aal,accessReadsThisMonth,shareWithCareTeam,adsBlocked,revoked"
+    },
+    {
+      "method": "POST",
+      "path": "/api/sync",
+      "body": "{patientId}",
+      "behavior": "run Record Locator (return discovered orgs + counts); sleep 400-1200ms deterministic jitter; set last_sync_at=demo-now for non-continuous sources; return updated sources + recordLocator[]{orgName,recordCount,lastUpdated}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/consent/revoke",
+      "body": "{patientId}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/consent/grant",
+      "body": "{patientId}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/patients/{id}/gamification",
+      "returns": "points, level{name,min,max}, streak{current,best,habit}, badges[]{id,name,description,criterion,icon,earned,earnedOn?}, challenges[]{title,progressCurrent,progressTotal,rewardPoints,endsOn}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/gamification/award",
+      "body": "{patientId, badgeId?}",
+      "behavior": "mark badge earned (or next locked); return earned badge for celebration; deterministic"
+    },
+    {
+      "method": "GET",
+      "path": "/api/patients/{id}/devices",
+      "returns": "connected[]{id,brand,model,category,metrics[],lastSyncAt}, available[]{id,brand,model,category,metrics[]}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/devices/connect",
+      "body": "{patientId, deviceId}",
+      "behavior": "simulated 1-2s deterministic delay; set connected=1, last_sync_at=demo-now; add matching data_source + observation series; first connect awards Device Connector badge"
+    },
+    {
+      "method": "POST",
+      "path": "/api/devices/disconnect",
+      "body": "{patientId, deviceId}",
+      "behavior": "connected=0; remove device-only source/series so device-only cards hide"
+    },
+    {
+      "method": "GET",
+      "path": "/api/patients/{id}/threads",
+      "returns": "threads[]{id,subject,careTeam{name,role,avatar,avatarStyle}, messages[]{sender,body,attachmentKind?,sentLabel}}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/threads/{tid}/message",
+      "body": "{body?, attachmentKind?, topic?}",
+      "behavior": "append patient message; if topic in providerReplies, schedule seeded reply after deterministic delay; attachmentKind logs an access-log read"
+    },
+    {
+      "method": "GET",
+      "path": "/api/patients/{id}/appointments",
+      "returns": "slots[]{id,careTeam,slotDatetime,taken}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/patients/{id}/appointments",
+      "body": "{slotId}",
+      "behavior": "mark taken; return confirmation card data"
+    },
+    {
+      "method": "POST",
+      "path": "/api/patients/{id}/assistant",
+      "body": "{question}",
+      "returns": "{answer, sourceCitation, disclaimer, suggestedChips[]}",
+      "behavior": "deterministic intent match over patient SQLite data; NO external LLM; symptom-like input -> direct-to-care safety response"
+    },
+    {
+      "method": "GET",
+      "path": "/api/patients/{id}/assistant/provider-questions",
+      "returns": "questions[] (3-5 tailored from patient data)"
+    },
+    {
+      "method": "GET",
+      "path": "/api/services",
+      "query": "category=urgent_care|pharmacy|healthy_shopping|fitness|trail_park (optional)",
+      "returns": "services[]{id,category,name,distanceMi,address,hours,openNow,tags[],map{x,y}}; persona-aware ordering"
+    },
+    {
+      "method": "GET",
+      "path": "/api/patients/{id}/recipes",
+      "query": "tag?, q? (override auto-filter)",
+      "returns": "recipes[]{id,title,prepMinutes,calories,carbsG,proteinG,fiberG,sodiumMg,conditionTags[],allergens[],diet[]}, activeFilter{conditionTags[],excludedAllergens[],diet[],explanation}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/recipes/{rid}",
+      "returns": "recipe detail{...,ingredients[],steps[],allergenCallout}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/identity/authenticate",
+      "body": "{patientId, credential:'passkey'|'mdl'}",
+      "returns": "{session, scopes[], ial, aal}",
+      "behavior": "scripted IAL2/AAL2 verification; writes access_log(individual_access); no real IdP"
+    },
+    {
+      "method": "GET",
+      "path": "/api/patients/{id}/documents",
+      "returns": "documents[]{id,kind,title,docDate,sourceOrg,mime,fhirType,aiRead}; /documents/{docId} adds bodyText"
+    },
+    {
+      "method": "GET",
+      "path": "/api/patients/{id}/insights",
+      "returns": "insights[]{id,kind,title,body,basis[],surfacedOn,severity,createdOn} badged not-clinical-judgment"
+    },
+    {
+      "method": "POST",
+      "path": "/api/share/checkin",
+      "body": "{patientId, org}",
+      "behavior": "create share_sessions row + access_log(treatment); return shared FHIR bundle manifest (resource types)"
+    },
+    {
+      "method": "POST",
+      "path": "/api/share/return-summary",
+      "body": "{patientId, shareId}",
+      "behavior": "create clinical_documents(visit_summary) + its ai_read/insight; return new document"
+    },
+    {
+      "method": "GET",
+      "path": "/api/patients/{id}/audit",
+      "returns": "entries[]{occurredAt,actor,actorRole,scope,purposeOfUse} newest first"
+    },
+    {
+      "method": "POST",
+      "path": "/api/patients/{id}/checkin",
+      "body": "{text}",
+      "returns": "{logged, redFlag, response}",
+      "behavior": "store symptom_checkins; red-flag keywords -> direct-to-care safety response, no diagnosis"
+    },
+    {
+      "method": "GET",
+      "path": "/api/patients/{id}/journey",
+      "returns": "steps[]{stepNo,title,route,narration} (guided Day-in-the-Life)"
+    },
+    {
+      "method": "POST",
+      "path": "/api/demo/reset",
+      "behavior": "re-run seed; {ok:true}"
+    }
+  ]
+}

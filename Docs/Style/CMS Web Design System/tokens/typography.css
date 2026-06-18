@@ -1,0 +1,116 @@
+/* ===========================================================================
+   CMS Web Design System — Typography tokens
+   Public Sans for everything editorial + most UI.
+   Lexend for labels, data points, small-scale controls (improves scan speed).
+   Tight tracking + bold weight on headlines; generous line-height on body.
+   =========================================================================== */
+
+:root {
+  /* ---- Families ------------------------------------------------------ */
+  --font-sans: 'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-label: 'Lexend', 'Public Sans', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  /* ---- Weights ------------------------------------------------------- */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+  /* ---- Type scale (size / line-height / tracking) -------------------
+     Roles mirror the CMS spec: display, headline, title, body, label.    */
+
+  /* Display — hero / page-defining numbers & statements */
+  --display-lg-size: 48px;
+  --display-lg-line: 56px;
+  --display-lg-track: -0.02em;
+  --display-lg-weight: 700;
+
+  /* Headline */
+  --headline-lg-size: 32px;
+  --headline-lg-line: 40px;
+  --headline-lg-weight: 700;
+
+  --headline-lg-mobile-size: 28px;
+  --headline-lg-mobile-line: 36px;
+
+  --headline-md-size: 24px;
+  --headline-md-line: 32px;
+  --headline-md-weight: 600;
+
+  /* Body */
+  --body-lg-size: 18px;
+  --body-lg-line: 28px;
+
+  --body-md-size: 16px;
+  --body-md-line: 24px;
+
+  /* Label (Lexend) */
+  --label-md-size: 14px;
+  --label-md-line: 20px;
+  --label-md-track: 0.01em;
+  --label-md-weight: 500;
+
+  --label-sm-size: 12px;
+  --label-sm-line: 16px;
+  --label-sm-weight: 600;
+}
+
+/* ---- Optional utility classes (use tokens directly in components) ----- */
+.cms-display-lg {
+  font-family: var(--font-sans);
+  font-size: var(--display-lg-size);
+  line-height: var(--display-lg-line);
+  letter-spacing: var(--display-lg-track);
+  font-weight: var(--display-lg-weight);
+  color: var(--text-heading);
+}
+.cms-headline-lg {
+  font-family: var(--font-sans);
+  font-size: var(--headline-lg-size);
+  line-height: var(--headline-lg-line);
+  font-weight: var(--headline-lg-weight);
+  color: var(--text-heading);
+}
+.cms-headline-md {
+  font-family: var(--font-sans);
+  font-size: var(--headline-md-size);
+  line-height: var(--headline-md-line);
+  font-weight: var(--headline-md-weight);
+  color: var(--text-heading);
+}
+.cms-body-lg {
+  font-family: var(--font-sans);
+  font-size: var(--body-lg-size);
+  line-height: var(--body-lg-line);
+  color: var(--text-body);
+}
+.cms-body-md {
+  font-family: var(--font-sans);
+  font-size: var(--body-md-size);
+  line-height: var(--body-md-line);
+  color: var(--text-body);
+}
+.cms-label-md {
+  font-family: var(--font-label);
+  font-size: var(--label-md-size);
+  line-height: var(--label-md-line);
+  letter-spacing: var(--label-md-track);
+  font-weight: var(--label-md-weight);
+}
+.cms-label-sm {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: var(--label-sm-weight);
+}
+.cms-eyebrow {
+  font-family: var(--font-label);
+  font-size: var(--label-sm-size);
+  line-height: var(--label-sm-line);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}

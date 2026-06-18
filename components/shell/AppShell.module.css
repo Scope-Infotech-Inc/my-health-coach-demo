@@ -1,0 +1,72 @@
+/* App shell — desktop (header + sidebar + footer) and mobile (app bar +
+   tabs). The proscenium is rendered above this by the layout. */
+
+.desktop {
+  min-height: calc(100vh - var(--proscenium-height));
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-page);
+}
+
+.body {
+  flex: 1;
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-10) var(--margin-desktop) 0;
+}
+
+.mainInner {
+  flex: 1;
+}
+
+/* ---- Mobile ---- */
+.mobile {
+  min-height: calc(100vh - var(--proscenium-height));
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-page);
+}
+
+.mainMobile {
+  flex: 1;
+  padding: var(--space-5) var(--margin-mobile);
+  padding-bottom: calc(var(--tabbar-height) + var(--space-6) + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* ---- Pre-mount skeleton (neutral; avoids hydration mismatch) ---- */
+.skeleton {
+  min-height: calc(100vh - var(--proscenium-height));
+  background: var(--surface-page);
+}
+
+.skeletonBar {
+  height: var(--topbar-height);
+  background: var(--navy-deep);
+}
+
+.skeletonBody {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-8) var(--margin-desktop);
+  display: grid;
+  gap: var(--space-4);
+}
+
+.skeletonCard {
+  height: 132px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-raised);
+  border: 1px solid var(--border-hairline);
+}

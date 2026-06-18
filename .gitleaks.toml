@@ -1,0 +1,23 @@
+# Gitleaks configuration for the HTEAP demo app.
+#
+# Where this runs:
+#   * locally, on every `git commit`, via .husky/pre-commit  -> gitleaks git --staged
+#   * in CI, on every pull request, via .github/workflows/gitleaks.yml
+#   * on demand: `npm run secrets:scan`
+#
+# We extend Gitleaks' built-in rules (useDefault) instead of redefining them, so
+# detection for AWS, GCP, Azure, GitHub, Stripe, private keys, JWTs, etc. tracks
+# upstream. Add narrow exceptions to [allowlist] below — prefer an inline
+# `gitleaks:allow` comment on the specific line over broadening this file.
+title = "HTEAP gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Generated/vendored paths that never hold real secrets (demo-only repo)."
+paths = [
+  '''(^|/)\.next/''',    # Next.js build output (auto-generated signing/encryption keys)
+  '''(^|/)Output/''',    # runtime storage: db, exports, uploads, logs (gitignored)
+  '''(^|/)node_modules/''',
+]

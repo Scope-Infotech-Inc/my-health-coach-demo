@@ -1,0 +1,59 @@
+<!-- @dsCard group="Components" viewport="700x680" name="Data Visualization" subtitle="LineChart, BarChart, DonutChart, three.js Globe3D — animated" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  body { margin: 0; padding: 24px; background: var(--surface); }
+  .panel { background: var(--white); border: 1px solid var(--border-hairline); border-radius: var(--radius-lg); padding: 20px; margin-bottom: 20px; }
+  .h { font-family: var(--font-sans); font-size: 18px; font-weight: 600; color: var(--navy-deep); margin: 0 0 14px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+  const { LineChart, BarChart, DonutChart, Globe3D } = window.CMSWebDesignSystem_cd3e62;
+  function Demo() {
+    return (
+      <div>
+        <div className="panel">
+          <h3 className="h">Spending Trends — LineChart</h3>
+          <LineChart area labels={['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr']}
+            series={[
+              { name: 'Budgeted', color: 'var(--navy-deep)', points: [40, 52, 48, 61, 72, 80, 86] },
+              { name: 'Actual', color: 'var(--caution-gold)', points: [30, 44, 40, 55, 60, 72, 78] },
+            ]} />
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+          <div className="panel">
+            <h3 className="h">Regional Enrollment — BarChart</h3>
+            <BarChart unit="%" data={[
+              { label: 'NE', value: 85 }, { label: 'Mid-Atl', value: 62 },
+              { label: 'SE', value: 94 }, { label: 'West', value: 71 }, { label: 'SW', value: 58 },
+            ]} />
+          </div>
+          <div className="panel">
+            <h3 className="h">Demographics — DonutChart</h3>
+            <DonutChart centerLabel="Total" centerValue="4.2M" size={160} data={[
+              { label: 'Medicare A/B', value: 54 },
+              { label: 'Medicare Advantage', value: 28 },
+              { label: 'Dual Eligible', value: 18 },
+            ]} />
+          </div>
+        </div>
+        <div className="panel" style={{ background: 'var(--navy-deep)' }}>
+          <h3 className="h" style={{ color: '#fff' }}>National Data Network — Globe3D (WebGL)</h3>
+          <Globe3D height={260} points={34} />
+        </div>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>
+</body>
+</html>

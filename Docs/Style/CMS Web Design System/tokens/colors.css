@@ -1,0 +1,92 @@
+/* ===========================================================================
+   CMS Web Design System — Color tokens
+   Anchored by Navy Deep (#112E51): authority + permanence.
+   Caution Gold (#FDB81E) is the singular brand accent — used sparingly.
+   Sky Tint (#E1F3F8) softens the high-contrast navy.
+   All foreground/background pairings target WCAG 2.1 AA.
+   =========================================================================== */
+
+:root {
+  /* ---- Brand primitives ---------------------------------------------- */
+  --navy-deep: #112e51;       /* primary brand navy */
+  --navy-900: #001936;        /* darkest navy — strongest text/header */
+  --navy-700: #2e486c;        /* navy variant */
+  --navy-400: #465f85;        /* surface tint / muted navy */
+  --sky-tint: #e1f3f8;        /* pale informational blue */
+  --sky-tint-strong: #d4e6eb; /* secondary container */
+  --caution-gold: #fdb81e;    /* singular accent — alerts, CTAs, active rule */
+  --gold-dim: #ffba25;        /* gold variant for indicators on navy */
+  --gold-soft: #ffdea9;       /* tertiary container */
+
+  /* ---- Neutrals (tonal layering, not elevation) ---------------------- */
+  --white: #ffffff;
+  --surface: #f9f9f9;             /* base canvas */
+  --surface-bright: #f9f9f9;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f3f3f3;
+  --surface-container: #eeeeee;
+  --surface-container-high: #e8e8e8;
+  --surface-container-highest: #e2e2e2;
+  --surface-dim: #dadada;
+  --slate-gray: #5b616b;          /* USWDS base gray — secondary text */
+
+  /* ---- Outlines (low-contrast structure) ----------------------------- */
+  --outline: #74777f;             /* input borders, dividers (stronger) */
+  --outline-variant: #c4c6cf;     /* card/hairline borders (default) */
+
+  /* ---- Foregrounds --------------------------------------------------- */
+  --on-surface: #1a1c1c;          /* primary body text */
+  --on-surface-variant: #43474e;  /* secondary text */
+  --inverse-surface: #2f3131;
+  --inverse-on-surface: #f1f1f1;
+  --on-primary: #ffffff;          /* text on navy */
+  --on-primary-container: #7d96bf;/* muted text on navy */
+
+  /* ---- Semantic status ----------------------------------------------- */
+  --error: #ba1a1a;
+  --error-red: #d22630;           /* CMS error red (borders, helper text) */
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #93000a;
+  --success: #2e8540;             /* USWDS green — success states */
+  --success-container: #ecf3ec;
+  --on-success-container: #1a4220;
+  --warning: #c38b00;             /* amber text for caution callouts */
+
+  /* ===========================================================================
+     SEMANTIC ALIASES — prefer these in product code
+     =========================================================================== */
+
+  /* Text */
+  --text-strong: var(--navy-900);
+  --text-heading: var(--navy-deep);
+  --text-body: var(--on-surface);
+  --text-muted: var(--on-surface-variant);
+  --text-subtle: var(--slate-gray);
+  --text-on-navy: var(--on-primary);
+  --text-on-navy-muted: var(--on-primary-container);
+  --text-link: var(--navy-deep);
+
+  /* Surfaces */
+  --surface-page: var(--surface);
+  --surface-card: var(--surface-container-lowest);
+  --surface-raised: var(--surface-container-low);
+  --surface-sunken: var(--surface-container);
+  --surface-info: var(--sky-tint);
+  --surface-brand: var(--navy-deep);
+  --surface-footer: var(--surface-container-highest);
+
+  /* Borders & dividers */
+  --border-hairline: var(--outline-variant);
+  --border-input: var(--outline);
+  --border-focus: var(--navy-deep);
+  --divider: var(--outline-variant);
+
+  /* Interactive */
+  --action-primary: var(--navy-deep);
+  --action-primary-hover: var(--navy-900);
+  --action-accent: var(--caution-gold);
+  --action-accent-text: var(--navy-deep);
+  --focus-ring: var(--caution-gold);
+  --active-rule: var(--caution-gold);   /* gold underline/border on active nav */
+}

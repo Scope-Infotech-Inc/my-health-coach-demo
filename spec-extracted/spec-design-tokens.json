@@ -1,0 +1,77 @@
+{
+  "name": "Institutional Integrity",
+  "colors": {
+    "navy": "#112E51",
+    "navy-ink": "#001936",
+    "navy-mid": "#2E486C",
+    "sky": "#E1F3F8",
+    "gold": "#FDB81E",
+    "gold-ink": "#5E4200",
+    "slate": "#5B616B",
+    "red": "#D22630",
+    "red-container": "#FFDAD6",
+    "red-ink": "#93000A",
+    "surface": "#F9F9F9",
+    "surface-low": "#F3F3F3",
+    "white": "#FFFFFF",
+    "ink": "#1A1C1C",
+    "ink-variant": "#43474E",
+    "outline": "#74777F",
+    "outline-variant": "#C4C6CF",
+    "border": "#E2E2E2",
+    "on-navy-muted": "#D4E3FF",
+    "on-navy-eyebrow": "#AEC8F3"
+  },
+  "usage": {
+    "navy": "headers, sidebar, primary buttons, chart strokes, brand",
+    "sky": "card headers, info callouts, success states, chart target zones",
+    "gold": "attention only: banner, active nav indicator, alerts, today bars, goal lines, status dot",
+    "red": "risk only: pre-diabetes banner, above-target points, missed doses"
+  },
+  "typography": {
+    "body": {
+      "family": "Public Sans",
+      "weights": [
+        400,
+        600,
+        700
+      ]
+    },
+    "label": {
+      "family": "Lexend",
+      "weights": [
+        500,
+        600
+      ],
+      "use": "labels, badges, chips, metadata, axis text"
+    }
+  },
+  "radii": {
+    "button": "0.25rem",
+    "card": "0.5rem",
+    "pill": "9999px"
+  },
+  "elevation": {
+    "default": "flat, 1px solid border",
+    "floating": "0 4px 12px rgba(17,46,81,.08)"
+  },
+  "spacing": {
+    "unit": 8,
+    "containerMax": 1280,
+    "outerMargins": {
+      "desktop": 40,
+      "tablet": 24,
+      "mobile": 16
+    }
+  },
+  "statusIndicators": "color + icon always (check / warning triangle), never color alone",
+  "verifiedContrast": {
+    "navy/white": 13.69,
+    "navy/sky": 11.98,
+    "navy/gold": 7.86,
+    "slate/white": 6.24,
+    "gold-ink/gold": 5.34,
+    "red-ink/red-container": 7.24,
+    "d4e3ff/navy": 10.58
+  }
+}

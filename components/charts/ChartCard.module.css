@@ -1,0 +1,35 @@
+.card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--card-padding);
+}
+
+@media (max-width: 879px) {
+  .card {
+    padding: var(--card-padding-tight);
+  }
+}
+
+.head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.title {
+  font-family: var(--font-sans);
+  font-size: var(--body-md-size);
+  line-height: var(--body-md-line);
+  font-weight: var(--weight-semibold);
+  color: var(--text-heading);
+}
+
+.aside {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
