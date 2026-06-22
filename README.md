@@ -163,7 +163,7 @@ Features are grouped by the spec revision that introduced them and map to functi
 
 ## Personas
 
-The demo ships with **13 deterministic personas** across the diabetes and obesity continuum, plus one featured comorbid persona. Switching personas re-fetches all data from the API without a page reload and persists per browser session.
+The demo ships with **13 deterministic personas** across the diabetes and obesity continuum, including one featured comorbid persona. Switching personas re-fetches all data from the API without a page reload and persists per browser session.
 
 ```mermaid
 pie showData
@@ -315,7 +315,7 @@ sequenceDiagram
 ## Project structure
 
 ```
-HTEAP-chronic-tracker/
+my-health-coach-demo/
 ├── app/                     Next.js App Router — routes, pages, and /api/* handlers
 │   ├── api/                 Internal route handlers (Node runtime) backed by SQLite
 │   ├── assistant/  connect/ devices/  how-it-works/  more/  nearby/

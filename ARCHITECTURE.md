@@ -4,7 +4,7 @@ My Health Coach is a demo-only, responsive web application built for the CMS Hea
 
 Everything in the running app is simulated. The app makes zero third-party network calls at runtime, transmits no protected health information (PHI), contains no real patient data, and holds no secrets. Every integration — FHIR and Aligned Network query, EHR, labs, claims, devices, identity, consent, documents, terminology, and AI interpretation — is faked in-app behind a clean interface boundary called a "seam." A production build can replace the demo implementation behind each seam without changing the rest of the app. My Health Coach is developed by Scope Infotech, Inc.
 
-This document describes the actual current state of the repository. The app is fully built: a real `package.json` (version 1.0.0), the `app/`, `components/`, `lib/`, and `scripts/` trees, a deterministic seed that creates 39 tables, and roughly 34 internal API routes. There is no ESLint, Prettier, test runner, or continuous integration configured.
+This document describes the actual current state of the repository. The app is fully built: a real `package.json` (version 1.0.0), the `app/`, `components/`, `lib/`, and `scripts/` trees, a deterministic seed that creates 39 tables, and 38 internal API routes. ESLint, Prettier, and Husky git hooks are configured, and a GitHub Actions workflow runs a gitleaks secret scan on every pull request. There is no test runner, and no build, lint, or test job in CI.
 
 ## Design goals and constraints
 
